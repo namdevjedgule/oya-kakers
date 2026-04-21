@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cake - Oya Kakers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .cake-parallax {
+            position: relative;
+            height: 50vh;
+            background: url("images/cake/pexels-shivam-pandey-91521863-29450335.jpg") center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cake-parallax::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+        }
+
+        .parallax-content h1 {
+            position: relative;
+            display: inline-block;
+            font-size: 40px;
+            font-family: 'Playfair Display', serif;
+            color: white;
+        }
+
+        .parallax-content h1::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+
+            width: 60%;
+            height: 2px;
+
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+
+            transition: 0.4s ease;
+        }
+
+        .parallax-content h1:hover::after {
+            width: 80%;
+        }
+
+        .parallax-content p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .cake-page {
+            padding: 80px 8%;
+            background: #FFF8F6;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cake-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cake-header h1 {
+            font-size: 42px;
+            font-family: 'Playfair Display', serif;
+            color: #3E2723;
+        }
+
+        .cake-header p {
+            color: #6d4c41;
+        }
+
+        .cake-filter {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cake-filter button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background: #f3e5e1;
+            color: #3E2723;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cake-filter button.active,
+        .cake-filter button:hover {
+            background: #D4AF37;
+            color: #3E2723;
+        }
+
+        .cake-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .cake-info {
+            padding: 20px;
+        }
+
+        .cake-info h3 {
+            color: #3E2723;
+        }
+
+        .cake-info p {
+            font-size: 14px;
+            color: #6d4c41;
+        }
+
+        .cake-info span {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #D4AF37;
+        }
+
+        .cake-info button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #3E2723;
+            color: white;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .cake-info button:hover {
+            background: #D4AF37;
+            color: #3E2723;
+        }
+
+        @media (max-width: 900px) {
+            .cake-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .cake-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <section class="cake-parallax">
+        <div class="parallax-content">
+            <h1>Our Cakes</h1>
+            <p>Delicious designs for every celebration 🎂</p>
+        </div>
+    </section>
+
+    <section class="cake-page">
+
+        <div class="cake-filter">
+            <button class="active">All</button>
+            <button>Birthday</button>
+            <button>Wedding</button>
+            <button>Chocolate</button>
+            <button>Designer</button>
+        </div>
+
+        <!-- CAKE GRID -->
+        <div class="cake-grid">
+
+            <!-- CARD -->
+            <div class="cake-card">
+                <div class="cake-img">
+                    <img src="images/cake/american-heritage-chocolate-vdx5hPQhXFk-unsplash.jpg" alt="">
+                </div>
+                <div class="cake-info">
+                    <h3>Chocolate Truffle</h3>
+                    <p>Rich chocolate layered cake</p>
+                    <span>₹599</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="cake-card">
+                <div class="cake-img">
+                    <img src="images/cake/bibek-thakuri-5m5aJBSQZ6c-unsplash.jpg" alt="">
+                </div>
+                <div class="cake-info">
+                    <h3>Red Velvet</h3>
+                    <p>Classic premium delight</p>
+                    <span>₹699</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="cake-card">
+                <div class="cake-img">
+                    <img src="images/cake/jacob-thomas-6jHpcBPw7i8-unsplash.jpg" alt="">
+                </div>
+                <div class="cake-info">
+                    <h3>Designer Cake</h3>
+                    <p>Custom luxury cakes</p>
+                    <span>₹1499</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

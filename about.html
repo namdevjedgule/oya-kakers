@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Oya Kakers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* section {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        } */
+
+        .about-parallax {
+            position: relative;
+            height: 50vh;
+            background: url("images/about/IMG_2368.JPG") center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-parallax::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+        }
+
+        .parallax-content h2 {
+            position: relative;
+            display: inline-block;
+            font-size: 40px;
+            font-family: 'Playfair Display', serif;
+            color: white;
+        }
+
+        .parallax-content h2::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+
+            width: 60%;
+            height: 2px;
+
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+
+            transition: 0.4s ease;
+        }
+
+        .parallax-content h2:hover::after {
+            width: 80%;
+        }
+
+        /* 🔥 SECTION BACKGROUND UPGRADE */
+        .about-story {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 10%;
+            background: url("images/about/IMG_2368.JPG") center/cover fixed;
+            overflow: hidden;
+        }
+
+        /* DARK + LUXURY OVERLAY */
+        .about-story::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.85));
+        }
+
+        /* GOLD LIGHT GLOW */
+        .about-story::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2), transparent);
+            top: -150px;
+            left: -150px;
+            filter: blur(100px);
+        }
+
+        /* 💎 GLASS CARD (UPGRADED) */
+        .glass-card {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 60px;
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(25px);
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.8),
+                inset 0 0 30px rgba(255, 255, 255, 0.05);
+
+            transition: 0.5s ease;
+        }
+
+        /* HOVER LIFT */
+        .glass-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow:
+                0 40px 100px rgba(0, 0, 0, 0.9),
+                0 0 50px rgba(212, 175, 55, 0.2);
+        }
+
+        /* ✨ TEXT STYLING (VERY IMPORTANT) */
+        .glass-card p {
+            font-size: 17px;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 20px;
+        }
+
+        /* .glass-card p:first-child::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 600;
+            line-height: 0.9;
+
+            float: left;
+            margin-right: 12px;
+            margin-top: 6px;
+
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            color: transparent;
+
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        } */
+
+        /* GOLD BRAND HIGHLIGHT */
+        .glass-card strong {
+            color: #D4AF37;
+            font-weight: 500;
+        }
+
+        /* ✨ SUBTLE DIVIDER BETWEEN PARAGRAPHS */
+        .glass-card p:not(:last-child)::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 2px;
+            margin: 25px auto;
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+        }
+
+        /* FLOAT ANIMATION (SOFTER) */
+        .glass-card {
+            animation: floatCard 8s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* 📱 MOBILE */
+        @media(max-width:768px) {
+            .about-story {
+                padding: 80px 5%;
+            }
+
+            .glass-card {
+                padding: 35px 20px;
+            }
+
+            .glass-card p {
+                font-size: 15px;
+            }
+
+            .glass-card p:first-child {
+                font-size: 17px;
+            }
+        }
+
+        .about-features {
+            text-align: center;
+            padding: 100px 10%;
+            background: url("images/about/pexels-sukrantrgl-20290356.jpg") center/cover fixed;
+        }
+
+        .features h2 {
+            margin-bottom: 50px;
+            font-size: 40px;
+        }
+
+        .feature-grid {
+            display: flex;
+            gap: 30px;
+        }
+
+        .feature {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            backdrop-filter: blur(2px);
+            max-width: 750px;
+            text-align: center;
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.6),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+            transition: 0.5s ease;
+        }
+
+        .feature:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-10px);
+        }
+
+        .feature span {
+            font-size: 40px;
+            color: #D4AF37;
+        }
+
+        .about-parallax.second {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            height: 60vh;
+            text-align: center;
+            color: #fff;
+            background: url("images/about/pexels-sukrantrgl-20290356.jpg") center/cover fixed;
+        }
+
+        .about-parallax.second::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .about-parallax.second .stat {
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat {
+            padding: 30px 40px;
+            border-radius: 20px;
+
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            transition: 0.4s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .stat h3 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 10px;
+
+            background: linear-gradient(to right, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .stat p {
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .stat {
+            animation: floatStat 5s ease-in-out infinite;
+        }
+
+        @keyframes floatStat {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @media(max-width: 768px) {
+            .about-parallax.second {
+                flex-direction: column;
+                gap: 30px;
+                height: auto;
+                padding: 80px 20px;
+            }
+
+            .stat h3 {
+                font-size: 32px;
+            }
+        }
+
+        .about-values {
+            display: flex;
+            gap: 40px;
+            padding: 120px 10%;
+            background: #0a0a0a;
+        }
+
+        /* 💎 CARD DESIGN */
+        .value-card {
+            flex: 1;
+            padding: 40px;
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.7),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+            transition: 0.5s ease;
+        }
+
+        /* 🔥 HOVER EFFECT */
+        .value-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.9),
+                0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        /* 💎 HEADING */
+        .value-card h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+
+            background: linear-gradient(to right, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* TEXT */
+        .value-card p {
+            font-size: 15px;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+        }
+
+        /* BRAND HIGHLIGHT */
+        .value-card strong {
+            color: #D4AF37;
+        }
+
+        /* ✨ SUBTLE DIVIDER */
+        .value-card p:not(:last-child)::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 2px;
+            margin: 20px 0;
+            background: linear-gradient(to right, #D4AF37, transparent);
+        }
+
+        /* 📱 MOBILE */
+        @media(max-width: 768px) {
+            .about-values {
+                flex-direction: column;
+                padding: 80px 5%;
+            }
+        }
+
+        .about-craft {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 120px 10%;
+        }
+
+        .craft-left {
+            flex: 1;
+        }
+
+        .craft-left h2 {
+            font-size: 48px;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+
+            background: linear-gradient(to right, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .craft-left p {
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .craft-right {
+            flex: 1;
+            position: relative;
+        }
+
+        .craft-right img {
+            width: 100%;
+            border-radius: 20px;
+            transition: 0.5s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .craft-right:hover img {
+            transform: scale(1.05);
+        }
+
+        .craft-right:hover::before {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .about-craft {
+                flex-direction: column;
+                text-align: center;
+                padding: 80px 5%;
+            }
+
+            .craft-left h2 {
+                font-size: 32px;
+            }
+
+            .craft-left p {
+                margin: auto;
+            }
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 80px 0;
+            background: black;
+        }
+
+        .stat h3 {
+            color: #D4AF37;
+            font-size: 50px;
+        }
+
+        .about-cta {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            position: relative;
+        }
+
+        .about-cta h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .about-cta p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .about-cta button {
+            padding: 16px 50px;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #D4AF37, #FFD700);
+            color: black;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: none;
+            transition: 0.4s;
+        }
+
+        .about-cta button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* section {
+            animation: fadeUp 1s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar"></div>
+
+    <section class="about-parallax">
+        <div class="parallax-content">
+            <h2>Few Words About Oya Kakers</h2>
+        </div>
+    </section>
+
+    <section class="about-story">
+        <div class="glass-card">
+            <p>
+                At <strong>Oya Kakers</strong>, we are passionate about crafting moments of warmth, joy, and indulgence
+                for every
+                customer who walks through our doors. Since our humble beginnings in 2017, we have been a renowned
+                European cake brand with multiple outlets, delighting dessert lovers with our premium creations.
+            </p>
+
+            <p>
+                What sets OYA Kekars apart is our commitment to an exceptional experience. From our live kitchen, where
+                you can witness the artistry and dedication behind every cake, to our unwavering focus on maintaining
+                the highest hygiene standards, we go above and beyond to ensure that every bite is nothing short of
+                perfection
+            </p>
+
+            <p>
+                Our mousse cakes are a signature delight at OYA Kekars, crafted to perfection with premium ingredients
+                and a smooth, airy texture that melts in your mouth. Prepared fresh in our live kitchen with
+                uncompromising hygiene standards, our mousse cakes are the perfect choice for every celebration,
+                offering a balance of luxury, taste, and sophistication. Innovation is at the core of our philosophy.
+                Our uniquely developed software provides real-time information about the consumption period of our
+                cakes, ensuring not only the freshest flavors but also the safety and well-being of our valued
+                customers.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-features">
+        <h2>Why We Are Different</h2>
+
+        <div class="feature-grid">
+            <div class="feature">
+                <span>01</span>
+                <h3>Luxury Ingredients</h3>
+                <p>Imported, handpicked, premium quality only.</p>
+            </div>
+
+            <div class="feature">
+                <span>02</span>
+                <h3>Artistic Designs</h3>
+                <p>Each cake is a masterpiece crafted uniquely.</p>
+            </div>
+
+            <div class="feature">
+                <span>03</span>
+                <h3>Elite Experience</h3>
+                <p>From order to delivery — pure premium feel.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-parallax second">
+        <div class="stat">
+            <h3>350+</h3>
+            <p>Types of Cake</p>
+        </div>
+        <div class="stat">
+            <h3>10k+</h3>
+            <p>Happy Customers</p>
+        </div>
+        <div class="stat">
+            <h3>5+</h3>
+            <p>Store in India</p>
+        </div>
+        <div class="stat">
+            <h3>50+</h3>
+            <p>Team of Experts</p>
+        </div>
+    </section>
+
+    <section class="about-craft">
+        <div class="craft-left">
+            <h2>Our Craftsmanship</h2>
+            <p>
+                Every curve, texture, and detail is carefully sculpted
+                to perfection — combining modern aesthetics with
+                timeless baking techniques.
+            </p>
+        </div>
+        <div class="craft-right">
+            <img src="images/about/craftmanship.jpg">
+        </div>
+    </section>
+
+    <section class="about-values">
+
+        <div class="value-card">
+            <h2>Our Philosophy</h2>
+            <p>
+                ‘O’ means calling someone with respect and ‘YA’ refers to welcoming someone. At <strong>OYA
+                    Kekars</strong>, we welcome our customers with loving hearts and open arms.
+            </p>
+            <p>
+                Our mission is to craft not just cakes but exceptional experiences that bring joy and delight to every
+                customer. Our state-of-the-art software ensures that every cake is enjoyed at its freshest, precisely
+                tracking its consumable period for your peace of mind.
+            </p>
+            <p>
+                Transparency and trust are at the heart of everything we do.
+            </p>
+        </div>
+
+        <div class="value-card">
+            <h2>Our Mission</h2>
+            <p>
+                At <strong>OYA Kekars</strong>, our mission is to redefine the cake-buying experience with a strong
+                focus on hygiene, safety, and customer satisfaction.
+            </p>
+            <p>
+                We are dedicated to offering contactless service, ensuring every interaction prioritizes your health and
+                well-being.
+            </p>
+            <p>
+                As we continue to innovate and expand, we aim to bring our premium desserts and unparalleled service to
+                more communities.
+            </p>
+        </div>
+
+        <div class="value-card">
+            <h2>Our Vision</h2>
+            <p>
+                We aim to be a globally recognized European cake brand, celebrated for delivering exceptional quality
+                and experiences.
+            </p>
+            <p>
+                We aspire to grow beyond borders, offering high-quality cakes and services that delight customers
+                worldwide.
+            </p>
+            <p>
+                At <strong>OYA Kekars</strong>, we are committed to setting new standards by blending tradition,
+                innovation, and care in everything we do.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="about-cta">
+        <h2>Own A Franchise</h2>
+        <p>Partner with Us! Luxurious setup, serving top quality bakery products</p>
+        <button>Enquire Now</button>
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
