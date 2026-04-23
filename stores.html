@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Franchise - Oya Kakers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .store-parallax {
+            position: relative;
+            height: 50vh;
+            background: url("images/stores/pexels-abdullahoguk-36526733.jpg") center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .store-parallax::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+        }
+
+        .parallax-content h1 {
+            position: relative;
+            display: inline-block;
+            font-size: 40px;
+            font-family: 'Playfair Display', serif;
+            color: white;
+        }
+
+        .parallax-content h1::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+
+            width: 60%;
+            height: 2px;
+
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+
+            transition: 0.4s ease;
+        }
+
+        .parallax-content h1:hover::after {
+            width: 80%;
+        }
+
+        .parallax-content p {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .fp-btn {
+            margin-top: 15px;
+            display: inline-block;
+            padding: 14px 32px;
+            background: #D4AF37;
+            color: #2B1B17;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .fp-btn:hover {
+            background: #c59b2f;
+            transform: translateY(-3px);
+        }
+
+        .store-locator {
+            padding: 100px 5%;
+            background: #F8EDEB;
+            color: #3E2723;
+        }
+
+        .store-locator h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #searchBox {
+            display: block;
+            margin: 0 auto 30px;
+            padding: 12px 20px;
+            width: 300px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+        }
+
+        .locator-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .store-list {
+            width: 40%;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .store-card {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .store-card:hover {
+            background: #D4AF37;
+            color: white;
+        }
+
+        #map {
+            width: 60%;
+            height: 500px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <section class="store-parallax">
+        <div class="parallax-content">
+            <h1>Own a Premium Cake Brand</h1>
+            <p>Join Oya Kekars & build a profitable bakery business</p>
+            <a href="#apply" class="fp-btn">Start Your Journey</a>
+        </div>
+    </section>
+
+    <section class="store-locator">
+
+        <h1>Find Our Stores</h1>
+
+        <input type="text" id="searchBox" placeholder="Search by city or area">
+
+        <div class="locator-container">
+
+            <div class="store-list" id="storeList"></div>
+
+            <div id="map"></div>
+
+        </div>
+
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="js/script.js" defer></script>
+
+</body>
+
+</html>

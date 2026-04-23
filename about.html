@@ -68,7 +68,6 @@
             width: 80%;
         }
 
-        /* 🔥 SECTION BACKGROUND UPGRADE */
         .about-story {
             position: relative;
             display: flex;
@@ -79,7 +78,6 @@
             overflow: hidden;
         }
 
-        /* DARK + LUXURY OVERLAY */
         .about-story::after {
             content: "";
             position: absolute;
@@ -88,7 +86,6 @@
                     rgba(0, 0, 0, 0.85));
         }
 
-        /* GOLD LIGHT GLOW */
         .about-story::before {
             content: "";
             position: absolute;
@@ -100,7 +97,6 @@
             filter: blur(100px);
         }
 
-        /* 💎 GLASS CARD (UPGRADED) */
         .glass-card {
             position: relative;
             z-index: 2;
@@ -120,7 +116,6 @@
             transition: 0.5s ease;
         }
 
-        /* HOVER LIFT */
         .glass-card:hover {
             transform: translateY(-12px) scale(1.02);
             box-shadow:
@@ -128,7 +123,6 @@
                 0 0 50px rgba(212, 175, 55, 0.2);
         }
 
-        /* ✨ TEXT STYLING (VERY IMPORTANT) */
         .glass-card p {
             font-size: 17px;
             line-height: 2;
@@ -153,13 +147,11 @@
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         } */
 
-        /* GOLD BRAND HIGHLIGHT */
         .glass-card strong {
             color: #D4AF37;
             font-weight: 500;
         }
 
-        /* ✨ SUBTLE DIVIDER BETWEEN PARAGRAPHS */
         .glass-card p:not(:last-child)::after {
             content: "";
             display: block;
@@ -169,7 +161,6 @@
             background: linear-gradient(to right, transparent, #D4AF37, transparent);
         }
 
-        /* FLOAT ANIMATION (SOFTER) */
         .glass-card {
             animation: floatCard 8s ease-in-out infinite;
         }
@@ -696,7 +687,7 @@
 
     <div id="footer"></div>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 
 </body>
 

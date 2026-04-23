@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OYA Kekars Blog</title>
+    <link rel="stylesheet" href="blog.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-parallax {
+            position: relative;
+            height: 50vh;
+            background: url("images/blog/pexels-suedadilli-19310760.jpg") center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blog-parallax::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+        }
+
+        .parallax-content h1 {
+            position: relative;
+            display: inline-block;
+            font-size: 40px;
+            font-family: 'Playfair Display', serif;
+            color: white;
+        }
+
+        .parallax-content h1::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+
+            width: 60%;
+            height: 2px;
+
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+
+            transition: 0.4s ease;
+        }
+
+        .parallax-content h1:hover::after {
+            width: 80%;
+        }
+
+        .parallax-content p {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .featured-blog {
+            padding: 60px 10%;
+        }
+
+        .featured-card {
+            display: flex;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-card img {
+            width: 50%;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 40px;
+        }
+
+        .featured-content h2 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .featured-content button {
+            background: #D4AF37;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* CATEGORY */
+        .categories {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .categories button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background: #eee;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .categories .active {
+            background: #D4AF37;
+            color: white;
+        }
+
+        /* BLOG GRID */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 50px 10%;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-content span {
+            color: #D4AF37;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+
+            .featured-card {
+                flex-direction: column;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar"></div>
+
+    <section class="blog-parallax">
+        <div class="parallax-content">
+            <h1>Stories Behind Every Slice</h1>
+            <p>Explore baking secrets, trends & sweet inspirations</p>
+        </div>
+    </section>
+
+    <section class="featured-blog">
+        <div class="featured-card">
+            <img src="images/blog1.jpg">
+            <div class="featured-content">
+                <h2>The Art of Premium Cake Crafting</h2>
+                <p>Discover how we create luxury cakes with perfection and passion...</p>
+                <button>Read More</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <button class="active">All</button>
+        <button>Cakes</button>
+        <button>Trends</button>
+        <button>Tips</button>
+    </section>
+
+    <section class="blog-grid">
+
+        <div class="blog-card">
+            <img src="images/blog2.jpg">
+            <div class="blog-content">
+                <span>Cakes</span>
+                <h3>Top 5 Trending Cakes in 2026</h3>
+                <p>Explore the most loved cake styles this year...</p>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img src="images/blog3.jpg">
+            <div class="blog-content">
+                <span>Tips</span>
+                <h3>How to Keep Cakes Fresh</h3>
+                <p>Simple techniques to maintain freshness...</p>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img src="images/blog4.jpg">
+            <div class="blog-content">
+                <span>Trends</span>
+                <h3>Minimalist Cake Designs</h3>
+                <p>Why less is more in modern cake art...</p>
+            </div>
+        </div>
+
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
