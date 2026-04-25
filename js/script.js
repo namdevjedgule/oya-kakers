@@ -127,3 +127,18 @@ function calculateProfit() {
     document.getElementById("result").innerText =
         "Estimated Monthly Revenue: ₹" + monthly.toLocaleString();
 }
+
+function toggleMenu() {
+    const fab = document.querySelector(".fab-container");
+    const icon = document.getElementById("fabIcon");
+
+    fab.classList.toggle("active");
+
+    if (fab.classList.contains("active")) {
+        icon.classList.remove("fa-comment-dots");
+        icon.classList.add("fa-times"); // cross icon
+    } else {
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-comment-dots");
+    }
+}

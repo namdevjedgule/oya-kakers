@@ -13,14 +13,10 @@
 
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* section {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        } */
-
         .about-parallax {
             position: relative;
             height: 50vh;
-            background: url("images/about/IMG_2368.JPG") center/cover fixed;
+            background: url("images/about/banner.jpg") center/cover fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -41,7 +37,7 @@
             text-align: center;
         }
 
-        .parallax-content h2 {
+        .parallax-content h1 {
             position: relative;
             display: inline-block;
             font-size: 40px;
@@ -49,11 +45,11 @@
             color: white;
         }
 
-        .parallax-content h2::after {
+        .parallax-content h1::after {
             content: "";
             position: absolute;
             left: 50%;
-            bottom: -10px;
+            bottom: -5px;
             transform: translateX(-50%);
 
             width: 60%;
@@ -64,8 +60,13 @@
             transition: 0.4s ease;
         }
 
-        .parallax-content h2:hover::after {
+        .parallax-content h1:hover::after {
             width: 80%;
+        }
+
+        .parallax-content p {
+            margin-top: 20px;
+            font-size: 16px;
         }
 
         .about-story {
@@ -74,7 +75,7 @@
             justify-content: center;
             align-items: center;
             padding: 80px 10%;
-            background: url("images/about/IMG_2368.JPG") center/cover fixed;
+            background: url("images/about/banner.jpg") center/cover fixed;
             overflow: hidden;
         }
 
@@ -330,10 +331,41 @@
         }
 
         .about-values {
+            position: relative;
+            padding: 100px 10%;
+            background: #ECD8DC;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* 🌟 PHILOSOPHY (BIG SECTION) */
+        .philosophy {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .philosophy h2 {
+            font-size: 48px;
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+
+            background: linear-gradient(to right, #D4AF37, #FFD700);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .philosophy p {
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        /* 💎 GRID FOR CARDS */
+        .value-grid {
             display: flex;
             gap: 40px;
-            padding: 120px 10%;
-            background: #0a0a0a;
         }
 
         /* 💎 CARD DESIGN */
@@ -354,17 +386,17 @@
             transition: 0.5s ease;
         }
 
-        /* 🔥 HOVER EFFECT */
+        /* 🔥 HOVER */
         .value-card:hover {
             transform: translateY(-12px) scale(1.02);
             box-shadow:
                 0 30px 80px rgba(0, 0, 0, 0.9),
-                0 0 40px rgba(212, 175, 55, 0.2);
+                0 0 40px rgba(212, 175, 55, 0.25);
         }
 
-        /* 💎 HEADING */
+        /* 💎 HEADINGS */
         .value-card h2 {
-            font-size: 32px;
+            font-size: 28px;
             margin-bottom: 20px;
             font-family: 'Playfair Display', serif;
 
@@ -376,31 +408,23 @@
         /* TEXT */
         .value-card p {
             font-size: 15px;
-            line-height: 1.9;
-            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
             margin-bottom: 15px;
         }
 
-        /* BRAND HIGHLIGHT */
-        .value-card strong {
+        /* BRAND COLOR */
+        strong {
             color: #D4AF37;
-        }
-
-        /* ✨ SUBTLE DIVIDER */
-        .value-card p:not(:last-child)::after {
-            content: "";
-            display: block;
-            width: 30px;
-            height: 2px;
-            margin: 20px 0;
-            background: linear-gradient(to right, #D4AF37, transparent);
         }
 
         /* 📱 MOBILE */
         @media(max-width: 768px) {
-            .about-values {
+            .value-grid {
                 flex-direction: column;
-                padding: 80px 5%;
+            }
+
+            .philosophy h2 {
+                font-size: 36px;
             }
         }
 
@@ -483,7 +507,7 @@
         .about-cta {
             text-align: center;
             padding: 60px 20px;
-            color: white;
+            color: black;
             position: relative;
         }
 
@@ -495,7 +519,6 @@
         .about-cta p {
             font-size: 18px;
             margin-bottom: 10px;
-            color: black;
         }
 
         .about-cta button {
@@ -538,7 +561,8 @@
 
     <section class="about-parallax">
         <div class="parallax-content">
-            <h2>Few Words About Oya Kakers</h2>
+            <h1>Few Words About Oya Kakers</h1>
+            <p>Crafting premium cakes with love, quality, and creativity.</p>
         </div>
     </section>
 
@@ -629,52 +653,65 @@
 
     <section class="about-values">
 
-        <div class="value-card">
+        <div class="section-divider top">
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
+                </path>
+            </svg>
+        </div>
+
+        <!-- 🌟 MAIN PHILOSOPHY -->
+        <div class="philosophy">
             <h2>Our Philosophy</h2>
             <p>
-                ‘O’ means calling someone with respect and ‘YA’ refers to welcoming someone. At <strong>OYA
-                    Kekars</strong>, we welcome our customers with loving hearts and open arms.
+                ‘O’ means calling someone with respect and ‘YA’ refers to welcoming someone.
+                At <strong>OYA Kekars</strong>, we welcome our customers with loving hearts and open arms.
             </p>
             <p>
-                Our mission is to craft not just cakes but exceptional experiences that bring joy and delight to every
-                customer. Our state-of-the-art software ensures that every cake is enjoyed at its freshest, precisely
-                tracking its consumable period for your peace of mind.
+                Our mission is to craft not just cakes but exceptional experiences that bring joy and delight.
+                Every creation is designed with precision, freshness, and care.
             </p>
             <p>
                 Transparency and trust are at the heart of everything we do.
             </p>
         </div>
 
-        <div class="value-card">
-            <h2>Our Mission</h2>
-            <p>
-                At <strong>OYA Kekars</strong>, our mission is to redefine the cake-buying experience with a strong
-                focus on hygiene, safety, and customer satisfaction.
-            </p>
-            <p>
-                We are dedicated to offering contactless service, ensuring every interaction prioritizes your health and
-                well-being.
-            </p>
-            <p>
-                As we continue to innovate and expand, we aim to bring our premium desserts and unparalleled service to
-                more communities.
-            </p>
+        <!-- 💎 MISSION + VISION -->
+        <div class="value-grid">
+
+            <div class="value-card">
+                <h2>Our Mission</h2>
+                <p>
+                    We redefine cake-buying with hygiene, safety, and premium quality.
+                </p>
+                <p>
+                    Our contactless service ensures every experience is safe and seamless.
+                </p>
+                <p>
+                    We aim to expand our premium dessert experience to more communities.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <h2>Our Vision</h2>
+                <p>
+                    To become a globally recognized European cake brand.
+                </p>
+                <p>
+                    We aim to deliver unforgettable experiences worldwide.
+                </p>
+                <p>
+                    Blending tradition, innovation, and care in every creation.
+                </p>
+            </div>
+
         </div>
 
-        <div class="value-card">
-            <h2>Our Vision</h2>
-            <p>
-                We aim to be a globally recognized European cake brand, celebrated for delivering exceptional quality
-                and experiences.
-            </p>
-            <p>
-                We aspire to grow beyond borders, offering high-quality cakes and services that delight customers
-                worldwide.
-            </p>
-            <p>
-                At <strong>OYA Kekars</strong>, we are committed to setting new standards by blending tradition,
-                innovation, and care in everything we do.
-            </p>
+        <div class="section-divider bottom">
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
+                </path>
+            </svg>
         </div>
 
     </section>
@@ -684,6 +721,29 @@
         <p>Partner with Us! Luxurious setup, serving top quality bakery products</p>
         <button>Enquire Now</button>
     </section>
+
+    <div class="fab-container">
+        <div class="fab-main" onclick="toggleMenu()">
+            <i id="fabIcon" class="fas fa-comment-dots"></i>
+        </div>
+
+        <div class="fab-options">
+            <a href="tel:+919876543210" class="fab-item">
+                <i class="fas fa-phone"></i>
+                <span>Call Now</span>
+            </a>
+
+            <a href="franchise.html" class="fab-item">
+                <i class="fas fa-store"></i>
+                <span>Franchise</span>
+            </a>
+
+            <a href="https://wa.me/919876543210" target="_blank" class="fab-item whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
 
     <div id="footer"></div>
 

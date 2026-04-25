@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -129,10 +130,11 @@
         }
 
         .fp-calculator {
-            padding: 90px 8%;
+            position: relative;
+            padding: 100px 10%;
+            background: #ECD8DC;
+            overflow: hidden;
             text-align: center;
-            background: #2B1B17;
-            color: white;
         }
 
         .fp-calculator h2 {
@@ -248,18 +250,6 @@
             color: #2B1B17;
         }
 
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #25D366;
-            color: white;
-            font-size: 24px;
-            padding: 16px;
-            border-radius: 50%;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-
         @media (max-width: 900px) {
             .fp-grid {
                 grid-template-columns: 1fr 1fr;
@@ -284,7 +274,6 @@
         <div class="parallax-content">
             <h1>Own a Premium Cake Brand</h1>
             <p>Join Oya Kekars & build a profitable bakery business</p>
-            <a href="#apply" class="fp-btn">Start Your Journey</a>
         </div>
     </section>
 
@@ -320,6 +309,14 @@
         </div>
 
         <div class="fp-calculator">
+
+            <div class="section-divider top">
+                <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                    <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
+                    </path>
+                </svg>
+            </div>
+
             <h2>Estimate Your Earnings</h2>
             <p>
                 Discover how much you can earn by partnering with us.
@@ -332,6 +329,13 @@
                 <button onclick="calculateProfit()">Calculate</button>
 
                 <h3 id="result"></h3>
+            </div>
+
+            <div class="section-divider bottom">
+                <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                    <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
+                    </path>
+                </svg>
             </div>
         </div>
 
@@ -367,9 +371,30 @@
             </form>
         </div>
 
-        <a href="https://wa.me/919876543210" class="whatsapp-btn">💬</a>
-
     </section>
+
+    <div class="fab-container">
+        <div class="fab-main" onclick="toggleMenu()">
+            <i id="fabIcon" class="fas fa-comment-dots"></i>
+        </div>
+
+        <div class="fab-options">
+            <a href="tel:+919876543210" class="fab-item">
+                <i class="fas fa-phone"></i>
+                <span>Call Now</span>
+            </a>
+
+            <a href="franchise.html" class="fab-item">
+                <i class="fas fa-store"></i>
+                <span>Franchise</span>
+            </a>
+
+            <a href="https://wa.me/919876543210" target="_blank" class="fab-item whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
 
     <div id="footer"></div>
 

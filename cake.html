@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -48,7 +49,7 @@
             content: "";
             position: absolute;
             left: 50%;
-            bottom: -10px;
+            bottom: -5px;
             transform: translateX(-50%);
 
             width: 60%;
@@ -64,13 +65,12 @@
         }
 
         .parallax-content p {
-            margin-top: 10px;
-            font-size: 18px;
+            margin-top: 20px;
+            font-size: 16px;
         }
 
         .cake-page {
-            padding: 80px 8%;
-            background: #FFF8F6;
+            padding: 40px 4%;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -97,10 +97,9 @@
         .cake-filter button {
             padding: 10px 20px;
             margin: 5px;
-            border: none;
-            background: #f3e5e1;
-            color: #3E2723;
-            border-radius: 25px;
+            border: 1px solid #8F7265;
+            background: #EDCDC2;
+            border-radius: 30px;
             cursor: pointer;
             transition: 0.3s;
         }
@@ -111,55 +110,124 @@
             color: #3E2723;
         }
 
-        .cake-grid {
+        .insta-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
         }
 
-        .cake-info {
-            padding: 20px;
-        }
-
-        .cake-info h3 {
-            color: #3E2723;
-        }
-
-        .cake-info p {
-            font-size: 14px;
-            color: #6d4c41;
-        }
-
-        .cake-info span {
-            display: block;
-            margin: 10px 0;
-            font-weight: bold;
-            color: #D4AF37;
-        }
-
-        .cake-info button {
+        .insta-item {
+            position: relative;
             width: 100%;
-            padding: 10px;
-            border: none;
-            background: #3E2723;
+            aspect-ratio: 1 / 1;
+            /* ✅ makes all cards same size (square) */
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        /* Image fills the box */
+        .insta-item img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .img-default {
+            opacity: 1;
+        }
+
+        /* Hover image hidden */
+        .img-hover {
+            opacity: 0;
+        }
+
+        .insta-item:hover .img-default {
+            opacity: 0;
+        }
+
+        .insta-item:hover .img-hover {
+            opacity: 1;
+        }
+
+        /* OVERLAY */
+        .insta-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        /* SHOW ON HOVER */
+        .insta-item:hover .insta-overlay {
+            opacity: 1;
+        }
+
+        /* TEXT */
+        .insta-overlay h3 {
             color: white;
-            border-radius: 25px;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .insta-overlay span {
+            color: #D4AF37;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* BUTTON */
+        .insta-overlay button {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #D4AF37;
+            color: #3E2723;
+            font-size: 14px;
+            cursor: pointer;
             transition: 0.3s;
         }
 
-        .cake-info button:hover {
-            background: #D4AF37;
-            color: #3E2723;
+        .insta-overlay button:hover {
+            background: white;
         }
 
-        @media (max-width: 900px) {
-            .cake-grid {
+        .insta-like {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white;
+            font-size: 18px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .insta-item:hover .insta-like {
+            opacity: 1;
+        }
+
+        .insta-like:hover {
+            color: #ff4d6d;
+            transform: scale(1.2);
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 900px) {
+            .insta-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
 
-        @media (max-width: 500px) {
-            .cake-grid {
+        @media(max-width: 500px) {
+            .insta-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -183,45 +251,122 @@
             <button>Birthday</button>
             <button>Wedding</button>
             <button>Chocolate</button>
+            <button>Fruit</button>
             <button>Designer</button>
+            <button>Eggless</button>
+            <button>Cupcakes</button>
+            <button>Pastries</button>
         </div>
 
-        <!-- CAKE GRID -->
-        <div class="cake-grid">
+        <div class="insta-grid">
 
-            <!-- CARD -->
-            <div class="cake-card">
-                <div class="cake-img">
-                    <img src="images/cake/american-heritage-chocolate-vdx5hPQhXFk-unsplash.jpg" alt="">
-                </div>
-                <div class="cake-info">
+            <div class="insta-item">
+                <div class="insta-like">♡</div>
+                <img src="images/cake/american-heritage-chocolate-vdx5hPQhXFk-unsplash.jpg" class="img-default">
+                <img src="images/cake/jacob-thomas-6jHpcBPw7i8-unsplash.jpg" class="img-hover">
+                <div class="insta-overlay">
                     <h3>Chocolate Truffle</h3>
-                    <p>Rich chocolate layered cake</p>
                     <span>₹599</span>
                     <button>Order Now</button>
                 </div>
             </div>
 
-            <div class="cake-card">
-                <div class="cake-img">
-                    <img src="images/cake/bibek-thakuri-5m5aJBSQZ6c-unsplash.jpg" alt="">
-                </div>
-                <div class="cake-info">
+            <div class="insta-item">
+                <img src="images/cake/pexels-shivam-pandey-91521863-29450335.jpg">
+                <div class="insta-overlay">
                     <h3>Red Velvet</h3>
-                    <p>Classic premium delight</p>
                     <span>₹699</span>
                     <button>Order Now</button>
                 </div>
             </div>
 
-            <div class="cake-card">
-                <div class="cake-img">
-                    <img src="images/cake/jacob-thomas-6jHpcBPw7i8-unsplash.jpg" alt="">
-                </div>
-                <div class="cake-info">
+            <div class="insta-item">
+                <img src="images/cake/bibek-thakuri-5m5aJBSQZ6c-unsplash.jpg">
+                <div class="insta-overlay">
                     <h3>Designer Cake</h3>
-                    <p>Custom luxury cakes</p>
                     <span>₹1499</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="images/cake/cake-parallax.jpg">
+                <div class="insta-overlay">
+                    <h3>Fruit Cake</h3>
+                    <span>₹899</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="images/cake/jacob-thomas-6jHpcBPw7i8-unsplash.jpg">
+                <div class="insta-overlay">
+                    <h3>Wedding Cake</h3>
+                    <span>₹2999</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="images/cake/american-heritage-chocolate-vdx5hPQhXFk-unsplash.jpg">
+                <div class="insta-overlay">
+                    <h3>Cupcakes</h3>
+                    <span>₹499</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <div class="insta-like">♡</div>
+                <img src="images/cake/cake-parallax.jpg">
+                <div class="insta-overlay">
+                    <h3>Chocolate Truffle</h3>
+                    <span>₹599</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="images/cake/pexels-shivam-pandey-91521863-29450335.jpg">
+                <div class="insta-overlay">
+                    <h3>Red Velvet</h3>
+                    <span>₹699</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="images/cake/bibek-thakuri-5m5aJBSQZ6c-unsplash.jpg">
+                <div class="insta-overlay">
+                    <h3>Designer Cake</h3>
+                    <span>₹1499</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="images/cake/cake-parallax.jpg">
+                <div class="insta-overlay">
+                    <h3>Fruit Cake</h3>
+                    <span>₹899</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="images/cake/jacob-thomas-6jHpcBPw7i8-unsplash.jpg">
+                <div class="insta-overlay">
+                    <h3>Wedding Cake</h3>
+                    <span>₹2999</span>
+                    <button>Order Now</button>
+                </div>
+            </div>
+
+            <div class="insta-item">
+                <img src="images/cake/american-heritage-chocolate-vdx5hPQhXFk-unsplash.jpg">
+                <div class="insta-overlay">
+                    <h3>Cupcakes</h3>
+                    <span>₹499</span>
                     <button>Order Now</button>
                 </div>
             </div>
@@ -229,6 +374,29 @@
         </div>
 
     </section>
+
+    <div class="fab-container">
+        <div class="fab-main" onclick="toggleMenu()">
+            <i id="fabIcon" class="fas fa-comment-dots"></i>
+        </div>
+
+        <div class="fab-options">
+            <a href="tel:+919876543210" class="fab-item">
+                <i class="fas fa-phone"></i>
+                <span>Call Now</span>
+            </a>
+
+            <a href="franchise.html" class="fab-item">
+                <i class="fas fa-store"></i>
+                <span>Franchise</span>
+            </a>
+
+            <a href="https://wa.me/919876543210" target="_blank" class="fab-item whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
 
     <div id="footer"></div>
 

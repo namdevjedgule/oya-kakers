@@ -18,7 +18,7 @@
 
     <div id="navbar"></div>
 
-    <section class="hero">
+    <section class="hero-section">
 
         <div class="hero-slider">
             <div class="slide"></div>
@@ -32,7 +32,7 @@
     <section class="cake-section">
 
         <div class="section-header">
-            <button class="tag-btn">Our Cake Collection</button>
+            <button class="tag">Our Cake Collection</button>
             <h2><span>A SLICE OF</span> HAPPINESS</h2>
             <p>
                 Delight in our cakes, made to bring joy to your celebrations.
@@ -67,11 +67,11 @@
 
     </section>
 
-    <section class="section featured">
+    <section class="featured-section bg-cream">
         <h2>Signature Collection</h2>
 
-        <div class="grid">
-            <div class="card">
+        <div class="featured-grid">
+            <div class="featured-card">
                 <img src="images/signatureCollection/chochlate.jpg">
                 <div class="card-info">
                     <h3>Chocolate Royale</h3>
@@ -79,7 +79,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="featured-card">
                 <img src="images/signatureCollection/velvet.jpg">
                 <div class="card-info">
                     <h3>Red Velvet Elite</h3>
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="featured-card">
                 <img src="images/signatureCollection/butterscotch.jpg">
                 <div class="card-info">
                     <h3>Golden Butterscotch</h3>
@@ -98,6 +98,13 @@
     </section>
 
     <section class="story-section">
+
+        <div class="section-divider top">
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
+                </path>
+            </svg>
+        </div>
 
         <div class="story-container">
 
@@ -116,7 +123,7 @@
                     </p>
                 </div>
 
-                <a href="about.html" class="btn">About Us</a>
+                <a href="about.html" class="story-btn">About Us</a>
             </div>
 
             <div class="story-center">
@@ -144,9 +151,16 @@
 
         </div>
 
+        <div class="section-divider bottom">
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
+                </path>
+            </svg>
+        </div>
+
     </section>
 
-    <section class="franchise">
+    <section class="franchise-section">
         <div class="franchise-box">
             <h2>Own an Oya Kekars Franchise</h2>
             <p>Turn your passion into a profitable premium bakery business.</p>
@@ -154,7 +168,7 @@
         </div>
     </section>
 
-    <section class="section testimonials">
+    <section class="testimonial-section">
         <h2>Client Experience</h2>
 
         <div class="testimonial-box">
@@ -166,7 +180,7 @@
     <section class="gallery-section">
 
         <div class="section-header">
-            <button class="tag-btn">Our Creations</button>
+            <button class="tag">Our Creations</button>
             <h2><span>Sweet</span> Gallery</h2>
             <p>Explore our handcrafted cakes made with love and creativity.</p>
         </div>
@@ -206,6 +220,29 @@
         </div>
 
     </section>
+
+    <div class="fab-container">
+        <div class="fab-main" onclick="toggleMenu()">
+            <i id="fabIcon" class="fas fa-comment-dots"></i>
+        </div>
+
+        <div class="fab-options">
+            <a href="tel:+919876543210" class="fab-item">
+                <i class="fas fa-phone"></i>
+                <span>Call Now</span>
+            </a>
+
+            <a href="franchise.html" class="fab-item">
+                <i class="fas fa-store"></i>
+                <span>Franchise</span>
+            </a>
+
+            <a href="https://wa.me/919876543210" target="_blank" class="fab-item whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
 
     <div id="footer"></div>
 
