@@ -20,14 +20,57 @@
 
     <section class="hero-section">
 
-        <div class="hero-slider">
-            <div class="slide"></div>
-            <div class="slide"></div>
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="video/video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="hero-overlay">
+            <h1>Delicious Moments, Crafted Beautifully</h1>
+            <p>Premium Cakes for Every Celebration</p>
         </div>
 
-        <div class="dots"></div>
+    </section>
+
+    <section class="celebrity-section">
+
+        <h2 class="section-title">Our Cakes with Famous Faces</h2>
+
+        <div class="carousel-outer">
+            <button class="cel-arrow" id="celPrev" aria-label="Previous">&#8592;</button>
+
+            <div class="carousel">
+                <div class="carousel-track" id="track">
+
+                    <div class="card"><img src="images/celeb/gulkand.jpg"></div>
+                    <div class="card"><img src="images/celeb/jarang 1.jpg"></div>
+                    <div class="card"><img src="images/celeb/jarang.jpg"></div>
+                    <div class="card"><img src="images/celeb/mhnje vaghache pnje 1.jpg"></div>
+                    <div class="card"><img src="images/celeb/mhnje vaghache pnje.jpg"></div>
+                    <div class="card"><img src="images/celeb/prajkta mali.jpg"></div>
+                    <div class="card"><img src="images/celeb/prathana behere.jpg"></div>
+                    <div class="card"><img src="images/celeb/samsara 1.jpg"></div>
+                    <div class="card"><img src="images/celeb/samsara.jpg"></div>
+                    <div class="card"><img src="images/celeb/ye re paisa 1.jpg"></div>
+                    <div class="card"><img src="images/celeb/ye re paisa.jpg"></div>
+                </div>
+            </div>
+            <button class="cel-arrow" id="celNext" aria-label="Next">&#8594;</button>
+        </div>
+
+        <div class="carousel-dots" id="carouselDots"></div>
 
     </section>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lb-close" id="lbClose">&#10005;</button>
+        <button class="lb-arrow lb-prev" id="lbPrev">&#8592;</button>
+        <div class="lb-img-wrap">
+            <img src="" alt="celebrity cake" id="lbImg">
+        </div>
+        <button class="lb-arrow lb-next" id="lbNext">&#8594;</button>
+        <div class="lb-counter" id="lbCounter">1 / 11</div>
+    </div>
 
     <section class="cake-section">
 
