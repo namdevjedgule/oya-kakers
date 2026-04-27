@@ -274,8 +274,8 @@ p {
 }
 
 .card {
-    flex-shrink: 0;     
-    height: 300px;        
+    flex-shrink: 0;
+    height: 300px;
     position: relative;
     border-radius: 12px;
     overflow: hidden;
@@ -766,16 +766,93 @@ p {
     overflow: hidden;
 }
 
-.section-title {
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: #3E2723;
+.testimonial-header {
+    text-align: center;
+    border-radius: 20px;
+    color: black;
+}
+
+/* Small heading */
+.sub-heading {
+    letter-spacing: 4px;
+    font-size: 12px;
+    color: #f5b041;
+    margin-bottom: 15px;
+}
+
+/* Main heading */
+.main-heading {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.main-heading span {
+    font-style: italic;
+    color: #f5b041;
+}
+
+/* Rating box */
+.rating-box {
+    margin: 10px auto 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 10px;
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Left */
+.rating-left h3 {
+    font-size: 32px;
+}
+
+.stars {
+    color: #f5b041;
+    font-size: 18px;
+}
+
+/* Divider */
+.divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Right */
+.rating-right h4 {
+    font-size: 20px;
+}
+
+.rating-right p {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 32px;
+    }
+
+    .rating-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .divider {
+        display: none;
+    }
 }
 
 /* Container */
 .testimonial-slider {
     overflow: hidden;
-     position: relative;
+    position: relative;
     max-width: 1200px;
     margin: auto;
 }
@@ -789,11 +866,12 @@ p {
 
 /* CARD SIZE FIXED */
 .testimonial-card {
-    flex: 0 0 220px;   /* 🔥 FIXED WIDTH */
+    flex: 0 0 220px;
+    /* 🔥 FIXED WIDTH */
     background: #fff;
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Fade overlays */
@@ -805,7 +883,8 @@ p {
     width: 80px;
     height: 100%;
     z-index: 2;
-    pointer-events: none; /* allow clicks through */
+    pointer-events: none;
+    /* allow clicks through */
 }
 
 /* Left fade */
@@ -850,6 +929,7 @@ p {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-50%);
     }
