@@ -993,6 +993,427 @@ p {
     }
 }
 
+:root {
+    --ig-cream: #FAF6F1;
+    --ig-blush: #F2D9CC;
+    --ig-rose: #C9806A;
+    --ig-deep: #3B2A2A;
+    --ig-muted: #9C7F77;
+    --ig-radius: 18px;
+    --ig-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+/* ── SECTION WRAPPER ── */
+.ig-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 32px;
+}
+
+/* ── HEADER ── */
+.ig-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 52px;
+}
+
+.ig-title-block {
+    max-width: 560px;
+}
+
+.ig-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.ig-eyebrow span {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ig-muted);
+}
+
+.eyebrow-line {
+    width: 38px;
+    height: 1px;
+    background: var(--ig-rose);
+}
+
+.ig-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ig-deep);
+}
+
+.ig-heading em {
+    font-style: italic;
+    color: var(--ig-rose);
+}
+
+.ig-sub {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--ig-muted);
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* ── FOLLOW BUTTON ── */
+.ig-follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    padding: 13px 28px;
+    border: 1.5px solid var(--ig-rose);
+    border-radius: 60px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ig-rose);
+    letter-spacing: 0.06em;
+    transition: background 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+}
+
+.ig-follow-btn:hover {
+    background: var(--ig-rose);
+    color: #ffffff;
+}
+
+/* ── GRID ── */
+.ig-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ── CARD BASE ── */
+.ig-card {
+    position: relative;
+    border-radius: var(--ig-radius);
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    background: #E8D8D0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: igFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.4s ease;
+    box-shadow: 0 4px 24px rgba(59, 42, 42, 0.07);
+}
+
+.ig-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(59, 42, 42, 0.16);
+}
+
+/* Animation stagger */
+.ig-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.ig-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.ig-card:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.ig-card:nth-child(4) {
+    animation-delay: 0.32s;
+}
+
+.ig-card:nth-child(5) {
+    animation-delay: 0.39s;
+}
+
+.ig-card:nth-child(6) {
+    animation-delay: 0.46s;
+}
+
+@keyframes igFadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── REEL CARD (tall 9:16) ── */
+.ig-card.reel {
+    aspect-ratio: 9 / 16;
+    grid-row: span 2;
+}
+
+/* ── POST CARD (square 1:1) ── */
+.ig-card.post {
+    aspect-ratio: 1 / 1;
+}
+
+/* ── CARD IMAGE ── */
+/* Use this when you replace placeholders with real <img> tags */
+.ig-card .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ig-card:hover .card-img {
+    transform: scale(1.06);
+}
+
+/* ── PLACEHOLDER GRADIENTS ── */
+/* Remove these once you add real images */
+.card-placeholder {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+}
+
+.ph-1 {
+    background: linear-gradient(145deg, #F5C6B0 0%, #E8917A 50%, #C97060 100%);
+}
+
+.ph-2 {
+    background: linear-gradient(145deg, #F9E4D4 0%, #F0BFA8 50%, #D99080 100%);
+}
+
+.ph-3 {
+    background: linear-gradient(145deg, #EDD5C0 0%, #D4956F 50%, #B87050 100%);
+}
+
+.ph-4 {
+    background: linear-gradient(145deg, #FAD6C4 0%, #F0A087 50%, #D47060 100%);
+}
+
+.ph-5 {
+    background: linear-gradient(145deg, #F5C8C0 0%, #E8998A 50%, #CB7060 100%);
+}
+
+.ph-6 {
+    background: linear-gradient(145deg, #FAEADA 0%, #F0C08A 50%, #D49050 100%);
+}
+
+/* ── HOVER OVERLAY ── */
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(30, 15, 10, 0.78) 0%,
+            rgba(30, 15, 10, 0.10) 50%,
+            transparent 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    gap: 10px;
+    z-index: 2;
+}
+
+.ig-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.overlay-caption {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.93);
+    font-weight: 300;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.overlay-cta {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+/* ── TYPE BADGE ── */
+.type-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2;
+}
+
+.type-badge.reel-badge {
+    background: rgba(0, 0, 0, 0.42);
+    color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.type-badge.post-badge {
+    background: rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* ── REEL PLAY BUTTON ── */
+.reel-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: background 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Pure CSS triangle — no SVG needed */
+.play-triangle {
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 16px solid rgba(255, 255, 255, 0.9);
+    margin-left: 4px;
+}
+
+.ig-card:hover .reel-play {
+    background: rgba(255, 255, 255, 0.32);
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+/* ── INSTAGRAM GRADIENT BORDER ON HOVER ── */
+.ig-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--ig-radius);
+    padding: 2px;
+    background: var(--ig-gradient);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.ig-card:hover::before {
+    opacity: 1;
+}
+
+/* ── BOTTOM CTA STRIP ── */
+.ig-cta-strip {
+    margin-top: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.cta-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--ig-blush), transparent);
+    flex: 1;
+    min-width: 60px;
+}
+
+.cta-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ig-muted);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.cta-insta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    background: var(--ig-gradient);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 13px 28px;
+    border-radius: 60px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 24px rgba(220, 39, 67, 0.28);
+}
+
+.cta-insta-link:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(220, 39, 67, 0.38);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .ig-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .ig-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Hide 3rd reel so 2-col layout stays balanced */
+    .ig-card.reel:nth-child(5) {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .ig-section {
+        padding: 60px 16px;
+    }
+
+    .ig-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .ig-heading {
+        font-size: 32px;
+    }
+}
+
 .fab-container {
     position: fixed;
     bottom: 25px;
