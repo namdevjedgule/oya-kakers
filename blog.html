@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>OYA Kekars Blog</title>
-    <link rel="stylesheet" href="blog.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -68,104 +69,544 @@
             font-size: 16px;
         }
 
-        .featured-blog {
-            padding: 60px 10%;
+        .header {
+            padding: 3.5rem 3rem 2.5rem;
+            border-bottom: 0.5px solid rgba(90, 80, 60, 0.15);
         }
 
-        .featured-card {
+        .header-top {
             display: flex;
-            background: white;
-            border-radius: 20px;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 500;
+            color: #2C2419;
+            letter-spacing: 0.04em;
+        }
+
+        .logo span {
+            color: #8B6F47;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            font-size: 13px;
+            color: #6B5E4A;
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: #2C2419;
+        }
+
+        .header-hero {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #8B6F47;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 500;
+            color: #2C2419;
+            line-height: 1.15;
+            max-width: 680px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: #6B5E4A;
+            line-height: 1.7;
+            max-width: 520px;
+        }
+
+        .section-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .featured {
+            display: flex;
+            gap: 1.5px;
+            margin-top: 3rem;
+        }
+
+        .feat-main {
+            flex: 2;
+            background: #2C2419;
+            border-radius: 12px 0 0 12px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .featured-card img {
-            width: 50%;
-            object-fit: cover;
-        }
-
-        .featured-content {
-            padding: 40px;
-        }
-
-        .featured-content h2 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .featured-content button {
-            background: #D4AF37;
-            border: none;
-            padding: 10px 20px;
+            position: relative;
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
             cursor: pointer;
+            transition: background 0.2s;
         }
 
-        /* CATEGORY */
-        .categories {
-            text-align: center;
-            padding: 20px;
+        .feat-main:hover {
+            background: #3a2f21;
         }
 
-        .categories button {
-            margin: 10px;
-            padding: 10px 20px;
-            border: none;
-            background: #eee;
+        .feat-main::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(139, 111, 71, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .feat-badge {
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #D4B896;
+            background: rgba(212, 184, 150, 0.12);
+            border: 0.5px solid rgba(212, 184, 150, 0.25);
+            padding: 5px 12px;
             border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .feat-main h2 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #F5EFE4;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .feat-main p {
+            font-size: 14px;
+            color: rgba(212, 184, 150, 0.75);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .feat-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5px;
+        }
+
+        .feat-card {
+            background: #EDE9D6;
+            flex: 1;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
             cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .categories .active {
-            background: #D4AF37;
-            color: white;
+        .feat-card:hover {
+            background: #E5E0C8;
         }
 
-        /* BLOG GRID */
-        .blog-grid {
+        .feat-card:first-child {
+            border-radius: 0 12px 0 0;
+        }
+
+        .feat-card:last-child {
+            border-radius: 0 0 12px 0;
+        }
+
+        .feat-card .tag {
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #8B6F47;
+            margin-bottom: 0.5rem;
+        }
+
+        .feat-card h3 {
+            font-size: 15px;
+            font-weight: 500;
+            color: #2C2419;
+            line-height: 1.35;
+        }
+
+        .feat-card p {
+            font-size: 12px;
+            color: #7A6A56;
+            margin-top: 0.4rem;
+            line-height: 1.5;
+        }
+
+        .feat-deco {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(139, 111, 71, 0.1);
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feat-deco svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3.5rem 0 1.5rem;
+        }
+
+        .section-label span {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #8B6F47;
+            white-space: nowrap;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 0.5px;
+            background: rgba(139, 111, 71, 0.25);
+        }
+
+        .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            padding: 50px 10%;
+            gap: 1px;
+            background: rgba(139, 111, 71, 0.12);
+            border-radius: 12px;
+            overflow: hidden;
         }
 
         .blog-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: 0.3s;
+            background: #F1F0E2;
+            padding: 2rem 1.75rem;
+            transition: background 0.2s;
+            cursor: pointer;
         }
 
         .blog-card:hover {
-            transform: translateY(-10px);
+            background: #EDE9D6;
         }
 
-        .blog-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .card-tag {
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #8B6F47;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .blog-content {
-            padding: 20px;
+        .tag-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #8B6F47;
+            display: inline-block;
         }
 
-        .blog-content span {
-            color: #D4AF37;
+        .card-num {
+            font-size: 11px;
+            color: rgba(139, 111, 71, 0.4);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            font-size: 17px;
+            font-weight: 500;
+            color: #2C2419;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card p {
+            font-size: 13px;
+            color: #7A6A56;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .read-link {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #8B6F47;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .read-link:hover {
+            gap: 10px;
+        }
+
+        .read-link svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .article-section {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 3rem;
+            align-items: start;
+            padding-bottom: 30px;
+        }
+
+        .article-eyebrow {
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #8B6F47;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 30px;
+            font-weight: 500;
+            color: #2C2419;
+            line-height: 1.25;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-body {
+            font-size: 15px;
+            color: #5A4E3C;
+            line-height: 1.8;
+        }
+
+        .section-head {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2C2419;
+            letter-spacing: 0.04em;
+            margin: 1.75rem 0 0.5rem;
+        }
+
+        .pull-quote {
+            border-left: 2px solid #8B6F47;
+            padding-left: 1.25rem;
+            margin: 1.75rem 0;
+        }
+
+        .pull-quote p {
+            font-size: 17px;
+            color: #4A3D2C;
+            line-height: 1.55;
+            font-style: italic;
+        }
+
+        .cta-block {
+            margin-top: 2rem;
+            background: #2C2419;
+            border-radius: 12px;
+            padding: 1.75rem 2rem;
+        }
+
+        .cta-block p {
+            font-size: 14px;
+            color: rgba(212, 184, 150, 0.75);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #8B6F47;
+            color: #F5EFE4;
             font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s;
         }
 
-        @media (max-width: 768px) {
+        .cta-btn:hover {
+            background: #7a5f3a;
+        }
 
-            .featured-card {
+        .sidebar-card {
+            background: #EDE9D6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-label {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #8B6F47;
+            margin-bottom: 1.25rem;
+        }
+
+        .quick-tip {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 0.5px solid rgba(139, 111, 71, 0.15);
+        }
+
+        .quick-tip:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .tip-num {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(139, 111, 71, 0.3);
+            min-width: 28px;
+            line-height: 1;
+        }
+
+        .tip-text {
+            font-size: 13px;
+            color: #4A3D2C;
+            line-height: 1.5;
+        }
+
+        .tip-text strong {
+            font-weight: 500;
+            color: #2C2419;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .flavor-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .flavor-chip {
+            background: #F1F0E2;
+            border-radius: 8px;
+            padding: 10px 12px;
+        }
+
+        .f-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: #2C2419;
+        }
+
+        .f-pair {
+            font-size: 11px;
+            color: #8B6F47;
+            margin-top: 2px;
+        }
+
+        .tag-pill {
+            font-size: 11px;
+            color: #6B5E4A;
+            background: #EDE9D6;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .header {
+                padding: 2rem 1.5rem;
+            }
+
+            .section-wrap {
+                padding: 0 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .featured {
                 flex-direction: column;
             }
 
-            .blog-grid {
+            .feat-main {
+                border-radius: 12px 12px 0 0;
+                min-height: 260px;
+            }
+
+            .feat-side {
+                flex-direction: row;
+            }
+
+            .feat-card:first-child {
+                border-radius: 0;
+            }
+
+            .feat-card:last-child {
+                border-radius: 0 0 12px 12px;
+            }
+
+            .feat-side {
+                flex-direction: column;
+            }
+
+            .feat-card:first-child {
+                border-radius: 0;
+            }
+
+            .feat-card:last-child {
+                border-radius: 0 0 12px 12px;
+            }
+
+            .grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-content h1 {
-                font-size: 36px;
+            .article-section {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-strip {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
         }
     </style>
@@ -182,54 +623,176 @@
         </div>
     </section>
 
-    <section class="featured-blog">
-        <div class="featured-card">
-            <img src="images/blog1.jpg">
-            <div class="featured-content">
-                <h2>The Art of Premium Cake Crafting</h2>
-                <p>Discover how we create luxury cakes with perfection and passion...</p>
-                <button>Read More</button>
+    <header class="header">
+        <div class="header-hero">
+            <div class="hero-eyebrow">The Bakery Journal</div>
+            <h1 class="hero-title">Where flavour meets craft — one story at a time.</h1>
+            <p class="hero-subtitle">Explore European cake artistry, seasonal trends, and the techniques behind every
+                perfect slice.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-wrap">
+
+            <div class="featured">
+                <div class="feat-main" onclick="scrollToArticle()">
+                    <span class="feat-badge">Featured Article</span>
+                    <h2>What Makes European Cakes Different from Regular Cakes?</h2>
+                    <p>From layered textures to precision flavour pairing — discover why premium cakes feel lighter,
+                        more refined, and wholly satisfying.</p>
+                </div>
+                <div class="feat-side">
+                    <div class="feat-card">
+                        <div class="feat-deco">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#8B6F47" stroke-width="1.5">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                        </div>
+                        <div class="tag">Trends</div>
+                        <h3>Top 5 Trending Cakes in 2026</h3>
+                        <p>The most loved cake styles redefining celebrations this year.</p>
+                    </div>
+                    <div class="feat-card">
+                        <div class="feat-deco">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#8B6F47" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <div class="tag">Tips</div>
+                        <h3>How to Keep Cakes Fresh Longer</h3>
+                        <p>Simple techniques that preserve texture and flavour for days.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-label"><span>All Articles</span></div>
+
+            <div class="grid">
+                <div class="blog-card" onclick="scrollToArticle()">
+                    <div class="card-num">01</div>
+                    <div class="card-tag"><span class="tag-dot"></span>Cakes</div>
+                    <h3>Top 5 Trending Cakes in 2026</h3>
+                    <p>Explore the most loved cake styles this year — from mirror glazes to sculpted botanicals.</p>
+                    <a class="read-link" href="#article">Read article
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2 6h8M6 2l4 4-4 4" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="blog-card">
+                    <div class="card-num">02</div>
+                    <div class="card-tag"><span class="tag-dot"></span>Tips</div>
+                    <h3>How to Keep Cakes Fresh</h3>
+                    <p>Simple techniques to maintain freshness — whether storing overnight or across a weekend.</p>
+                    <a class="read-link" href="#">Read article
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2 6h8M6 2l4 4-4 4" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="blog-card">
+                    <div class="card-num">03</div>
+                    <div class="card-tag"><span class="tag-dot"></span>Trends</div>
+                    <h3>Minimalist Cake Designs</h3>
+                    <p>Why less is more in modern cake art — and how restraint became the new luxury.</p>
+                    <a class="read-link" href="#">Read article
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2 6h8M6 2l4 4-4 4" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="section-label"><span>Deep Read</span></div>
+
+            <div class="article-section" id="article">
+                <article class="article-main">
+                    <div class="article-eyebrow">European Baking · 8 min read</div>
+                    <h2 class="article-title">What Makes European Cakes Different from Regular Cakes?</h2>
+                    <div class="article-body">
+                        <p>Walk into most bakeries and you'll find cakes that look good but often taste the same —
+                            overly sweet, heavy, and predictable. European-style cakes are different.</p>
+
+                        <div class="section-head">1 &mdash; Less sugar, more balance</div>
+                        <p>Regular cakes are made to suit mass preferences, which means more sugar. European cakes
+                            balance flavours instead — subtle bitterness from dark chocolate, tanginess from fresh
+                            fruits, nutty undertones from praline.</p>
+
+                        <div class="pull-quote">
+                            <p>"A cake you can actually enjoy more than one bite of — that is the European philosophy in
+                                a single sentence."</p>
+                        </div>
+
+                        <div class="section-head">2 &mdash; Layered textures, not just layers</div>
+                        <p>Soft sponge, light mousse, crunchy praline, and a smooth glaze finish — multiple textures in
+                            one dessert create a dynamic eating experience where every bite feels different.</p>
+
+                        <div class="section-head">3 &mdash; Precision flavour pairing</div>
+                        <p>Chocolate with hazelnut. Strawberry with vanilla. Coffee with caramel. European baking is
+                            rooted in precision — flavours are matched so the cake never feels overwhelming or confused.
+                        </p>
+
+                        <div class="section-head">4 &mdash; Aesthetic, but minimal</div>
+                        <p>Smooth finishes, neutral tones, elegant detailing. European cakes look premium without trying
+                            too hard — designed to be as satisfying to look at as to eat.</p>
+
+                        <div class="section-head">5 &mdash; Quality ingredients matter more</div>
+                        <p>Real butter. Fresh cream. High-quality chocolate. These choices directly impact taste,
+                            texture, and the overall experience in ways that shortcuts never can.</p>
+                    </div>
+                </article>
+
+                <aside class="sidebar">
+                    <div class="sidebar-card">
+                        <div class="sidebar-label">Quick Tips</div>
+                        <div class="quick-tip">
+                            <div class="tip-num">01</div>
+                            <div class="tip-text"><strong>Store in a cool, dry place</strong>Avoid the fridge for
+                                buttercream — it dries out the crumb.</div>
+                        </div>
+                        <div class="quick-tip">
+                            <div class="tip-num">02</div>
+                            <div class="tip-text"><strong>Cover cut edges</strong>Press plastic wrap directly onto
+                                exposed sponge to slow moisture loss.</div>
+                        </div>
+                        <div class="quick-tip">
+                            <div class="tip-num">03</div>
+                            <div class="tip-text"><strong>Bring to room temp</strong>Serve mousse cakes 20 min out of
+                                cold — flavour opens up beautifully.</div>
+                        </div>
+                        <div class="quick-tip">
+                            <div class="tip-num">04</div>
+                            <div class="tip-text"><strong>Avoid direct sunlight</strong>Fondant and glazes lose their
+                                finish fast under heat and UV.</div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <div class="sidebar-label">Classic Pairings</div>
+                        <div class="flavor-grid">
+                            <div class="flavor-chip">
+                                <div class="f-name">Chocolate</div>
+                                <div class="f-pair">+ Hazelnut</div>
+                            </div>
+                            <div class="flavor-chip">
+                                <div class="f-name">Strawberry</div>
+                                <div class="f-pair">+ Vanilla</div>
+                            </div>
+                            <div class="flavor-chip">
+                                <div class="f-name">Coffee</div>
+                                <div class="f-pair">+ Caramel</div>
+                            </div>
+                            <div class="flavor-chip">
+                                <div class="f-name">Lemon</div>
+                                <div class="f-pair">+ Elderflower</div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
-    </section>
-
-    <section class="categories">
-        <button class="active">All</button>
-        <button>Cakes</button>
-        <button>Trends</button>
-        <button>Tips</button>
-    </section>
-
-    <section class="blog-grid">
-
-        <div class="blog-card">
-            <img src="images/blog2.jpg">
-            <div class="blog-content">
-                <span>Cakes</span>
-                <h3>Top 5 Trending Cakes in 2026</h3>
-                <p>Explore the most loved cake styles this year...</p>
-            </div>
-        </div>
-
-        <div class="blog-card">
-            <img src="images/blog3.jpg">
-            <div class="blog-content">
-                <span>Tips</span>
-                <h3>How to Keep Cakes Fresh</h3>
-                <p>Simple techniques to maintain freshness...</p>
-            </div>
-        </div>
-
-        <div class="blog-card">
-            <img src="images/blog4.jpg">
-            <div class="blog-content">
-                <span>Trends</span>
-                <h3>Minimalist Cake Designs</h3>
-                <p>Why less is more in modern cake art...</p>
-            </div>
-        </div>
-
-    </section>
+    </main>
 
     <div class="fab-container">
         <div class="fab-main" onclick="toggleMenu()">
@@ -257,6 +820,28 @@
     <div id="footer"></div>
 
     <script src="js/script.js"></script>
+
+    <script>
+        function scrollToArticle() {
+            const el = document.getElementById('article');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        const navLinks = document.querySelectorAll('.nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                navLinks.forEach(l => l.style.color = '');
+                this.style.color = '#2C2419';
+            });
+        });
+
+        document.querySelectorAll('.blog-card, .feat-card').forEach(card => {
+            card.addEventListener('click', function () {
+                this.style.transform = 'scale(0.99)';
+                setTimeout(() => { this.style.transform = ''; }, 150);
+            });
+        });
+    </script>
 
 </body>
 

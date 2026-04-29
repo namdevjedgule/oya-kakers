@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("load", () => {
+    document.getElementById("pageLoader").style.display = "none";
+});
+
+window.addEventListener("load", () => {
     setTimeout(initSlider, 200);
     setTimeout(initCarousel, 600);
 });
@@ -226,7 +230,7 @@ function initCarousel() {
     let autoTimer;
     function startAuto() {
         clearInterval(autoTimer);
-        autoTimer = setInterval(() => celStep(1), 2500);
+        autoTimer = setInterval(() => celStep(1), 1500);
     }
 
     document.getElementById("celPrev").onclick = () => celStep(-1);

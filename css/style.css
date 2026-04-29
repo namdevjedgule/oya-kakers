@@ -181,6 +181,20 @@ p {
     font-size: 1.2rem;
 }
 
+.video-icon {
+    position: absolute;
+    top: 70px;
+    right: 5px;
+    left: auto;
+    transform: translate(-50%, -50%);
+    
+    width: 60px; /* adjust size */
+    height: auto;
+
+    z-index: 2;
+    pointer-events: none; /* optional (click passes through) */
+}
+
 @media (max-width: 768px) {
     .hero-section {
         height: 60vh;
