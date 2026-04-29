@@ -75,81 +75,24 @@
             justify-content: center;
             align-items: center;
             padding: 80px 10%;
-            background: url("images/about/banner.jpg") center/cover fixed;
+            background: #F1F0E2;
             overflow: hidden;
-        }
-
-        .about-story::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.65),
-                    rgba(0, 0, 0, 0.85));
-        }
-
-        .about-story::before {
-            content: "";
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.2), transparent);
-            top: -150px;
-            left: -150px;
-            filter: blur(100px);
         }
 
         .glass-card {
             position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 60px;
-            border-radius: 30px;
-
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(25px);
-
-            border: 1px solid rgba(255, 255, 255, 0.12);
-
-            box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.8),
-                inset 0 0 30px rgba(255, 255, 255, 0.05);
-
-            transition: 0.5s ease;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow:
-                0 40px 100px rgba(0, 0, 0, 0.9),
-                0 0 50px rgba(212, 175, 55, 0.2);
+            padding: 20px;
+            color: black;
         }
 
         .glass-card p {
             font-size: 17px;
             line-height: 2;
-            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 20px;
         }
 
-        /* .glass-card p:first-child::first-letter {
-            font-family: 'Playfair Display', serif;
-            font-size: 64px;
-            font-weight: 600;
-            line-height: 0.9;
-
-            float: left;
-            margin-right: 12px;
-            margin-top: 6px;
-
-            background: linear-gradient(135deg, #D4AF37, #FFD700);
-            -webkit-background-clip: text;
-            color: transparent;
-
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        } */
-
         .glass-card strong {
-            color: #D4AF37;
+            color: #EB3C27;
             font-weight: 500;
         }
 
@@ -180,7 +123,6 @@
             }
         }
 
-        /* 📱 MOBILE */
         @media(max-width:768px) {
             .about-story {
                 padding: 80px 5%;
@@ -202,11 +144,11 @@
         .about-features {
             text-align: center;
             padding: 100px 10%;
-            background: url("images/about/pexels-sukrantrgl-20290356.jpg") center/cover fixed;
+            background: url("images/about/banner.jpg") center/cover fixed;
         }
 
-        .features h2 {
-            margin-bottom: 50px;
+        .about-features h2 {
+            margin-bottom: 40px;
             font-size: 40px;
         }
 
@@ -239,7 +181,7 @@
 
         .feature span {
             font-size: 40px;
-            color: #D4AF37;
+            color: #EB3C27;
         }
 
         .about-parallax.second {
@@ -251,7 +193,7 @@
             height: 60vh;
             text-align: center;
             color: #fff;
-            background: url("images/about/pexels-sukrantrgl-20290356.jpg") center/cover fixed;
+            background: url("images/about/banner.jpg") center/cover fixed;
         }
 
         .about-parallax.second::before {
@@ -287,8 +229,9 @@
             font-size: 48px;
             font-weight: 600;
             margin-bottom: 10px;
+            color: #F1F0E2;
 
-            background: linear-gradient(to right, #D4AF37, #FFD700);
+            background: #F1F0E2;
             -webkit-background-clip: text;
             color: transparent;
         }
@@ -296,7 +239,7 @@
         .stat p {
             font-size: 14px;
             letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.85);
+            color: #F1F0E2;
         }
 
         .stat {
@@ -383,7 +326,6 @@
             transition: 0.5s ease;
         }
 
-        /* 🔥 HOVER */
         .value-card:hover {
             transform: translateY(-12px) scale(1.02);
             box-shadow:
@@ -391,7 +333,6 @@
                 0 0 40px rgba(212, 175, 55, 0.25);
         }
 
-        /* 💎 HEADINGS */
         .value-card h2 {
             font-size: 28px;
             margin-bottom: 20px;
@@ -402,19 +343,16 @@
             color: transparent;
         }
 
-        /* TEXT */
         .value-card p {
             font-size: 15px;
             line-height: 1.8;
             margin-bottom: 15px;
         }
 
-        /* BRAND COLOR */
         strong {
             color: #D4AF37;
         }
 
-        /* 📱 MOBILE */
         @media(max-width: 768px) {
             .value-grid {
                 flex-direction: column;
@@ -496,11 +434,6 @@
             background: black;
         }
 
-        .stat h3 {
-            color: #D4AF37;
-            font-size: 50px;
-        }
-
         .about-cta {
             text-align: center;
             padding: 60px 20px;
@@ -533,22 +466,6 @@
             transform: scale(1.05);
             box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
         }
-
-        /* section {
-            animation: fadeUp 1s ease;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        } */
     </style>
 </head>
 

@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch("footer.html").then(res => res.text())
     ])
         .then(([navData, footerData]) => {
-
             const navContainer = document.getElementById("navbar");
             const footerContainer = document.getElementById("footer");
 
@@ -13,27 +12,28 @@ document.addEventListener("DOMContentLoaded", () => {
             if (footerContainer) footerContainer.innerHTML = footerData;
 
             initNavbar();
-
         })
         .catch(err => console.error("Load error:", err));
 
     let ticking = false;
-
     window.addEventListener("scroll", () => {
         if (!ticking) {
             requestAnimationFrame(() => {
                 const navbar = document.querySelector(".navbar");
-                if (!navbar) return;
-
-                navbar.classList.toggle("scrolled", window.scrollY > 5);
+                if (navbar) {
+                    navbar.classList.toggle("scrolled", window.scrollY > 5);
+                }
                 ticking = false;
             });
             ticking = true;
         }
     });
 
-    window.addEventListener("load", initSlider);
+});
 
+window.addEventListener("load", () => {
+    setTimeout(initSlider, 200);
+    setTimeout(initCarousel, 600);
 });
 
 function initNavbar() {
@@ -69,10 +69,8 @@ function initNavbar() {
     }
 
     const currentPath = window.location.pathname.toLowerCase();
-
     document.querySelectorAll(".nav-links a").forEach(link => {
         let linkHref = link.getAttribute("href").toLowerCase();
-
         linkHref = linkHref.split("?")[0].split("#")[0];
 
         if (
@@ -82,40 +80,6 @@ function initNavbar() {
             link.classList.add("active");
         }
     });
-}
-
-function initSlider() {
-
-    let index = 0;
-    const slides = document.querySelectorAll(".slide");
-    const slider = document.querySelector(".hero-slider");
-    const dotsContainer = document.querySelector(".dots");
-
-    if (!slides.length || !slider || !dotsContainer) return;
-
-    slides.forEach((_, i) => {
-        const dot = document.createElement("span");
-        dot.addEventListener("click", () => showSlide(i));
-        dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll(".dots span");
-
-    function showSlide(i) {
-        index = i;
-        slider.style.transform = `translateX(-${index * 100}%)`;
-
-        dots.forEach(dot => dot.classList.remove("active"));
-        dots[index].classList.add("active");
-    }
-
-    function autoSlide() {
-        index = (index + 1) % slides.length;
-        showSlide(index);
-    }
-
-    setInterval(autoSlide, 4000);
-    showSlide(0);
 }
 
 function calculateProfit() {
@@ -151,7 +115,6 @@ function initCarousel() {
     let current = 0, busy = false;
     let CARD_W, GAP, VISIBLE;
 
-    // ── Build looped track ────────────────────────────────────
     const looped = [
         ...IMAGES.slice(-CLONES),
         ...IMAGES,
@@ -161,13 +124,12 @@ function initCarousel() {
     looped.forEach(src => {
         const card = document.createElement("div");
         card.className = "card";
-        card.innerHTML = `<img src="${src}">`;
+        card.innerHTML = `<img src="${src}" loading="lazy">`;
         track.appendChild(card);
     });
     const cards = Array.from(track.children);
     const viewport = document.querySelector(".carousel");
 
-    // ── Build dots ────────────────────────────────────────────
     const dotsContainer = document.getElementById("carouselDots");
     dotsContainer.innerHTML = "";
     IMAGES.forEach((_, i) => {
@@ -178,43 +140,36 @@ function initCarousel() {
     });
     const dots = Array.from(dotsContainer.children);
 
-    // ── Responsive config — recalculates on every resize ──────
     function getConfig() {
         const vpW = viewport.offsetWidth;
 
         if (vpW >= 900) {
-            // Desktop: 5 cards
             GAP = 20;
             CARD_W = Math.floor((vpW - GAP * 4) / 5);
             VISIBLE = 5;
         } else if (vpW >= 540) {
-            // Tablet: 3 cards
             GAP = 16;
             CARD_W = Math.floor((vpW - GAP * 2) / 3);
             VISIBLE = 3;
         } else {
-            // Mobile: 1 card
             GAP = 12;
             CARD_W = Math.floor(vpW * 0.72);
             VISIBLE = 1;
         }
 
-        // Apply computed width directly to each card
         cards.forEach(c => {
             c.style.width = CARD_W + "px";
             c.style.marginRight = GAP + "px";
         });
-        track.style.gap = "0"; // gap handled by marginRight
+        track.style.gap = "0";
     }
 
-    // ── Offset: always perfectly centered ─────────────────────
     function getOffset(idx) {
         const vpW = viewport.offsetWidth;
         const cardLeft = (CLONES + idx) * (CARD_W + GAP);
         return cardLeft - (vpW / 2) + (CARD_W / 2);
     }
 
-    // ── Classes change based on how many cards are visible ────
     function applyClasses(idx) {
         const center = CLONES + idx;
         cards.forEach((card, i) => {
@@ -238,7 +193,6 @@ function initCarousel() {
         updateDots(idx);
     }
 
-    // ── Step (arrow + auto) ───────────────────────────────────
     function celStep(dir) {
         if (busy) return;
         busy = true;
@@ -275,11 +229,9 @@ function initCarousel() {
         autoTimer = setInterval(() => celStep(1), 2500);
     }
 
-    // ── Arrows ────────────────────────────────────────────────
     document.getElementById("celPrev").onclick = () => celStep(-1);
     document.getElementById("celNext").onclick = () => celStep(1);
 
-    // ── Lightbox ──────────────────────────────────────────────
     const lightbox = document.getElementById("lightbox");
     const lbImg = document.getElementById("lbImg");
     const lbCounter = document.getElementById("lbCounter");
@@ -321,17 +273,15 @@ function initCarousel() {
         if (e.key === "Escape") closeLightbox();
     });
 
-    // ── Resize handler ────────────────────────────────────────
     let resizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             getConfig();
-            goTo(current, false); // reposition silently
+            goTo(current, false);
         }, 120);
     });
 
-    // ── Init ──────────────────────────────────────────────────
     getConfig();
     goTo(0, false);
     requestAnimationFrame(() => {
