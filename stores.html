@@ -9,7 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -190,6 +190,113 @@
     <div id="footer"></div>
 
     <script src="js/script.js" defer></script>
+
+    <script>
+        const stores = [
+            {
+                name: "OYA KEKARS (Main Branch)",
+                location: "Hadapsar, Pune",
+                phone: "+91 9823230505",
+                lat: 18.5089,
+                lng: 73.9260
+            },
+            {
+                name: "OYA KEKARS",
+                location: "Koregaon Park, Pune",
+                phone: "+91 7720088005",
+                lat: 18.5362,
+                lng: 73.8939
+            },
+            {
+                name: "OYA KEKARS",
+                location: "Tilekarnagar, Pune",
+                phone: "+91 9921216202",
+                lat: 18.4960,
+                lng: 73.9410
+            },
+            {
+                name: "OYA KEKARS",
+                location: "Nanded City, Pune",
+                phone: "+91 8698000408",
+                lat: 18.4575,
+                lng: 73.7927
+            },
+            {
+                name: "OYA KEKARS",
+                location: "Rajarampuri, Kolhapur",
+                phone: "+91 7750707581",
+                lat: 16.7000,
+                lng: 74.2330
+            },
+            {
+                name: "OYA KEKARS",
+                location: "Kharadi, Pune",
+                phone: "+91 9168630505",
+                lat: 18.5515,
+                lng: 73.9475
+            }
+        ];
+
+        let map;
+        let markers = [];
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 7,
+                center: { lat: 18.5204, lng: 73.8567 },
+                styles: [
+                    { elementType: "geometry", stylers: [{ color: "#1d1d1d" }] },
+                    { elementType: "labels.text.stroke", stylers: [{ color: "#1d1d1d" }] },
+                    { elementType: "labels.text.fill", stylers: [{ color: "#ffffff" }] }
+                ]
+            });
+
+            loadStores(stores);
+        }
+
+        function loadStores(data) {
+            const list = document.getElementById("storeList");
+            list.innerHTML = "";
+
+            markers.forEach(m => m.setMap(null));
+            markers = [];
+
+            data.forEach(store => {
+                const div = document.createElement("div");
+                div.className = "store-card";
+                div.innerHTML = `
+            <h3>${store.name}</h3>
+            <p>${store.location}</p>
+            <p>${store.phone}</p>
+        `;
+                list.appendChild(div);
+
+                const marker = new google.maps.Marker({
+                    position: { lat: store.lat, lng: store.lng },
+                    map,
+                    title: store.name
+                });
+
+                markers.push(marker);
+
+                div.addEventListener("click", () => {
+                    map.setCenter(marker.getPosition());
+                    map.setZoom(14);
+                });
+            });
+        }
+
+        document.getElementById("searchBox").addEventListener("input", function () {
+            const value = this.value.toLowerCase();
+
+            const filtered = stores.filter(store =>
+                store.location.toLowerCase().includes(value)
+            );
+
+            loadStores(filtered);
+        });
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRvPaMDxyDqUQzWDzmQEV0YGhbVqk0rbI&callback=initMap" async defer></script>
 
 </body>
 
