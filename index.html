@@ -19,24 +19,31 @@
     <div id="navbar"></div>
 
     <section class="hero-section">
-
         <video autoplay muted loop playsinline class="hero-video">
             <source src="videos/video1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
-
         <div class="hero-overlay">
-            <h1>Delicious Moments, Crafted Beautifully</h1>
+            <span class="hero-eyebrow">100% Vegetarian · Handcrafted in Pune</span>
+            <h1>Delicious Moments,<br><em>Crafted Beautifully</em></h1>
             <p>Premium Cakes for Every Celebration</p>
+            <div class="hero-actions">
+                <a href="cake.html" class="hero-btn primary"><i class="fas fa-cake-candles"></i> Explore Cakes</a>
+                <a href="https://wa.me/919823230505?text=Hi!%20I'd%20like%20to%20order%20a%20custom%20cake."
+                    target="_blank" class="hero-btn outline"><i class="fab fa-whatsapp"></i> Order Now</a>
+            </div>
         </div>
-
-        <img src="images/veg-icon.png" class="video-icon" alt="icon">
-
+        <img src="images/veg-icon.png" class="video-icon" alt="Veg icon">
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
     </section>
 
     <section class="celebrity-section">
 
+        <span class="section-eyebrow">As Seen With</span>
         <h2 class="section-title">Our Cakes with Famous Faces</h2>
+        <p class="section-sub">Celebrated by celebrities, loved by everyone.</p>
 
         <div class="carousel-outer">
             <button class="cel-arrow" id="celPrev" aria-label="Previous">&#8592;</button>
@@ -91,21 +98,24 @@
                 <div class="cake-img">
                     <img src="images/cakes/IMG_2368.JPG" alt="">
                 </div>
-                <h3>Cakes</h3>
             </div>
 
             <div class="cake-card">
                 <div class="cake-img">
                     <img src="images/cakes/IMG_2313.JPG" alt="">
                 </div>
-                <h3>Cakes</h3>
             </div>
 
             <div class="cake-card">
                 <div class="cake-img">
                     <img src="images/cakes/IMG_2364.JPG" alt="">
                 </div>
-                <h3>Cakes</h3>
+            </div>
+
+            <div class="cake-card">
+                <div class="cake-img">
+                    <img src="images/cakes/IMG_2261.JPG" alt="">
+                </div>
             </div>
 
         </div>
@@ -200,37 +210,105 @@
 
     <section class="franchise-section">
         <div class="franchise-box">
-            <h2>Own an Oya Kekars Franchise</h2>
+            <span class="fr-eyebrow">Business Opportunity</span>
+            <h2>Own an OYA Kekars Franchise</h2>
             <p>Turn your passion into a profitable premium bakery business.</p>
-            <a href="#" class="btn-gold">Apply Now</a>
+            <a href="#" class="btn-gold" id="openFranchisePopup"><i class="fas fa-store"></i> Apply Now</a>
         </div>
     </section>
+
+    <div class="popup-overlay" id="franchisePopup">
+        <div class="popup-container">
+
+            <button class="popup-close" id="closeFranchisePopup">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="form-right">
+                <h3>Apply Now</h3>
+                <p>Takes less than 2 minutes. No commitment required.</p>
+
+                <form id="franchiseForm">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullname" placeholder="Full Name" required>
+                        </div>
+
+                        <div class="form-field">
+                            <i class="fas fa-city"></i>
+                            <input type="text" id="city" placeholder="City" required>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="form-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Email Address" required>
+                    </div>
+
+                    <div class="form-field">
+                        <i class="fas fa-indian-rupee-sign"></i>
+                        <select id="investment" required>
+                            <option value="" disabled selected>Investment Range</option>
+                            <option>₹2–3 Lakhs</option>
+                            <option>₹3–5 Lakhs</option>
+                            <option>₹5+ Lakhs</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field textarea-field">
+                        <i class="fas fa-comment-dots"></i>
+                        <textarea id="message" placeholder="Tell us about your plan or any questions…"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Application
+                    </button>
+
+                    <div class="form-note">
+                        <i class="fas fa-lock"></i>
+                        Your information is private and never shared.
+                    </div>
+                </form>
+
+                <div class="form-success" id="formSuccess">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+
+                    <h4>Application Received!</h4>
+
+                    <p>
+                        Thank you! Our franchise team will reach out within 24 hours
+                        to schedule your consultation call.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="testimonial-section">
 
         <div class="testimonial-header">
-
-            <p class="sub-heading">WHAT OUR CUSTOMERS SAY</p>
-
-            <h2 class="main-heading">
-                Made with love,<br>
-                <span>savoured forever</span>
-            </h2>
-
+            <p class="sub-heading">What Our Customers Say</p>
+            <h2 class="main-heading">Made with love,<br><span>savoured forever</span></h2>
             <div class="rating-box">
                 <div class="rating-left">
                     <h3>4.8</h3>
                     <div class="stars">★★★★★</div>
                 </div>
-
                 <div class="divider"></div>
-
                 <div class="rating-right">
                     <h4>513+</h4>
                     <p>Google Reviews</p>
                 </div>
             </div>
-
         </div>
 
         <div class="testimonial-slider">

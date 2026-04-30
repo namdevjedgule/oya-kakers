@@ -336,3 +336,48 @@ function initCarousel() {
     });
     startAuto();
 }
+
+const popup = document.getElementById("franchisePopup");
+const openBtn = document.getElementById("openFranchisePopup");
+const closeBtn = document.getElementById("closeFranchisePopup");
+
+openBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    popup.classList.add("active");
+    document.body.style.overflow = "hidden";
+});
+
+closeBtn.addEventListener("click", () => {
+    popup.classList.remove("active");
+    document.body.style.overflow = "auto";
+});
+
+/* CLOSE WHEN CLICK OUTSIDE */
+
+popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+        popup.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }
+});
+
+/* ESC KEY CLOSE */
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        popup.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }
+});
+
+/* SUCCESS MESSAGE */
+
+const form = document.getElementById("franchiseForm");
+const success = document.getElementById("formSuccess");
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    form.style.display = "none";
+    success.style.display = "block";
+});
