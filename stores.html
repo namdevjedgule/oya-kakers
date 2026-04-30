@@ -3,16 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Franchise - Oya Kakers</title>
+    <title>Find a Store - OYA Kekars</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <link rel="stylesheet" href="css/style.css">
+
     <style>
+        :root {
+            --red: #EB3C27;
+            --blush: #EDCDC2;
+            --rose: #ECD8DC;
+            --cream: #F1F0E2;
+            --brown: #8F7265;
+            --brown-dk: #5a4035;
+            --brown-lt: #b89c91;
+            --white: #ffffff;
+        }
+
+        body {
+            background: var(--cream);
+            font-family: 'Poppins', system-ui, sans-serif;
+            color: var(--brown-dk);
+        }
+
         .store-parallax {
             position: relative;
             height: 50vh;
@@ -69,71 +86,477 @@
             font-size: 16px;
         }
 
-        .fp-btn {
-            margin-top: 15px;
-            display: inline-block;
-            padding: 14px 32px;
-            background: #D4AF37;
-            color: #2B1B17;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: 0.3s;
+        .stats-strip {
+            background: var(--brown-dk);
+            padding: 2rem 2rem;
         }
 
-        .fp-btn:hover {
-            background: #c59b2f;
-            transform: translateY(-3px);
+        .stats-strip-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
         }
 
-        .store-locator {
-            padding: 100px 5%;
-            color: #3E2723;
-        }
-
-        .store-locator h1 {
+        .pstat {
             text-align: center;
-            margin-bottom: 20px;
+            flex: 1;
+            padding: 0 2rem;
+            border-right: 0.5px solid rgba(237, 205, 194, 0.15);
+        }
+
+        .pstat:last-child {
+            border-right: none;
+        }
+
+        .pstat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--blush);
+            display: block;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .pstat-label {
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(237, 205, 194, 0.5);
+        }
+
+        .section-intro {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .intro-text {}
+        .intro-eyebrow {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 0.6rem;
+        }
+
+        .intro-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--brown-dk);
+            line-height: 1.2;
+        }
+
+        .intro-sub {
+            font-size: 14px;
+            color: var(--brown);
+            margin-top: 0.5rem;
+            line-height: 1.65;
+            max-width: 420px;
+        }
+
+        .search-wrap {
+            position: relative;
+            min-width: 280px;
+        }
+
+        .search-wrap i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--brown-lt);
+            font-size: 14px;
         }
 
         #searchBox {
-            display: block;
-            margin: 0 auto 30px;
-            padding: 12px 20px;
-            width: 300px;
-            border-radius: 30px;
-            border: none;
+            width: 100%;
+            padding: 13px 18px 13px 42px;
+            border-radius: 40px;
+            border: 1px solid rgba(143, 114, 101, 0.25);
+            background: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: var(--brown-dk);
             outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
         }
 
-        .locator-container {
+        #searchBox::placeholder {
+            color: var(--brown-lt);
+        }
+
+        #searchBox:focus {
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(235, 60, 39, 0.08);
+        }
+
+        .locator-body {
+            max-width: 1100px;
+            margin: 2.5rem auto 0;
+            padding: 0 2rem 5rem;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .store-list-wrap {
             display: flex;
-            gap: 20px;
+            flex-direction: column;
+            gap: 0;
+            max-height: 560px;
+            overflow-y: auto;
+            border-radius: 16px;
+            border: 1px solid rgba(143, 114, 101, 0.15);
+            background: var(--white);
+            scroll-behavior: smooth;
         }
 
-        .store-list {
-            width: 40%;
-            max-height: 500px;
-            overflow-y: auto;
+        .store-list-wrap::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .store-list-wrap::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .store-list-wrap::-webkit-scrollbar-thumb {
+            background: var(--blush);
+            border-radius: 4px;
         }
 
         .store-card {
-            background: #fff;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 0.5px solid rgba(143, 114, 101, 0.1);
             cursor: pointer;
-            transition: 0.3s;
+            transition: background 0.18s;
+            position: relative;
+        }
+
+        .store-card:last-child {
+            border-bottom: none;
         }
 
         .store-card:hover {
-            background: #D4AF37;
-            color: white;
+            background: #fdf9f7;
+        }
+
+        .store-card.active {
+            background: var(--blush);
+        }
+
+        .store-card.active .sc-name {
+            color: var(--brown-dk);
+        }
+
+        .sc-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sc-left {}
+
+        .sc-num {
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--brown-lt);
+            margin-bottom: 3px;
+        }
+
+        .sc-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--brown-dk);
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+
+        .sc-loc {
+            font-size: 12px;
+            color: var(--brown);
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sc-loc i {
+            font-size: 10px;
+            color: var(--red);
+        }
+
+        .sc-pin {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--rose);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sc-pin i {
+            font-size: 12px;
+            color: var(--red);
+        }
+
+        .store-card.active .sc-pin {
+            background: var(--red);
+        }
+
+        .store-card.active .sc-pin i {
+            color: var(--white);
+        }
+
+        .sc-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.75rem;
+        }
+
+        .sc-phone {
+            font-size: 12px;
+            color: var(--brown);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .sc-phone:hover {
+            color: var(--red);
+        }
+
+        .sc-phone i {
+            font-size: 10px;
+            color: var(--red);
+        }
+
+        .sc-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .sc-action-btn {
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--brown);
+            background: var(--rose);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .sc-action-btn:hover {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .sc-action-btn i {
+            font-size: 9px;
+        }
+
+        .empty-state {
+            padding: 3rem 1.5rem;
+            text-align: center;
+            color: var(--brown-lt);
+        }
+
+        .empty-state i {
+            font-size: 32px;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .empty-state p {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .map-panel {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(143, 114, 101, 0.15);
+            position: sticky;
+            top: 1.5rem;
+        }
+
+        .map-header {
+            background: var(--brown-dk);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .map-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--red);
+        }
+
+        .map-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--blush);
+            letter-spacing: 0.04em;
+        }
+
+        .map-count {
+            font-size: 11px;
+            color: rgba(237, 205, 194, 0.5);
+            background: rgba(237, 205, 194, 0.08);
+            padding: 3px 10px;
+            border-radius: 20px;
         }
 
         #map {
-            width: 60%;
-            height: 500px;
-            border-radius: 12px;
+            width: 100%;
+            height: 510px;
+            display: block;
+        }
+
+        .bottom-strip {
+            background: var(--brown-dk);
+            padding: 3rem 2rem;
+        }
+
+        .bottom-strip-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .bs-block {}
+
+        .bs-label {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--brown-lt);
+            margin-bottom: 0.5rem;
+        }
+
+        .bs-value {
+            font-size: 15px;
+            color: var(--blush);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .bs-value a {
+            color: var(--blush);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .bs-value a:hover {
+            color: var(--cream);
+        }
+
+        .bs-cta {
+            text-align: right;
+        }
+
+        .bs-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--red);
+            color: var(--cream);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .bs-btn:hover {
+            background: #d03420;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 860px) {
+            .section-intro {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 3rem 1.5rem 0;
+            }
+
+            .search-wrap {
+                width: 100%;
+            }
+
+            .locator-body {
+                grid-template-columns: 1fr;
+                padding: 0 1.5rem 4rem;
+            }
+
+            .store-list-wrap {
+                max-height: 380px;
+            }
+
+            .map-panel {
+                position: static;
+            }
+
+            #map {
+                height: 320px;
+            }
+
+            .bottom-strip-inner {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .bs-cta {
+                text-align: left;
+            }
+
+            .parallax-content h1 {
+                font-size: 30px;
+            }
+
+            .parallax-stats {
+                gap: 2rem;
+            }
         }
     </style>
 </head>
@@ -148,156 +571,246 @@
         </div>
     </section>
 
-    <section class="store-locator">
+    <div class="stats-strip">
+        <div class="stats-strip-inner">
+            <div class="pstat">
+                <span class="pstat-num">6</span>
+                <span class="pstat-label">Locations</span>
+            </div>
+            <div class="pstat">
+                <span class="pstat-num">2</span>
+                <span class="pstat-label">Cities</span>
+            </div>
+            <div class="pstat">
+                <span class="pstat-num">10+</span>
+                <span class="pstat-label">Years</span>
+            </div>
+        </div>
+    </div>
 
-        <h1>Find Our Stores</h1>
+    <div class="section-intro">
+        <div class="intro-text">
+            <div class="intro-eyebrow">Our Stores</div>
+            <h2 class="intro-title">Every location,<br>the same quality.</h2>
+            <p class="intro-sub">Click any store to zoom in on the map. Call ahead or get directions instantly.</p>
+        </div>
+        <div class="search-wrap">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchBox" placeholder="Search by city or area…">
+        </div>
+    </div>
 
-        <input type="text" id="searchBox" placeholder="Search by city or area">
+    <div class="locator-body">
+        <div class="store-list-wrap" id="storeList"></div>
 
-        <div class="locator-container">
-
-            <div class="store-list" id="storeList"></div>
-
+        <div class="map-panel">
+            <div class="map-header">
+                <div class="map-header-left">
+                    <div class="map-dot"></div>
+                    <span class="map-title">Live Store Map</span>
+                </div>
+                <span class="map-count" id="mapCount">6 stores</span>
+            </div>
             <div id="map"></div>
-
         </div>
 
-    </section>
+    </div>
+
+    <div class="bottom-strip">
+        <div class="bottom-strip-inner">
+            <div class="bs-block">
+                <div class="bs-label">Call us</div>
+                <div class="bs-value"><a href="tel:+919823230505">+91 9823 230 505</a></div>
+            </div>
+            <div class="bs-block">
+                <div class="bs-label">WhatsApp</div>
+                <div class="bs-value"><a href="https://wa.me/919823230505" target="_blank">+91 9823 230 505</a></div>
+            </div>
+            <div class="bs-cta">
+                <a class="bs-btn"
+                    href="https://wa.me/919823230505?text=Hi!%20I'd%20like%20to%20order%20a%20custom%20cake."
+                    target="_blank">
+                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="fab-container">
         <div class="fab-main" onclick="toggleMenu()">
             <i id="fabIcon" class="fas fa-comment-dots"></i>
         </div>
-
         <div class="fab-options">
-            <a href="tel:+919876543210" class="fab-item">
-                <i class="fas fa-phone"></i>
-                <span>Call Now</span>
-            </a>
-
-            <a href="franchise.html" class="fab-item">
-                <i class="fas fa-store"></i>
-                <span>Franchise</span>
-            </a>
-
-            <a href="https://wa.me/919876543210" target="_blank" class="fab-item whatsapp">
-                <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp</span>
-            </a>
+            <a href="tel:+919823230505" class="fab-item"><i class="fas fa-phone"></i><span>Call Now</span></a>
+            <a href="franchise.html" class="fab-item"><i class="fas fa-store"></i><span>Franchise</span></a>
+            <a href="https://wa.me/919823230505" target="_blank" class="fab-item whatsapp"><i
+                    class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
         </div>
     </div>
 
     <div id="footer"></div>
-
     <script src="js/script.js" defer></script>
 
     <script>
         const stores = [
-            {
-                name: "OYA KEKARS (Main Branch)",
-                location: "Hadapsar, Pune",
-                phone: "+91 9823230505",
-                lat: 18.5089,
-                lng: 73.9260
-            },
-            {
-                name: "OYA KEKARS",
-                location: "Koregaon Park, Pune",
-                phone: "+91 7720088005",
-                lat: 18.5362,
-                lng: 73.8939
-            },
-            {
-                name: "OYA KEKARS",
-                location: "Tilekarnagar, Pune",
-                phone: "+91 9921216202",
-                lat: 18.4960,
-                lng: 73.9410
-            },
-            {
-                name: "OYA KEKARS",
-                location: "Nanded City, Pune",
-                phone: "+91 8698000408",
-                lat: 18.4575,
-                lng: 73.7927
-            },
-            {
-                name: "OYA KEKARS",
-                location: "Rajarampuri, Kolhapur",
-                phone: "+91 7750707581",
-                lat: 16.7000,
-                lng: 74.2330
-            },
-            {
-                name: "OYA KEKARS",
-                location: "Kharadi, Pune",
-                phone: "+91 9168630505",
-                lat: 18.5515,
-                lng: 73.9475
-            }
+            { name: "OYA Kekars — Main Branch", location: "Hadapsar, Pune", phone: "+91 9823230505", lat: 18.5089, lng: 73.9260 },
+            { name: "OYA Kekars", location: "Koregaon Park, Pune", phone: "+91 7720088005", lat: 18.5362, lng: 73.8939 },
+            { name: "OYA Kekars", location: "Tilekarnagar, Pune", phone: "+91 9921216202", lat: 18.4960, lng: 73.9410 },
+            { name: "OYA Kekars", location: "Nanded City, Pune", phone: "+91 8698000408", lat: 18.4575, lng: 73.7927 },
+            { name: "OYA Kekars", location: "Rajarampuri, Kolhapur", phone: "+91 7750707581", lat: 16.7000, lng: 74.2330 },
+            { name: "OYA Kekars", location: "Kharadi, Pune", phone: "+91 9168630505", lat: 18.5515, lng: 73.9475 }
         ];
 
-        let map;
-        let markers = [];
+        let map, markers = [], infoWindows = [], activeCard = null;
+
+        const mapStyles = [
+            { elementType: "geometry", stylers: [{ color: "#f5ede8" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#f5ede8" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#5a4035" }] },
+            { featureType: "road", elementType: "geometry", stylers: [{ color: "#ffffff" }] },
+            { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#edcdc2" }] },
+            { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#ecd8dc" }] },
+            { featureType: "water", elementType: "geometry", stylers: [{ color: "#c8bdb9" }] },
+            { featureType: "poi.park", elementType: "geometry", stylers: [{ color: "#e8ddd8" }] },
+            { featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] },
+            { featureType: "transit", stylers: [{ visibility: "off" }] },
+            { featureType: "administrative", elementType: "geometry.stroke", stylers: [{ color: "#8f7265" }] },
+            { featureType: "administrative.land_parcel", elementType: "labels", stylers: [{ visibility: "off" }] }
+        ];
+
+        function markerIcon(active) {
+            const color = active ? '#EB3C27' : '#8F7265';
+            return {
+                url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" viewBox="0 0 32 40">
+                        <path d="M16 0C7.2 0 0 7.2 0 16c0 10.6 14.4 24 16 24s16-13.4 16-24C32 7.2 24.8 0 16 0z" fill="${color}"/>
+                        <circle cx="16" cy="16" r="7" fill="white" opacity="0.9"/>
+                    </svg>`),
+                scaledSize: new google.maps.Size(32, 40),
+                anchor: new google.maps.Point(16, 40)
+            };
+        }
 
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 7,
-                center: { lat: 18.5204, lng: 73.8567 },
-                styles: [
-                    { elementType: "geometry", stylers: [{ color: "#1d1d1d" }] },
-                    { elementType: "labels.text.stroke", stylers: [{ color: "#1d1d1d" }] },
-                    { elementType: "labels.text.fill", stylers: [{ color: "#ffffff" }] }
-                ]
+                zoom: 10,
+                center: { lat: 18.52, lng: 73.87 },
+                styles: mapStyles,
+                disableDefaultUI: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                streetViewControl: false,
+                fullscreenControl: true
             });
-
             loadStores(stores);
+        }
+
+        function activateCard(index) {
+            document.querySelectorAll('.store-card').forEach((c, i) => {
+                c.classList.toggle('active', i === index);
+            });
+            markers.forEach((m, i) => m.setIcon(markerIcon(i === index)));
+            activeCard = index;
         }
 
         function loadStores(data) {
             const list = document.getElementById("storeList");
             list.innerHTML = "";
-
             markers.forEach(m => m.setMap(null));
             markers = [];
+            infoWindows = [];
 
-            data.forEach(store => {
-                const div = document.createElement("div");
-                div.className = "store-card";
-                div.innerHTML = `
-            <h3>${store.name}</h3>
-            <p>${store.location}</p>
-            <p>${store.phone}</p>
-        `;
-                list.appendChild(div);
+            if (data.length === 0) {
+                list.innerHTML = `<div class="empty-state">
+                    <i class="fas fa-store-slash"></i>
+                    <p>No stores found for that search.<br>Try a different city or area.</p>
+                </div>`;
+                document.getElementById("mapCount").textContent = "0 stores";
+                return;
+            }
+
+            document.getElementById("mapCount").textContent = data.length + " store" + (data.length !== 1 ? "s" : "");
+
+            data.forEach((store, i) => {
+                const card = document.createElement("div");
+                card.className = "store-card";
+                card.innerHTML = `
+                    <div class="sc-top">
+                        <div class="sc-left">
+                            <div class="sc-num">Store ${String(i + 1).padStart(2, '0')}</div>
+                            <div class="sc-name">${store.name}</div>
+                            <div class="sc-loc"><i class="fas fa-location-dot"></i>${store.location}</div>
+                        </div>
+                        <div class="sc-pin"><i class="fas fa-location-dot"></i></div>
+                    </div>
+                    <div class="sc-bottom">
+                        <a class="sc-phone" href="tel:${store.phone.replace(/\s/g, '')}">
+                            <i class="fas fa-phone"></i>${store.phone}
+                        </a>
+                        <div class="sc-actions">
+                            <a class="sc-action-btn" href="https://wa.me/${store.phone.replace(/[^0-9]/g, '')}" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Chat
+                            </a>
+                            <a class="sc-action-btn" href="https://www.google.com/maps?q=${store.lat},${store.lng}" target="_blank">
+                                <i class="fas fa-diamond-turn-right"></i> Directions
+                            </a>
+                        </div>
+                    </div>`;
+                list.appendChild(card);
 
                 const marker = new google.maps.Marker({
                     position: { lat: store.lat, lng: store.lng },
                     map,
-                    title: store.name
+                    title: store.name,
+                    icon: markerIcon(false),
+                    animation: google.maps.Animation.DROP
                 });
-
                 markers.push(marker);
 
-                div.addEventListener("click", () => {
-                    map.setCenter(marker.getPosition());
+                const iw = new google.maps.InfoWindow({
+                    content: `<div style="font-family:Poppins,sans-serif;padding:4px 6px;min-width:160px;">
+                        <div style="font-weight:500;font-size:13px;color:#5a4035;margin-bottom:4px;">${store.name}</div>
+                        <div style="font-size:12px;color:#8f7265;">${store.location}</div>
+                        <div style="font-size:12px;color:#8f7265;margin-top:2px;">${store.phone}</div>
+                    </div>`
+                });
+                infoWindows.push(iw);
+
+                card.addEventListener("click", () => {
+                    activateCard(i);
+                    map.panTo({ lat: store.lat, lng: store.lng });
                     map.setZoom(14);
+                    infoWindows.forEach(w => w.close());
+                    iw.open(map, marker);
+                });
+
+                marker.addListener("click", () => {
+                    activateCard(i);
+                    infoWindows.forEach(w => w.close());
+                    iw.open(map, marker);
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 });
             });
+
+            if (data.length > 1) {
+                const bounds = new google.maps.LatLngBounds();
+                data.forEach(s => bounds.extend({ lat: s.lat, lng: s.lng }));
+                map.fitBounds(bounds, { top: 40, right: 40, bottom: 40, left: 40 });
+            } else if (data.length === 1) {
+                map.setCenter({ lat: data[0].lat, lng: data[0].lng });
+                map.setZoom(14);
+            }
         }
 
         document.getElementById("searchBox").addEventListener("input", function () {
-            const value = this.value.toLowerCase();
-
-            const filtered = stores.filter(store =>
-                store.location.toLowerCase().includes(value)
-            );
-
+            const q = this.value.toLowerCase().trim();
+            const filtered = q ? stores.filter(s => s.location.toLowerCase().includes(q) || s.name.toLowerCase().includes(q)) : stores;
             loadStores(filtered);
         });
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRvPaMDxyDqUQzWDzmQEV0YGhbVqk0rbI&callback=initMap" async defer></script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRvPaMDxyDqUQzWDzmQEV0YGhbVqk0rbI&callback=initMap"
+        async defer></script>
 </body>
 
 </html>

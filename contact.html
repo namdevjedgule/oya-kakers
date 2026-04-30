@@ -226,26 +226,26 @@
                 <h2>Send a Message</h2>
 
                 <div class="input-group">
-                    <input type="text" required>
+                    <input type="text" id="name" required>
                     <label>Your Name</label>
                 </div>
 
                 <div class="input-group">
-                    <input type="email" required>
+                    <input type="email" id="email" required>
                     <label>Email Address</label>
                 </div>
 
                 <div class="input-group">
-                    <input type="text" required>
+                    <input type="text" id="phone" required>
                     <label>Phone Number</label>
                 </div>
 
                 <div class="input-group">
-                    <textarea required></textarea>
+                    <textarea id="message" required></textarea>
                     <label>Your Message</label>
                 </div>
 
-                <button class="contact-btn">Send Message</button>
+                <button class="contact-btn" onclick="sendToWhatsApp()">Send Message</button>
             </div>
 
             <div class="contact-info">
@@ -297,6 +297,31 @@
     <div id="footer"></div>
 
     <script src="js/script.js" defer></script>
+    <script>
+        function sendToWhatsApp() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !phone || !message) {
+                alert("Please fill all fields properly");
+                return;
+            }
+
+            let whatsappNumber = "919823230505"; 
+
+            let text = `Hello Oya Kekars,%0A
+Name: ${name}%0A
+Email: ${email}%0A
+Phone: ${phone}%0A
+Message: ${message}`;
+
+            let url = `https://wa.me/${whatsappNumber}?text=${text}`;
+
+            window.open(url, "_blank");
+        }
+    </script>
 
 </body>
 

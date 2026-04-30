@@ -3,16 +3,42 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Franchise - Oya Kakers</title>
+    <title>Franchise — OYA Kekars</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
     <link rel="stylesheet" href="css/style.css">
+
     <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --red: #EB3C27;
+            --blush: #EDCDC2;
+            --rose: #ECD8DC;
+            --cream: #F1F0E2;
+            --brown: #8F7265;
+            --brown-dk: #5a4035;
+            --brown-lt: #b89c91;
+            --white: #ffffff;
+        }
+
+        body {
+            background: var(--cream);
+            font-family: 'Poppins', sans-serif;
+            color: var(--brown-dk);
+            overflow-x: hidden;
+        }
+
         .fp-parallax {
             position: relative;
             height: 50vh;
@@ -51,12 +77,9 @@
             left: 50%;
             bottom: -5px;
             transform: translateX(-50%);
-
             width: 60%;
             height: 2px;
-
             background: linear-gradient(to right, transparent, #D4AF37, transparent);
-
             transition: 0.4s ease;
         }
 
@@ -69,199 +92,758 @@
             font-size: 16px;
         }
 
-        .fp-btn {
-            margin-top: 15px;
-            display: inline-block;
-            padding: 14px 32px;
-            background: #D4AF37;
-            color: #2B1B17;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: 0.3s;
+        .stats-strip {
+            background: var(--brown-dk);
+            padding: 0;
         }
 
-        .fp-btn:hover {
-            background: #c59b2f;
-            transform: translateY(-3px);
+        .stats-strip-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat-block {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-right: 0.5px solid rgba(237, 205, 194, 0.12);
+            position: relative;
+        }
+
+        .stat-block:last-child {
+            border-right: none;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--blush);
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(237, 205, 194, 0.45);
+        }
+
+        .section-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 500;
+            color: var(--brown-dk);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            font-size: 14px;
+            color: var(--brown);
+            line-height: 1.75;
+            max-width: 540px;
         }
 
         .fp-why {
-            padding: 20px 4%;
-            text-align: center;
+            padding: 6rem 2rem;
+            background: var(--cream);
         }
 
-        .fp-why h2 {
-            font-family: 'Playfair Display', serif;
-            color: #3E2723;
+        .fp-why-header {
+            max-width: 1100px;
+            margin: 0 auto 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2rem;
         }
 
         .fp-grid {
+            max-width: 1100px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 50px;
+            gap: 1px;
+            background: rgba(143, 114, 101, 0.12);
+            border-radius: 16px;
+            overflow: hidden;
         }
 
         .fp-card {
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            border-radius: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        .fp-card span {
-            font-size: 30px;
-        }
-
-        .fp-card h3 {
-            margin-top: 10px;
-            color: #3E2723;
-        }
-
-        .fp-card p {
-            color: #3E2723;
+            background: var(--white);
+            padding: 2.25rem 1.75rem;
+            transition: background 0.22s;
+            position: relative;
         }
 
         .fp-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: var(--blush);
+        }
+
+        .fp-card:hover .fp-icon {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .fp-card:hover .fp-card-title {
+            color: var(--brown-dk);
+        }
+
+        .fp-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--rose);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 1.25rem;
+            transition: background 0.22s, color 0.22s;
+            color: var(--brown-dk);
+        }
+
+        .fp-card-num {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--brown-lt);
+            margin-bottom: 0.4rem;
+        }
+
+        .fp-card-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--brown-dk);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .fp-card p {
+            font-size: 13px;
+            color: var(--brown);
+            line-height: 1.6;
+        }
+
+        .fp-process {
+            background: var(--brown-dk);
+            padding: 6rem 2rem;
+        }
+
+        .fp-process-header {
+            max-width: 1100px;
+            margin: 0 auto 4rem;
+        }
+
+        .fp-process-header .section-title {
+            color: var(--blush);
+        }
+
+        .fp-process-header .section-sub {
+            color: rgba(237, 205, 194, 0.6);
+        }
+
+        .timeline-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 36px;
+            left: 0;
+            right: 0;
+            height: 0.5px;
+            background: rgba(237, 205, 194, 0.15);
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .tl-circle {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(237, 205, 194, 0.08);
+            border: 0.5px solid rgba(237, 205, 194, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .tl-circle i {
+            font-size: 22px;
+            color: var(--blush);
+        }
+
+        .timeline-item:hover .tl-circle {
+            background: var(--red);
+            border-color: var(--red);
+        }
+
+        .timeline-item:hover .tl-circle i {
+            color: var(--white);
+        }
+
+        .tl-step {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(237, 205, 194, 0.35);
+            margin-bottom: 4px;
+        }
+
+        .tl-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--blush);
+            margin-bottom: 0.4rem;
+        }
+
+        .tl-desc {
+            font-size: 12px;
+            color: rgba(237, 205, 194, 0.5);
+            line-height: 1.6;
         }
 
         .fp-calculator {
             position: relative;
-            padding: 100px 10%;
-            background: #ECD8DC;
+            background: var(--rose);
+            padding: 6rem 2rem;
             overflow: hidden;
             text-align: center;
         }
 
-        .fp-calculator h2 {
-            color: #D4AF37;
+        .calc-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .calc-box {
-            margin-top: 30px;
+        .calc-left .section-title {
+            color: var(--brown-dk);
         }
 
-        .calc-box input {
-            padding: 12px;
-            margin: 10px;
+        .calc-left .section-sub {
+            color: var(--brown);
+        }
+
+        .calc-highlights {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .calc-hl {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--brown);
+        }
+
+        .calc-hl-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--red);
+            flex-shrink: 0;
+        }
+
+        .calc-right {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 0.5px solid rgba(143, 114, 101, 0.15);
+        }
+
+        .calc-right h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--brown-dk);
+            margin-bottom: 1.75rem;
+        }
+
+        .calc-field {
+            margin-bottom: 1.25rem;
+        }
+
+        .calc-field label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--brown);
+            margin-bottom: 6px;
+        }
+
+        .calc-field input {
+            width: 100%;
+            padding: 12px 16px;
             border-radius: 10px;
-            border: none;
-            width: 180px;
+            border: 1px solid rgba(143, 114, 101, 0.2);
+            background: var(--cream);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: var(--brown-dk);
+            outline: none;
+            transition: border 0.2s;
         }
 
-        .calc-box button {
-            padding: 12px 25px;
-            background: #D4AF37;
-            color: #2B1B17;
+        .calc-field input:focus {
+            border-color: var(--red);
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 13px;
+            background: var(--red);
+            color: var(--white);
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        .calc-btn:hover {
+            background: #d03420;
+            transform: translateY(-2px);
+        }
+
+        .calc-result {
+            margin-top: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--cream);
+            border-radius: 12px;
+            border-left: 3px solid var(--red);
+            display: none;
+        }
+
+        .calc-result.visible {
+            display: block;
+        }
+
+        .calc-result-label {
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--brown-lt);
+            margin-bottom: 6px;
+        }
+
+        .calc-result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .calc-ritem {}
+
+        .calc-ritem .r-label {
+            font-size: 11px;
+            color: var(--brown);
+            margin-bottom: 2px;
+        }
+
+        .calc-ritem .r-val {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--red);
+        }
+
+        .fp-form-section {
+            background: var(--cream);
+            padding: 6rem 2rem;
+        }
+
+        .form-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .form-left {}
+
+        .form-perks {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-perk {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .perk-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--rose);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .perk-icon i {
+            font-size: 15px;
+            color: var(--red);
+        }
+
+        .perk-text .p-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--brown-dk);
+            margin-bottom: 2px;
+        }
+
+        .perk-text .p-desc {
+            font-size: 12px;
+            color: var(--brown);
+            line-height: 1.55;
+        }
+
+        .form-right {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 0.5px solid rgba(143, 114, 101, 0.15);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .form-right h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--brown-dk);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-right p {
+            font-size: 13px;
+            color: var(--brown);
+            margin-bottom: 1.75rem;
+            line-height: 1.6;
+        }
+
+        .form-field {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .form-field i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: var(--brown-lt);
+        }
+
+        .form-field.textarea-field i {
+            top: 18px;
+            transform: none;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 12px 14px 12px 36px;
+            border-radius: 10px;
+            border: 1px solid rgba(143, 114, 101, 0.2);
+            background: var(--cream);
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            color: var(--brown-dk);
+            outline: none;
+            transition: border 0.2s;
+            appearance: none;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: var(--red);
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 90px;
+            padding-top: 14px;
+        }
+
+        .form-field select {
             cursor: pointer;
         }
 
-        #result {
-            margin-top: 20px;
-            color: #D4AF37;
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
 
-        .fp-process {
-            padding: 90px 8%;
-            text-align: center;
-        }
-
-        .timeline {
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--brown-dk);
+            color: var(--cream);
+            border: none;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            margin-top: 0.5rem;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--red);
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 11px;
+            color: var(--brown-lt);
+            margin-top: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .form-note i {
+            font-size: 10px;
+            color: var(--red);
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .form-success .success-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--rose);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+
+        .form-success .success-icon i {
+            font-size: 26px;
+            color: var(--red);
+        }
+
+        .form-success h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--brown-dk);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-success p {
+            font-size: 13px;
+            color: var(--brown);
+        }
+
+        .fp-cta-strip {
+            background: var(--red);
+            padding: 3.5rem 2rem;
+        }
+
+        .cta-strip-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
             justify-content: space-between;
-            margin-top: 50px;
-            position: relative;
+            gap: 2rem;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            width: 90%;
-            height: 2px;
-            background: #D4AF37;
+        .cta-strip-text .cta-label {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(241, 240, 226, 0.6);
+            margin-bottom: 0.4rem;
         }
 
-        .timeline-item {
-            background: white;
-            color: #2B1B17;
-            padding: 20px;
-            border-radius: 50px;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        .cta-strip-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--cream);
             font-weight: 500;
         }
 
-        .fp-form {
-            padding: 30px 4%;
-            text-align: center;
+        .cta-strip-actions {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
         }
 
-        .fp-form h2 {
-            font-family: 'Playfair Display', serif;
-            color: #3E2723;
-        }
-
-        .fp-form form {
-            max-width: 500px;
-            margin: 40px auto;
-            background: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .fp-form input,
-        .fp-form select,
-        .fp-form textarea {
-            width: 100%;
-            margin-bottom: 15px;
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #eee;
-            transition: 0.3s;
-        }
-
-        .fp-form input:focus,
-        .fp-form textarea:focus {
-            border-color: #D4AF37;
-        }
-
-        .fp-form button {
-            width: 100%;
-            padding: 14px;
-            background: #3E2723;
-            color: white;
+        .cta-s-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 24px;
             border-radius: 30px;
-            border: none;
-            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.2s;
         }
 
-        .fp-form button:hover {
-            background: #D4AF37;
-            color: #2B1B17;
+        .cta-s-btn.primary {
+            background: var(--cream);
+            color: var(--red);
+        }
+
+        .cta-s-btn.primary:hover {
+            background: var(--white);
+        }
+
+        .cta-s-btn.outline {
+            background: transparent;
+            color: var(--cream);
+            border: 1px solid rgba(241, 240, 226, 0.4);
+        }
+
+        .cta-s-btn.outline:hover {
+            background: rgba(241, 240, 226, 0.1);
         }
 
         @media (max-width: 900px) {
+            .stats-strip-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-block:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat-block:nth-child(3) {
+                border-top: 0.5px solid rgba(237, 205, 194, 0.12);
+            }
+
             .fp-grid {
                 grid-template-columns: 1fr 1fr;
             }
 
             .timeline {
-                flex-direction: column;
-                gap: 20px;
+                grid-template-columns: 1fr 1fr;
             }
 
-            .timeline::before {
+            .timeline-line {
                 display: none;
+            }
+
+            .calc-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .form-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .form-right {
+                position: static;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-strip-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .fp-why-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .fp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-strip-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 28px;
             }
         }
     </style>
@@ -273,288 +855,398 @@
     <section class="fp-parallax">
         <div class="parallax-content">
             <h1>Own a Premium Cake Brand</h1>
-            <p>Join Oya Kekars & build a profitable bakery business</p>
+            <p>Join OYA Kekars &amp; build a profitable bakery business</p>
         </div>
     </section>
 
-    <section class="franchise-premium">
-
-        <div class="fp-form" id="apply">
-            <h2>Apply Now</h2>
-
-            <form>
-                <input type="text" placeholder="Full Name" required>
-                <input type="text" placeholder="City" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <input type="email" placeholder="Email Address" required>
-
-                <select required>
-                    <option>Investment Range</option>
-                    <option>2-3 Lakhs</option>
-                    <option>3-5 Lakhs</option>
-                </select>
-
-                <textarea placeholder="Your Plan"></textarea>
-
-                <button type="submit">Submit Application</button>
-            </form>
-        </div>
-
-        <div class="fp-why">
-            <h2>Why Partner With Us</h2>
-
-            <div class="fp-grid">
-                <div class="fp-card">
-                    <span>🎂</span>
-                    <h3>Luxury Products</h3>
-                    <p>High-end cakes with strong demand</p>
-                </div>
-
-                <div class="fp-card">
-                    <span>📊</span>
-                    <h3>High ROI</h3>
-                    <p>Fast returns with strong margins</p>
-                </div>
-
-                <div class="fp-card">
-                    <span>🤝</span>
-                    <h3>Full Support</h3>
-                    <p>We help you from setup to success</p>
-                </div>
-
-                <div class="fp-card">
-                    <span>📍</span>
-                    <h3>Location Help</h3>
-                    <p>Best area guidance for growth</p>
-                </div>
+    <div class="stats-strip">
+        <div class="stats-strip-inner">
+            <div class="stat-block">
+                <span class="stat-num">6+</span>
+                <span class="stat-label">Locations</span>
+            </div>
+            <div class="stat-block">
+                <span class="stat-num">2</span>
+                <span class="stat-label">Cities</span>
+            </div>
+            <div class="stat-block">
+                <span class="stat-num">₹2L</span>
+                <span class="stat-label">Min Investment</span>
+            </div>
+            <div class="stat-block">
+                <span class="stat-num">10+</span>
+                <span class="stat-label">Years of Craft</span>
             </div>
         </div>
+    </div>
 
-        <div class="fp-calculator">
-
-            <div class="section-divider top">
-                <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
-                    <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
-                    </path>
-                </svg>
+    <section class="fp-why">
+        <div class="fp-why-header">
+            <div>
+                <span class="section-eyebrow">Why Us</span>
+                <h2 class="section-title">A brand worth<br>partnering with.</h2>
             </div>
-
-            <h2>Estimate Your Earnings</h2>
-            <p>
-                Discover how much you can earn by partnering with us.
-                Enter your daily orders and average order value to get an instant estimate.
+            <p class="section-sub">We've built a premium cake brand from the ground up. When you franchise with OYA
+                Kekars, you get more than a product — you get a proven system, full support, and a loyal customer base.
             </p>
-
-            <div class="calc-box">
-                <input type="number" id="orders" placeholder="Orders per day">
-                <input type="number" id="price" placeholder="Avg order value ₹">
-                <button onclick="calculateProfit()">Calculate</button>
-
-                <h3 id="result"></h3>
+        </div>
+        <div class="fp-grid">
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fas fa-crown"></i></div>
+                <div class="fp-card-num">01</div>
+                <div class="fp-card-title">Luxury Products</div>
+                <p>High-end European-style cakes with strong repeat demand and premium price points.</p>
             </div>
-
-            <div class="section-divider bottom">
-                <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
-                    <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
-                    </path>
-                </svg>
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="fp-card-num">02</div>
+                <div class="fp-card-title">High ROI</div>
+                <p>Fast returns with strong margins. Most franchise partners break even within 8–12 months.</p>
+            </div>
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fas fa-handshake"></i></div>
+                <div class="fp-card-num">03</div>
+                <div class="fp-card-title">Full Support</div>
+                <p>From setup to daily operations — training, recipes, branding, marketing and ongoing mentorship.</p>
+            </div>
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fas fa-location-dot"></i></div>
+                <div class="fp-card-num">04</div>
+                <div class="fp-card-title">Location Help</div>
+                <p>We analyse foot traffic, competition, and demographics to find the best area for your store.</p>
             </div>
         </div>
-
-        <div class="fp-process">
-            <h2>How It Works</h2>
-
-            <div class="timeline">
-                <div class="timeline-item">Apply</div>
-                <div class="timeline-item">Consultation</div>
-                <div class="timeline-item">Setup</div>
-                <div class="timeline-item">Launch 🚀</div>
-            </div>
-        </div>
-
     </section>
+
+    <div class="section-divider"></div>
+
+    <section class="fp-process">
+        <div class="fp-process-header">
+            <span class="section-eyebrow" style="color: rgba(237,205,194,0.5);">The Journey</span>
+            <h2 class="section-title" style="color: var(--blush);">From application<br>to opening day.</h2>
+            <p class="section-sub" style="color: rgba(237,205,194,0.55);">A clear, supported path from your first
+                enquiry to your grand launch. We walk with you every step of the way.</p>
+        </div>
+        <div class="timeline-wrap">
+            <div class="timeline-line"></div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="tl-circle"><i class="fas fa-file-pen"></i></div>
+                    <div class="tl-step">Step 01</div>
+                    <div class="tl-title">Apply</div>
+                    <div class="tl-desc">Submit your application with basic details — takes under 5 minutes.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="tl-circle"><i class="fas fa-comments"></i></div>
+                    <div class="tl-step">Step 02</div>
+                    <div class="tl-title">Consultation</div>
+                    <div class="tl-desc">A call with our franchise team to understand your goals and the opportunity.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="tl-circle"><i class="fas fa-store"></i></div>
+                    <div class="tl-step">Step 03</div>
+                    <div class="tl-title">Setup</div>
+                    <div class="tl-desc">We help you with location, interiors, training, and all pre-launch essentials.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="tl-circle"><i class="fas fa-rocket"></i></div>
+                    <div class="tl-step">Step 04</div>
+                    <div class="tl-title">Launch</div>
+                    <div class="tl-desc">Grand opening with marketing support. You're in business — and we're with you.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fp-calculator">
+
+        <div class="section-divider top">
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path fill="#5a4035" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
+                </path>
+            </svg>
+        </div>
+
+        <div class="calc-inner">
+            <div class="calc-left">
+                <span class="section-eyebrow">Earnings Estimator</span>
+                <h2 class="section-title">Estimate your<br>monthly profit.</h2>
+                <p class="section-sub">Enter your expected daily orders and average order value to get a quick estimate
+                    of your potential monthly revenue and profit.</p>
+                <div class="calc-highlights">
+                    <div class="calc-hl"><span class="calc-hl-dot"></span>Based on 30-day month calculation</div>
+                    <div class="calc-hl"><span class="calc-hl-dot"></span>~35% estimated operating cost margin</div>
+                    <div class="calc-hl"><span class="calc-hl-dot"></span>Actual results vary by location and scale
+                    </div>
+                </div>
+            </div>
+            <div class="calc-right">
+                <h3>Calculate Your Earnings</h3>
+                <div class="calc-field">
+                    <label>Orders per day</label>
+                    <input type="number" id="orders" placeholder="e.g. 15" min="1">
+                </div>
+                <div class="calc-field">
+                    <label>Average order value (₹)</label>
+                    <input type="number" id="price" placeholder="e.g. 800" min="1">
+                </div>
+                <button class="calc-btn" onclick="calculateProfit()">
+                    <i class="fas fa-calculator"></i> Calculate
+                </button>
+                <div class="calc-result" id="calcResult">
+                    <div class="calc-result-label">Your estimated breakdown</div>
+                    <div class="calc-result-grid">
+                        <div class="calc-ritem">
+                            <div class="r-label">Monthly Revenue</div>
+                            <div class="r-val" id="rev">—</div>
+                        </div>
+                        <div class="calc-ritem">
+                            <div class="r-label">Est. Monthly Profit</div>
+                            <div class="r-val" id="profit">—</div>
+                        </div>
+                        <div class="calc-ritem">
+                            <div class="r-label">Annual Revenue</div>
+                            <div class="r-val" id="annual">—</div>
+                        </div>
+                        <div class="calc-ritem">
+                            <div class="r-label">Annual Profit</div>
+                            <div class="r-val" id="annualProfit">—</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider bottom">
+            <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+                <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <section class="fp-form-section" id="apply">
+        <div class="form-inner">
+            <div class="form-left">
+                <span class="section-eyebrow">Get Started</span>
+                <h2 class="section-title">Ready to open<br>your own store?</h2>
+                <p class="section-sub">Fill out the form and our franchise team will get back to you within 24 hours to
+                    schedule a personal consultation call.</p>
+                <div class="form-perks">
+                    <div class="form-perk">
+                        <div class="perk-icon"><i class="fas fa-shield-halved"></i></div>
+                        <div class="perk-text">
+                            <div class="p-title">No Franchise Fee for Early Partners</div>
+                            <div class="p-desc">Limited slots available for our next expansion round — apply early.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-perk">
+                        <div class="perk-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="perk-text">
+                            <div class="p-title">Full Training Included</div>
+                            <div class="p-desc">Recipes, operations, customer service and branding — all covered by us.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-perk">
+                        <div class="perk-icon"><i class="fas fa-headset"></i></div>
+                        <div class="perk-text">
+                            <div class="p-title">Dedicated Support Line</div>
+                            <div class="p-desc">Direct access to our operations team for as long as you run the
+                                franchise.</div>
+                        </div>
+                    </div>
+                    <div class="form-perk">
+                        <div class="perk-icon"><i class="fas fa-bullhorn"></i></div>
+                        <div class="perk-text">
+                            <div class="p-title">Marketing Support</div>
+                            <div class="p-desc">We run grand opening campaigns and provide ongoing digital marketing
+                                assets.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-right">
+                <h3>Apply Now</h3>
+                <p>Takes less than 2 minutes. No commitment required.</p>
+
+                <form id="franchiseForm">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullname" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-field">
+                            <i class="fas fa-city"></i>
+                            <input type="text" id="city" placeholder="City" required>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-field">
+                        <i class="fas fa-indian-rupee-sign"></i>
+                        <select id="investment" required>
+                            <option value="" disabled selected>Investment Range</option>
+                            <option>₹2–3 Lakhs</option>
+                            <option>₹3–5 Lakhs</option>
+                            <option>₹5+ Lakhs</option>
+                        </select>
+                    </div>
+                    <div class="form-field textarea-field">
+                        <i class="fas fa-comment-dots"></i>
+                        <textarea id="message" placeholder="Tell us about your plan or any questions…"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                    <div class="form-note">
+                        <i class="fas fa-lock"></i> Your information is private and never shared.
+                    </div>
+                </form>
+
+                <div class="form-success" id="formSuccess" style="display:none;">
+                    <div class="success-icon"><i class="fas fa-check"></i></div>
+                    <h4>Application Received!</h4>
+                    <p>Thank you! Our franchise team will reach out within 24 hours to schedule your consultation call.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="fp-cta-strip">
+        <div class="cta-strip-inner">
+            <div class="cta-strip-text">
+                <div class="cta-label">Have questions first?</div>
+                <h3>Talk to our franchise team directly.</h3>
+            </div>
+            <div class="cta-strip-actions">
+                <a class="cta-s-btn outline" href="tel:+919823230505">
+                    <i class="fas fa-phone"></i> Call Us
+                </a>
+                <a class="cta-s-btn primary"
+                    href="https://wa.me/919823230505?text=Hi!%20I'm%20interested%20in%20an%20OYA%20Kekars%20franchise."
+                    target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="fab-container">
         <div class="fab-main" onclick="toggleMenu()">
             <i id="fabIcon" class="fas fa-comment-dots"></i>
         </div>
-
         <div class="fab-options">
-            <a href="tel:+919876543210" class="fab-item">
-                <i class="fas fa-phone"></i>
-                <span>Call Now</span>
-            </a>
-
-            <a href="franchise.html" class="fab-item">
-                <i class="fas fa-store"></i>
-                <span>Franchise</span>
-            </a>
-
-            <a href="https://wa.me/919876543210" target="_blank" class="fab-item whatsapp">
-                <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp</span>
-            </a>
+            <a href="tel:+919823230505" class="fab-item"><i class="fas fa-phone"></i><span>Call Now</span></a>
+            <a href="franchise.html" class="fab-item"><i class="fas fa-store"></i><span>Franchise</span></a>
+            <a href="https://wa.me/919823230505" target="_blank" class="fab-item whatsapp"><i
+                    class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
         </div>
     </div>
 
     <div id="footer"></div>
-
     <script src="js/script.js" defer></script>
+
     <script>
-        let map;
-        let markers = [];
-        let infoWindow;
-
-        /* =========================
-           STORE DATA (EDIT THIS)
-        ========================= */
-        const stores = [
-            {
-                name: "OYA Kekars - Nashik",
-                lat: 19.9975,
-                lng: 73.7898,
-                address: "College Road, Nashik"
-            },
-            {
-                name: "OYA Kekars - Pune",
-                lat: 18.5204,
-                lng: 73.8567,
-                address: "MG Road, Pune"
-            },
-            {
-                name: "OYA Kekars - Mumbai",
-                lat: 19.0760,
-                lng: 72.8777,
-                address: "Andheri West, Mumbai"
-            }
-        ];
-
-        /* =========================
-           INIT GOOGLE MAP
-        ========================= */
-        function initMap() {
-
-            map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 6,
-                center: { lat: 19.7515, lng: 75.7139 },
-                styles: [
-                    { elementType: "geometry", stylers: [{ color: "#1B1B1B" }] },
-                    { elementType: "labels.text.fill", stylers: [{ color: "#D4AF37" }] }
-                ]
-            });
-
-            infoWindow = new google.maps.InfoWindow();
-
-            loadStores();
-        }
-
-        /* =========================
-           LOAD STORES
-        ========================= */
-        function loadStores() {
-
-            const list = document.getElementById("storeList");
-            list.innerHTML = "";
-
-            markers = [];
-
-            stores.forEach((store, index) => {
-
-                /* ---- CREATE MARKER ---- */
-                const marker = new google.maps.Marker({
-                    position: { lat: store.lat, lng: store.lng },
-                    map: map,
-                    animation: google.maps.Animation.DROP
-                });
-
-                markers.push(marker);
-
-                /* ---- INFO WINDOW ---- */
-                const content = `
-            <div style="color:#333">
-                <h3>${store.name}</h3>
-                <p>${store.address}</p>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=${store.lat},${store.lng}" target="_blank">
-                    Get Directions
-                </a>
-            </div>
-        `;
-
-                marker.addListener("click", () => {
-                    infoWindow.setContent(content);
-                    infoWindow.open(map, marker);
-                });
-
-                /* ---- STORE CARD ---- */
-                const card = document.createElement("div");
-                card.classList.add("store-card");
-
-                card.innerHTML = `
-            <h3>${store.name}</h3>
-            <p>${store.address}</p>
-        `;
-
-                /* ---- CARD CLICK -> MAP ---- */
-                card.addEventListener("click", () => {
-                    map.setCenter(marker.getPosition());
-                    map.setZoom(14);
-
-                    infoWindow.setContent(content);
-                    infoWindow.open(map, marker);
-                });
-
-                list.appendChild(card);
-            });
-        }
-
-        /* =========================
-           SEARCH FUNCTION
-        ========================= */
-        document.getElementById("searchBox").addEventListener("input", function () {
-
-            const value = this.value.toLowerCase();
-
-            document.querySelectorAll(".store-card").forEach(card => {
-                card.style.display = card.innerText.toLowerCase().includes(value)
-                    ? "block"
-                    : "none";
-            });
-
-        });
-
-        /* =========================
-           DETECT USER LOCATION
-        ========================= */
-        document.getElementById("locateBtn").addEventListener("click", () => {
-
-            if (!navigator.geolocation) {
-                alert("Geolocation not supported");
+        function calculateProfit() {
+            const orders = parseFloat(document.getElementById('orders').value);
+            const price = parseFloat(document.getElementById('price').value);
+            if (!orders || !price || orders <= 0 || price <= 0) {
+                alert('Please enter valid values for both fields.');
                 return;
             }
+            const monthly = orders * price * 30;
+            const profit = monthly * 0.65;
+            const annual = monthly * 12;
+            const annualProfit = profit * 12;
 
-            navigator.geolocation.getCurrentPosition(position => {
+            const fmt = n => '₹' + Math.round(n).toLocaleString('en-IN');
+            document.getElementById('rev').textContent = fmt(monthly);
+            document.getElementById('profit').textContent = fmt(profit);
+            document.getElementById('annual').textContent = fmt(annual);
+            document.getElementById('annualProfit').textContent = fmt(annualProfit);
 
-                const userLocation = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
+            const res = document.getElementById('calcResult');
+            res.classList.add('visible');
+            res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
 
-                map.setCenter(userLocation);
-                map.setZoom(14);
+        document.addEventListener("DOMContentLoaded", function () {
 
-                new google.maps.Marker({
-                    position: userLocation,
-                    map: map,
-                    icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-                });
+            const form = document.getElementById("franchiseForm");
 
-            }, () => {
-                alert("Unable to fetch location");
+            if (!form) return;
+
+            form.addEventListener("submit", function (e) {
+
+                e.preventDefault();
+
+                let fullName = document.getElementById("fullname").value;
+                let city = document.getElementById("city").value;
+                let phone = document.getElementById("phone").value;
+                let email = document.getElementById("email").value;
+                let investment = document.getElementById("investment").value;
+                let message = document.getElementById("message").value;
+
+                if (
+                    !fullName ||
+                    !city ||
+                    !phone ||
+                    !email ||
+                    !investment
+                ) {
+                    alert("Please fill all required fields.");
+                    return;
+                }
+
+                let whatsappNumber = "919823230505";
+
+                let whatsappMessage =
+                    `🍰 *New Franchise Enquiry - OYA KEKARS*
+
+👤 *Full Name:* ${fullName}
+
+🏙️ *City:* ${city}
+
+📞 *Phone:* ${phone}
+
+📧 *Email:* ${email}
+
+💰 *Investment Range:* ${investment}
+
+📝 *Message:* ${message}`;
+
+                let encodedMessage =
+                    encodeURIComponent(whatsappMessage);
+
+                let whatsappURL =
+                    `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+                form.style.display = "none";
+
+                document.getElementById("formSuccess")
+                    .style.display = "block";
+
+                setTimeout(() => {
+                    window.open(whatsappURL, "_blank");
+                }, 800);
+
             });
 
         });
     </script>
-
 </body>
 
 </html>

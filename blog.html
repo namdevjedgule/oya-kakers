@@ -9,10 +9,16 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
     <style>
+        body {
+            background: #F1F0E2;
+            font-family: 'Poppins', system-ui, sans-serif;
+            color: #2C2419;
+        }
+
         .blog-parallax {
             position: relative;
             height: 50vh;
@@ -51,12 +57,9 @@
             left: 50%;
             bottom: -5px;
             transform: translateX(-50%);
-
             width: 60%;
             height: 2px;
-
             background: linear-gradient(to right, transparent, #D4AF37, transparent);
-
             transition: 0.4s ease;
         }
 
@@ -70,45 +73,8 @@
         }
 
         .header {
-            padding: 3.5rem 3rem 2.5rem;
+            padding: 3rem 3rem 2rem;
             border-bottom: 0.5px solid rgba(90, 80, 60, 0.15);
-        }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 500;
-            color: #2C2419;
-            letter-spacing: 0.04em;
-        }
-
-        .logo span {
-            color: #8B6F47;
-        }
-
-        .nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav a {
-            font-size: 13px;
-            color: #6B5E4A;
-            text-decoration: none;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-
-        .nav a:hover {
-            color: #2C2419;
         }
 
         .header-hero {
@@ -125,16 +91,17 @@
         }
 
         .hero-title {
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 500;
             color: #2C2419;
             line-height: 1.15;
             max-width: 680px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .hero-subtitle {
-            font-size: 16px;
+            font-size: 15px;
             color: #6B5E4A;
             line-height: 1.7;
             max-width: 520px;
@@ -143,7 +110,7 @@
         .section-wrap {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 3rem;
+            padding: 0 2rem 4rem;
         }
 
         .featured {
@@ -200,9 +167,10 @@
             line-height: 1.3;
             margin-bottom: 0.75rem;
             position: relative;
+            font-family: 'Playfair Display', serif;
         }
 
-        .feat-main p {
+        .feat-main>p {
             font-size: 14px;
             color: rgba(212, 184, 150, 0.75);
             line-height: 1.6;
@@ -374,6 +342,10 @@
             align-items: center;
             gap: 6px;
             transition: gap 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
         }
 
         .read-link:hover {
@@ -385,12 +357,53 @@
             height: 12px;
         }
 
+        .deep-read-tabs {
+            display: flex;
+            gap: 1px;
+            background: rgba(139, 111, 71, 0.12);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 0.85rem 1rem;
+            background: #F1F0E2;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #7A6A56;
+            transition: background 0.2s, color 0.2s;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            background: #EDE9D6;
+            color: #2C2419;
+        }
+
+        .tab-btn.active {
+            background: #2C2419;
+            color: #D4B896;
+        }
+
+        .article-panel {
+            display: none;
+        }
+
+        .article-panel.active {
+            display: block;
+        }
+
         .article-section {
             display: grid;
-            grid-template-columns: 1fr 360px;
+            grid-template-columns: 1fr 320px;
             gap: 3rem;
             align-items: start;
-            padding-bottom: 30px;
         }
 
         .article-eyebrow {
@@ -402,11 +415,12 @@
         }
 
         .article-title {
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 500;
             color: #2C2419;
             line-height: 1.25;
             margin-bottom: 1.25rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .article-body {
@@ -465,6 +479,66 @@
 
         .cta-btn:hover {
             background: #7a5f3a;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 0.65rem 0;
+            border-bottom: 0.5px solid rgba(139, 111, 71, 0.12);
+            font-size: 14px;
+            color: #5A4E3C;
+            line-height: 1.55;
+        }
+
+        .tips-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tips-list li::before {
+            content: attr(data-n);
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(139, 111, 71, 0.3);
+            min-width: 28px;
+            line-height: 1;
+        }
+
+        .tips-list strong {
+            color: #2C2419;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .design-chips {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .design-chip {
+            background: #EDE9D6;
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .design-chip .dc-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: #2C2419;
+        }
+
+        .design-chip .dc-desc {
+            font-size: 11px;
+            color: #8B6F47;
+            margin-top: 3px;
         }
 
         .sidebar-card {
@@ -540,6 +614,60 @@
             margin-top: 2px;
         }
 
+        .trend-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 0.5px solid rgba(139, 111, 71, 0.15);
+        }
+
+        .trend-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .trend-num {
+            font-size: 22px;
+            font-weight: 700;
+            color: rgba(139, 111, 71, 0.2);
+            min-width: 32px;
+            line-height: 1;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .trend-info .t-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: #2C2419;
+        }
+
+        .trend-info .t-desc {
+            font-size: 11px;
+            color: #8B6F47;
+            margin-top: 2px;
+        }
+
+        .footer-strip {
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 0.5px solid rgba(139, 111, 71, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-strip p {
+            font-size: 12px;
+            color: #8B6F47;
+            letter-spacing: 0.04em;
+        }
+
+        .footer-tags {
+            display: flex;
+            gap: 8px;
+        }
+
         .tag-pill {
             font-size: 11px;
             color: #6B5E4A;
@@ -548,18 +676,17 @@
             border-radius: 20px;
         }
 
-        /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
             .header {
                 padding: 2rem 1.5rem;
             }
 
             .section-wrap {
-                padding: 0 1.5rem;
+                padding: 0 1.2rem 3rem;
             }
 
             .hero-title {
-                font-size: 28px;
+                font-size: 26px;
             }
 
             .featured {
@@ -568,19 +695,7 @@
 
             .feat-main {
                 border-radius: 12px 12px 0 0;
-                min-height: 260px;
-            }
-
-            .feat-side {
-                flex-direction: row;
-            }
-
-            .feat-card:first-child {
-                border-radius: 0;
-            }
-
-            .feat-card:last-child {
-                border-radius: 0 0 12px 12px;
+                min-height: 240px;
             }
 
             .feat-side {
@@ -603,6 +718,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .deep-read-tabs {
+                flex-direction: column;
+            }
+
             .footer-strip {
                 flex-direction: column;
                 gap: 1rem;
@@ -619,7 +738,7 @@
     <section class="blog-parallax">
         <div class="parallax-content">
             <h1>Stories Behind Every Slice</h1>
-            <p>Explore baking secrets, trends & sweet inspirations</p>
+            <p>Explore baking secrets, trends &amp; sweet inspirations</p>
         </div>
     </section>
 
@@ -636,14 +755,14 @@
         <div class="section-wrap">
 
             <div class="featured">
-                <div class="feat-main" onclick="scrollToArticle()">
+                <div class="feat-main" onclick="openArticle(0)">
                     <span class="feat-badge">Featured Article</span>
                     <h2>What Makes European Cakes Different from Regular Cakes?</h2>
                     <p>From layered textures to precision flavour pairing — discover why premium cakes feel lighter,
                         more refined, and wholly satisfying.</p>
                 </div>
                 <div class="feat-side">
-                    <div class="feat-card">
+                    <div class="feat-card" onclick="openArticle(1)">
                         <div class="feat-deco">
                             <svg viewBox="0 0 24 24" fill="none" stroke="#8B6F47" stroke-width="1.5">
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -653,7 +772,7 @@
                         <h3>Top 5 Trending Cakes in 2026</h3>
                         <p>The most loved cake styles redefining celebrations this year.</p>
                     </div>
-                    <div class="feat-card">
+                    <div class="feat-card" onclick="openArticle(2)">
                         <div class="feat-deco">
                             <svg viewBox="0 0 24 24" fill="none" stroke="#8B6F47" stroke-width="1.5">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -669,128 +788,401 @@
             <div class="section-label"><span>All Articles</span></div>
 
             <div class="grid">
-                <div class="blog-card" onclick="scrollToArticle()">
+                <div class="blog-card" onclick="openArticle(0)">
                     <div class="card-num">01</div>
-                    <div class="card-tag"><span class="tag-dot"></span>Cakes</div>
-                    <h3>Top 5 Trending Cakes in 2026</h3>
-                    <p>Explore the most loved cake styles this year — from mirror glazes to sculpted botanicals.</p>
-                    <a class="read-link" href="#article">Read article
+                    <div class="card-tag"><span class="tag-dot"></span>European Baking</div>
+                    <h3>What Makes European Cakes Different?</h3>
+                    <p>Less sugar, more balance, layered textures — discover the European difference in every bite.</p>
+                    <button class="read-link">Read article
                         <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M2 6h8M6 2l4 4-4 4" />
                         </svg>
-                    </a>
+                    </button>
                 </div>
-                <div class="blog-card">
+                <div class="blog-card" onclick="openArticle(1)">
                     <div class="card-num">02</div>
+                    <div class="card-tag"><span class="tag-dot"></span>Trends</div>
+                    <h3>Top 5 Trending Cakes in 2026</h3>
+                    <p>Explore the most loved cake styles this year — from mirror glazes to sculpted botanicals.</p>
+                    <button class="read-link">Read article
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2 6h8M6 2l4 4-4 4" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="blog-card" onclick="openArticle(2)">
+                    <div class="card-num">03</div>
                     <div class="card-tag"><span class="tag-dot"></span>Tips</div>
                     <h3>How to Keep Cakes Fresh</h3>
                     <p>Simple techniques to maintain freshness — whether storing overnight or across a weekend.</p>
-                    <a class="read-link" href="#">Read article
+                    <button class="read-link">Read article
                         <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M2 6h8M6 2l4 4-4 4" />
                         </svg>
-                    </a>
-                </div>
-                <div class="blog-card">
-                    <div class="card-num">03</div>
-                    <div class="card-tag"><span class="tag-dot"></span>Trends</div>
-                    <h3>Minimalist Cake Designs</h3>
-                    <p>Why less is more in modern cake art — and how restraint became the new luxury.</p>
-                    <a class="read-link" href="#">Read article
-                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M2 6h8M6 2l4 4-4 4" />
-                        </svg>
-                    </a>
+                    </button>
                 </div>
             </div>
 
             <div class="section-label"><span>Deep Read</span></div>
 
-            <div class="article-section" id="article">
-                <article class="article-main">
-                    <div class="article-eyebrow">European Baking · 8 min read</div>
-                    <h2 class="article-title">What Makes European Cakes Different from Regular Cakes?</h2>
-                    <div class="article-body">
-                        <p>Walk into most bakeries and you'll find cakes that look good but often taste the same —
-                            overly sweet, heavy, and predictable. European-style cakes are different.</p>
-
-                        <div class="section-head">1 &mdash; Less sugar, more balance</div>
-                        <p>Regular cakes are made to suit mass preferences, which means more sugar. European cakes
-                            balance flavours instead — subtle bitterness from dark chocolate, tanginess from fresh
-                            fruits, nutty undertones from praline.</p>
-
-                        <div class="pull-quote">
-                            <p>"A cake you can actually enjoy more than one bite of — that is the European philosophy in
-                                a single sentence."</p>
-                        </div>
-
-                        <div class="section-head">2 &mdash; Layered textures, not just layers</div>
-                        <p>Soft sponge, light mousse, crunchy praline, and a smooth glaze finish — multiple textures in
-                            one dessert create a dynamic eating experience where every bite feels different.</p>
-
-                        <div class="section-head">3 &mdash; Precision flavour pairing</div>
-                        <p>Chocolate with hazelnut. Strawberry with vanilla. Coffee with caramel. European baking is
-                            rooted in precision — flavours are matched so the cake never feels overwhelming or confused.
-                        </p>
-
-                        <div class="section-head">4 &mdash; Aesthetic, but minimal</div>
-                        <p>Smooth finishes, neutral tones, elegant detailing. European cakes look premium without trying
-                            too hard — designed to be as satisfying to look at as to eat.</p>
-
-                        <div class="section-head">5 &mdash; Quality ingredients matter more</div>
-                        <p>Real butter. Fresh cream. High-quality chocolate. These choices directly impact taste,
-                            texture, and the overall experience in ways that shortcuts never can.</p>
-                    </div>
-                </article>
-
-                <aside class="sidebar">
-                    <div class="sidebar-card">
-                        <div class="sidebar-label">Quick Tips</div>
-                        <div class="quick-tip">
-                            <div class="tip-num">01</div>
-                            <div class="tip-text"><strong>Store in a cool, dry place</strong>Avoid the fridge for
-                                buttercream — it dries out the crumb.</div>
-                        </div>
-                        <div class="quick-tip">
-                            <div class="tip-num">02</div>
-                            <div class="tip-text"><strong>Cover cut edges</strong>Press plastic wrap directly onto
-                                exposed sponge to slow moisture loss.</div>
-                        </div>
-                        <div class="quick-tip">
-                            <div class="tip-num">03</div>
-                            <div class="tip-text"><strong>Bring to room temp</strong>Serve mousse cakes 20 min out of
-                                cold — flavour opens up beautifully.</div>
-                        </div>
-                        <div class="quick-tip">
-                            <div class="tip-num">04</div>
-                            <div class="tip-text"><strong>Avoid direct sunlight</strong>Fondant and glazes lose their
-                                finish fast under heat and UV.</div>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-card">
-                        <div class="sidebar-label">Classic Pairings</div>
-                        <div class="flavor-grid">
-                            <div class="flavor-chip">
-                                <div class="f-name">Chocolate</div>
-                                <div class="f-pair">+ Hazelnut</div>
-                            </div>
-                            <div class="flavor-chip">
-                                <div class="f-name">Strawberry</div>
-                                <div class="f-pair">+ Vanilla</div>
-                            </div>
-                            <div class="flavor-chip">
-                                <div class="f-name">Coffee</div>
-                                <div class="f-pair">+ Caramel</div>
-                            </div>
-                            <div class="flavor-chip">
-                                <div class="f-name">Lemon</div>
-                                <div class="f-pair">+ Elderflower</div>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
+            <div class="deep-read-tabs">
+                <button class="tab-btn active" onclick="switchTab(0)">01 — European Cakes</button>
+                <button class="tab-btn" onclick="switchTab(1)">02 — Trending in 2026</button>
+                <button class="tab-btn" onclick="switchTab(2)">03 — Keep Cakes Fresh</button>
             </div>
+
+            <div class="article-panel active" id="panel-0">
+                <div class="article-section">
+                    <article class="article-main">
+                        <div class="article-eyebrow">European Baking · 8 min read</div>
+                        <h2 class="article-title">What Makes European Cakes Different from Regular Cakes?</h2>
+                        <div class="article-body">
+                            <p>Walk into most bakeries and you'll find cakes that look good but often taste the same —
+                                overly sweet, heavy, and predictable. European-style cakes are different. They focus on
+                                balance, texture, and refined flavours rather than just appearance.</p>
+
+                            <div class="section-head">1 &mdash; Less sugar, more balance</div>
+                            <p>Regular cakes are often made to suit mass preferences, which usually means more sugar.
+                                European cakes are designed to balance flavours instead — subtle bitterness from dark
+                                chocolate, tanginess from fresh fruits, nutty undertones from praline or hazelnut.</p>
+
+                            <div class="pull-quote">
+                                <p>"A cake you can actually enjoy more than one bite of — that is the European
+                                    philosophy in a single sentence."</p>
+                            </div>
+
+                            <div class="section-head">2 &mdash; Layered textures, not just layers</div>
+                            <p>Most standard cakes follow a simple structure: sponge + cream + frosting. European cakes
+                                go several steps further with multiple textures — soft sponge, light mousse, crunchy
+                                praline or biscuit layer, and a smooth glaze finish. Every bite feels different.</p>
+
+                            <div class="section-head">3 &mdash; Precision flavour pairing</div>
+                            <p>European baking is rooted in precision. Flavours are carefully matched — chocolate with
+                                hazelnut, strawberry with vanilla, coffee with caramel — so the cake never feels
+                                overwhelming or confused.</p>
+
+                            <div class="section-head">4 &mdash; Aesthetic, but minimal</div>
+                            <p>Smooth finishes, neutral tones, elegant detailing. European cakes follow a minimal, clean
+                                aesthetic — designed to look premium without trying too hard.</p>
+
+                            <div class="section-head">5 &mdash; Quality ingredients matter more</div>
+                            <p>Real butter instead of substitutes. Fresh cream instead of overly stabilised toppings.
+                                High-quality chocolate. These choices directly impact taste, texture, and overall
+                                experience in ways that shortcuts never can.</p>
+
+                            <div class="section-head">6 &mdash; Designed for experience, not just occasions</div>
+                            <p>European cakes are less heavy, more refined, and easier to consume — making them perfect
+                                for both celebrations and casual indulgence, not just special events.</p>
+
+                            <div class="cta-block">
+                                <p>Looking for a cake that feels as good as it looks? Explore our European-style custom
+                                    cakes in Pune — crafted to balance flavour, texture, and design.</p>
+                                <a class="cta-btn"
+                                    href="https://wa.me/919823230505?text=Hi!%20I'd%20like%20to%20order%20a%20custom%20European-style%20cake."
+                                    target="_blank" rel="noopener"><i class="fab fa-whatsapp"
+                                        style="margin-right:6px;"></i>Order a custom cake</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <aside class="sidebar">
+                        <div class="sidebar-card">
+                            <div class="sidebar-label">Classic Pairings</div>
+                            <div class="flavor-grid">
+                                <div class="flavor-chip">
+                                    <div class="f-name">Chocolate</div>
+                                    <div class="f-pair">+ Hazelnut</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Strawberry</div>
+                                    <div class="f-pair">+ Vanilla</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Coffee</div>
+                                    <div class="f-pair">+ Caramel</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Lemon</div>
+                                    <div class="f-pair">+ Elderflower</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Raspberry</div>
+                                    <div class="f-pair">+ Rose</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Pistachio</div>
+                                    <div class="f-pair">+ Honey</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-card">
+                            <div class="sidebar-label">What to Ask Before Ordering</div>
+                            <div class="quick-tip">
+                                <div class="tip-num">✦</div>
+                                <div class="tip-text"><strong>Flavour or aesthetics?</strong>Decide what matters more —
+                                    taste or visual impact — then build from there.</div>
+                            </div>
+                            <div class="quick-tip">
+                                <div class="tip-num">✦</div>
+                                <div class="tip-text"><strong>Sweet or balanced?</strong>If you prefer complexity over
+                                    sweetness, ask for European-style options.</div>
+                            </div>
+                            <div class="quick-tip">
+                                <div class="tip-num">✦</div>
+                                <div class="tip-text"><strong>Occasion or everyday?</strong>European cakes work
+                                    beautifully for both — choose your size accordingly.</div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <div class="article-panel" id="panel-1">
+                <div class="article-section">
+                    <article class="article-main">
+                        <div class="article-eyebrow">Trends · 6 min read</div>
+                        <h2 class="article-title">Top 5 Trending Cakes in 2026</h2>
+                        <div class="article-body">
+                            <p>Cake trends in 2026 are all about artistry meeting intention. Customers no longer just
+                                want something sweet — they want an experience, a story, and a design that says
+                                something. Here are the five styles dominating celebrations right now.</p>
+
+                            <div class="section-head">1 &mdash; Mirror Glaze Cakes</div>
+                            <p>The ultra-reflective finish that turned the internet upside-down a few years ago is back
+                                — this time in muted, earthy tones. Think terracotta, sage green, and warm amber glazes
+                                that look like liquid metal poured over a perfect mousse base.</p>
+
+                            <div class="pull-quote">
+                                <p>"In 2026, a cake is no longer just dessert — it is the centrepiece, the conversation
+                                    starter, the photograph."</p>
+                            </div>
+
+                            <div class="section-head">2 &mdash; Sculpted Botanical Cakes</div>
+                            <p>Hand-crafted sugar flowers, pressed edible botanicals, and textured bark-like finishes
+                                are having a major moment. These cakes look like they were pulled from a forest —
+                                delicate, organic, and completely one-of-a-kind.</p>
+
+                            <div class="section-head">3 &mdash; Minimalist Naked Cakes</div>
+                            <p>Less is truly more. Naked and semi-naked cakes with visible sponge layers, subtle cream
+                                edges, and fresh fruit toppings are the choice for couples and hosts who want elegant
+                                simplicity without the heaviness of fondant.</p>
+
+                            <div class="section-head">4 &mdash; Mousse Entremets</div>
+                            <p>The European-inspired entremet — a multi-layered mousse cake with a perfect glaze — has
+                                moved from fine-dining patisseries into celebration cakes. Light, refined, and
+                                completely customisable in flavour combinations.</p>
+
+                            <div class="section-head">5 &mdash; Painted &amp; Textured Cakes</div>
+                            <p>Hand-painted cakes using food-safe watercolours and gold leaf accents are everywhere.
+                                Combined with textured buttercream finishes — combed, ruffled, or palette-knifed — each
+                                cake becomes a wearable piece of edible art.</p>
+
+                            <div class="cta-block">
+                                <p>Want one of these trending styles for your next celebration? We craft every cake by
+                                    hand — tell us your vision and we'll bring it to life.</p>
+                                <a class="cta-btn" href="cake.html"><i class="fas fa-cake-candles"
+                                        style="margin-right:6px;"></i>Explore custom cakes</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <aside class="sidebar">
+                        <div class="sidebar-card">
+                            <div class="sidebar-label">2026 Top Trends</div>
+                            <div class="trend-item">
+                                <div class="trend-num">01</div>
+                                <div class="trend-info">
+                                    <div class="t-name">Mirror Glaze</div>
+                                    <div class="t-desc">Earthy, muted reflective finishes</div>
+                                </div>
+                            </div>
+                            <div class="trend-item">
+                                <div class="trend-num">02</div>
+                                <div class="trend-info">
+                                    <div class="t-name">Botanical Sculpted</div>
+                                    <div class="t-desc">Sugar flowers &amp; organic textures</div>
+                                </div>
+                            </div>
+                            <div class="trend-item">
+                                <div class="trend-num">03</div>
+                                <div class="trend-info">
+                                    <div class="t-name">Naked &amp; Semi-Naked</div>
+                                    <div class="t-desc">Visible layers, fresh fruit finish</div>
+                                </div>
+                            </div>
+                            <div class="trend-item">
+                                <div class="trend-num">04</div>
+                                <div class="trend-info">
+                                    <div class="t-name">Mousse Entremet</div>
+                                    <div class="t-desc">Multi-layer European mousse cakes</div>
+                                </div>
+                            </div>
+                            <div class="trend-item">
+                                <div class="trend-num">05</div>
+                                <div class="trend-info">
+                                    <div class="t-name">Painted &amp; Textured</div>
+                                    <div class="t-desc">Watercolour &amp; gold leaf artistry</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sidebar-card">
+                            <div class="sidebar-label">Trending Flavours</div>
+                            <div class="flavor-grid">
+                                <div class="flavor-chip">
+                                    <div class="f-name">Pistachio</div>
+                                    <div class="f-pair">+ Rose</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Black Sesame</div>
+                                    <div class="f-pair">+ Miso</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Yuzu</div>
+                                    <div class="f-pair">+ White Choc</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Tahini</div>
+                                    <div class="f-pair">+ Caramel</div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <div class="article-panel" id="panel-2">
+                <div class="article-section">
+                    <article class="article-main">
+                        <div class="article-eyebrow">Tips &amp; Techniques · 5 min read</div>
+                        <h2 class="article-title">How to Keep Cakes Fresh — Simple Techniques That Actually Work</h2>
+                        <div class="article-body">
+                            <p>You've spent money on a beautiful cake. The last thing you want is for it to dry out,
+                                lose its flavour, or deteriorate before everyone's had a slice. Here's exactly how to
+                                keep it tasting as good as the moment it was made.</p>
+
+                            <div class="section-head">Storage: The golden rules</div>
+                            <ul class="tips-list">
+                                <li data-n="01">
+                                    <div><strong>Avoid the fridge for buttercream cakes</strong>Cold air dries out the
+                                        crumb and causes buttercream to harden and crack at the surface.</div>
+                                </li>
+                                <li data-n="02">
+                                    <div><strong>Cover cut edges immediately</strong>Press plastic wrap or cling film
+                                        directly onto any exposed sponge surface to block air and prevent moisture loss.
+                                    </div>
+                                </li>
+                                <li data-n="03">
+                                    <div><strong>Store at room temperature for up to 48 hrs</strong>In a cool, dry spot
+                                        away from direct sunlight — a cake dome or airtight container works perfectly.
+                                    </div>
+                                </li>
+                                <li data-n="04">
+                                    <div><strong>Refrigerate mousse &amp; fresh cream cakes</strong>These require cold
+                                        storage — but always in a sealed box to prevent them absorbing fridge odours.
+                                    </div>
+                                </li>
+                                <li data-n="05">
+                                    <div><strong>Freeze for longer storage</strong>Wrap individual slices in cling film
+                                        then foil. They'll keep for up to 3 months and thaw beautifully at room
+                                        temperature in 1–2 hours.</div>
+                                </li>
+                            </ul>
+
+                            <div class="pull-quote">
+                                <p>"A cake at room temperature always tastes better than a cold one. Give it time to
+                                    breathe before serving."</p>
+                            </div>
+
+                            <div class="section-head">Serving: Small details that matter</div>
+                            <ul class="tips-list">
+                                <li data-n="06">
+                                    <div><strong>Bring to room temperature before serving</strong>Remove from the fridge
+                                        20–30 minutes early. Mousse cakes especially open up in flavour as they warm
+                                        slightly.</div>
+                                </li>
+                                <li data-n="07">
+                                    <div><strong>Use a warm, clean knife</strong>Run your knife under hot water and wipe
+                                        dry before each cut. It gives you clean, sharp slices every time.</div>
+                                </li>
+                                <li data-n="08">
+                                    <div><strong>Keep away from strong smells</strong>Cakes are porous and absorb nearby
+                                        aromas — store them away from onions, spices, or strong cheeses.</div>
+                                </li>
+                            </ul>
+
+                            <div class="section-head">Fondant &amp; decorative cakes</div>
+                            <p>Avoid refrigerating fondant-covered cakes — condensation will cause the surface to sweat
+                                and lose its smooth finish. Keep at room temperature and out of humidity. If your
+                                celebration spans two or more days, ask your baker to deliver the cake on the day it's
+                                needed.</p>
+
+                            <div class="cta-block">
+                                <p>Every cake we make is built to stay fresh and beautiful. Have questions about storing
+                                    your order? We're always happy to guide you.</p>
+                                <a class="cta-btn" href="contact.html"><i class="fas fa-envelope"
+                                        style="margin-right:6px;"></i>Talk to us</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <aside class="sidebar">
+                        <div class="sidebar-card">
+                            <div class="sidebar-label">Quick Reference</div>
+                            <div class="quick-tip">
+                                <div class="tip-num">01</div>
+                                <div class="tip-text"><strong>Buttercream cake</strong>Room temp, covered, up to 2 days.
+                                    Do not refrigerate.</div>
+                            </div>
+                            <div class="quick-tip">
+                                <div class="tip-num">02</div>
+                                <div class="tip-text"><strong>Mousse / fresh cream</strong>Refrigerate in sealed box.
+                                    Serve at room temp.</div>
+                            </div>
+                            <div class="quick-tip">
+                                <div class="tip-num">03</div>
+                                <div class="tip-text"><strong>Fondant cake</strong>Room temp only. Fridge causes
+                                    sweating &amp; damage.</div>
+                            </div>
+                            <div class="quick-tip">
+                                <div class="tip-num">04</div>
+                                <div class="tip-text"><strong>Freezing slices</strong>Wrap in cling film + foil. Good
+                                    for up to 3 months.</div>
+                            </div>
+                        </div>
+                        <div class="sidebar-card">
+                            <div class="sidebar-label">Shelf Life Guide</div>
+                            <div class="flavor-grid">
+                                <div class="flavor-chip">
+                                    <div class="f-name">Buttercream</div>
+                                    <div class="f-pair">2–3 days</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Fresh Cream</div>
+                                    <div class="f-pair">1–2 days</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Mousse</div>
+                                    <div class="f-pair">2–3 days</div>
+                                </div>
+                                <div class="flavor-chip">
+                                    <div class="f-name">Fondant</div>
+                                    <div class="f-pair">3–4 days</div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <footer class="footer-strip">
+                <p>© 2026 OYA Kekars · Hadapsar, Pune</p>
+                <div class="footer-tags">
+                    <span class="tag-pill">European Cakes</span>
+                    <span class="tag-pill">Custom Orders</span>
+                    <span class="tag-pill">Pune</span>
+                </div>
+            </footer>
+
         </div>
     </main>
 
@@ -798,22 +1190,11 @@
         <div class="fab-main" onclick="toggleMenu()">
             <i id="fabIcon" class="fas fa-comment-dots"></i>
         </div>
-
         <div class="fab-options">
-            <a href="tel:+919876543210" class="fab-item">
-                <i class="fas fa-phone"></i>
-                <span>Call Now</span>
-            </a>
-
-            <a href="franchise.html" class="fab-item">
-                <i class="fas fa-store"></i>
-                <span>Franchise</span>
-            </a>
-
-            <a href="https://wa.me/919876543210" target="_blank" class="fab-item whatsapp">
-                <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp</span>
-            </a>
+            <a href="tel:+919876543210" class="fab-item"><i class="fas fa-phone"></i><span>Call Now</span></a>
+            <a href="franchise.html" class="fab-item"><i class="fas fa-store"></i><span>Franchise</span></a>
+            <a href="https://wa.me/919876543210" target="_blank" class="fab-item whatsapp"><i
+                    class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
         </div>
     </div>
 
@@ -822,18 +1203,21 @@
     <script src="js/script.js"></script>
 
     <script>
-        function scrollToArticle() {
-            const el = document.getElementById('article');
-            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        function switchTab(index) {
+            document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+            document.querySelectorAll('.article-panel').forEach((panel, i) => {
+                panel.classList.toggle('active', i === index);
+            });
         }
 
-        const navLinks = document.querySelectorAll('.nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                navLinks.forEach(l => l.style.color = '');
-                this.style.color = '#2C2419';
-            });
-        });
+        function openArticle(index) {
+            switchTab(index);
+            const deepRead = document.querySelector('.section-label:last-of-type');
+            const tabsEl = document.querySelector('.deep-read-tabs');
+            if (tabsEl) tabsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
 
         document.querySelectorAll('.blog-card, .feat-card').forEach(card => {
             card.addEventListener('click', function () {

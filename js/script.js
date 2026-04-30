@@ -32,12 +32,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("load", () => {
-    document.getElementById("pageLoader").style.display = "none";
+
+    const loader = document.getElementById("pageLoader");
+
+    if (loader) {
+        loader.style.display = "none";
+    }
+
 });
 
 window.addEventListener("load", () => {
-    setTimeout(initSlider, 200);
-    setTimeout(initCarousel, 600);
+
+    if (typeof initSlider === "function") {
+        setTimeout(initSlider, 200);
+    }
+
+    if (typeof initCarousel === "function") {
+        setTimeout(initCarousel, 600);
+    }
+
 });
 
 function initNavbar() {
@@ -86,16 +99,6 @@ function initNavbar() {
     });
 }
 
-function calculateProfit() {
-    let orders = parseFloat(document.getElementById("orders")?.value) || 0;
-    let price = parseFloat(document.getElementById("price")?.value) || 0;
-
-    let monthly = orders * price * 30;
-
-    document.getElementById("result").innerText =
-        "Estimated Monthly Revenue: ₹" + monthly.toLocaleString();
-}
-
 function toggleMenu() {
     const fab = document.querySelector(".fab-container");
     const icon = document.getElementById("fabIcon");
@@ -113,7 +116,16 @@ function toggleMenu() {
 
 function initCarousel() {
     const track = document.getElementById("track");
-    const IMAGES = Array.from(track.children).map(c => c.querySelector("img").src);
+    const viewport = document.querySelector(".carousel");
+    const dotsContainer = document.getElementById("carouselDots");
+
+    if (!track || !viewport || !dotsContainer) {
+        return;
+    }
+
+    const IMAGES = Array.from(track.children)
+        .map(c => c.querySelector("img")?.src)
+        .filter(Boolean);
     const CLONES = 3;
     const total = IMAGES.length;
     let current = 0, busy = false;
@@ -132,9 +144,7 @@ function initCarousel() {
         track.appendChild(card);
     });
     const cards = Array.from(track.children);
-    const viewport = document.querySelector(".carousel");
 
-    const dotsContainer = document.getElementById("carouselDots");
     dotsContainer.innerHTML = "";
     IMAGES.forEach((_, i) => {
         const dot = document.createElement("span");
@@ -233,8 +243,16 @@ function initCarousel() {
         autoTimer = setInterval(() => celStep(1), 1500);
     }
 
-    document.getElementById("celPrev").onclick = () => celStep(-1);
-    document.getElementById("celNext").onclick = () => celStep(1);
+    const prevBtn = document.getElementById("celPrev");
+    const nextBtn = document.getElementById("celNext");
+
+    if (prevBtn) {
+        prevBtn.onclick = () => celStep(-1);
+    }
+
+    if (nextBtn) {
+        nextBtn.onclick = () => celStep(1);
+    }
 
     const lightbox = document.getElementById("lightbox");
     const lbImg = document.getElementById("lbImg");
@@ -266,15 +284,40 @@ function initCarousel() {
         });
     });
 
-    document.getElementById("lbClose").onclick = closeLightbox;
-    document.getElementById("lbPrev").onclick = () => lbStep(-1);
-    document.getElementById("lbNext").onclick = () => lbStep(1);
-    lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+    const lbClose = document.getElementById("lbClose");
+    const lbPrev = document.getElementById("lbPrev");
+    const lbNext = document.getElementById("lbNext");
+
+    if (lbClose) lbClose.onclick = closeLightbox;
+    if (lbPrev) lbPrev.onclick = () => lbStep(-1);
+    if (lbNext) lbNext.onclick = () => lbStep(1);
+
+    if (lightbox) {
+
+        lightbox.addEventListener("click", e => {
+
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+
+        });
+
+    }
+
     document.addEventListener("keydown", e => {
-        if (!lightbox.classList.contains("open")) return;
+
+        if (!lightbox) return;
+
+        if (!lightbox.classList.contains("open")) {
+            return;
+        }
+
         if (e.key === "ArrowLeft") lbStep(-1);
+
         if (e.key === "ArrowRight") lbStep(1);
+
         if (e.key === "Escape") closeLightbox();
+
     });
 
     let resizeTimer;
@@ -293,5 +336,3 @@ function initCarousel() {
     });
     startAuto();
 }
-
-window.addEventListener("load", initCarousel);
