@@ -394,3 +394,38 @@ form.addEventListener("submit", function (e) {
     form.style.display = "none";
     success.style.display = "block";
 });
+
+const reviews = [
+    { name: "Simran Narula", initials: "SN", color: "#4285F4", bg: "#E8F0FE", date: "2 months ago", text: "One of the best cake outlets in Pune! Cakes with great taste, aesthetically beautiful and appealing, and amazing service every time we order!", rating: 5 },
+    { name: "Ravina Deore", initials: "RD", color: "#34A853", bg: "#E6F4EA", date: "1 month ago", text: "The birthday cake was absolutely delicious and beautifully designed. Soft, fresh, and perfectly sweet. All guests loved it. Truly made the celebration special.", rating: 5 },
+    { name: "Resham Kharbanda", initials: "RK", color: "#EA4335", bg: "#FDECEA", date: "3 months ago", text: "My experience was awesome. The lady at Hadapsar branch — her service was very quick and she was a very decent lady. Thank you!", rating: 5 },
+    { name: "Tejal Tupe", initials: "TT", color: "#FBBC05", bg: "#FEF7E0", date: "1 month ago", text: "The cake was delicious and yummy, children and everyone enjoyed it. The flavour of crackers and the chocolate — too yum!", rating: 5 },
+    { name: "Aprup Kakar", initials: "AK", color: "#9C27B0", bg: "#F3E5F5", date: "2 months ago", text: "This cake was a complete standout. The European design made it feel elegant, and the soft pink finish looked beautiful in every detail.", rating: 5 },
+    { name: "Pooja Thakrar", initials: "PT", color: "#00897B", bg: "#E0F2F1", date: "3 weeks ago", text: "The cake was incredibly fresh and tasted delicious! Good and quick service too.", rating: 5 },
+    { name: "Ajinkya Jadhav", initials: "AJ", color: "#F4511E", bg: "#FBE9E7", date: "1 month ago", text: "Absolutely loved the cake! Perfect taste, beautiful design, and delivered in such a short time.", rating: 5 },
+    { name: "Vishal Jagtap", initials: "VJ", color: "#1976D2", bg: "#E3F2FD", date: "2 months ago", text: "Oya Kekars did an absolutely fantastic job! The cake was not only beautiful to look at but also incredibly delicious.", rating: 5 },
+    { name: "Amar Botre", initials: "AB", color: "#388E3C", bg: "#E8F5E9", date: "6 weeks ago", text: "OYA KEKARS is not only my favourite — everyone says it's an awesome fresh cake.", rating: 5 },
+    { name: "Aathira Rajendran", initials: "AR", color: "#E91E63", bg: "#FCE4EC", date: "1 month ago", text: "First time ordered cake, not just me — everyone who ate it loved it. Light, fluffy and perfect sweetness.", rating: 5 },
+  ];
+
+  function buildCard(r) {
+    return `<div class="ts-card">
+    <div class="ts-card-top">
+      <div class="ts-avatar" style="background:${r.bg};color:${r.color};">${r.initials}</div>
+      <div>
+        <div class="ts-name">${r.name}</div>
+        <div class="ts-date">${r.date}</div>
+      </div>
+    </div>
+    <div class="ts-card-stars">${'★'.repeat(r.rating)}</div>
+    <div class="ts-card-text">${r.text}</div>
+    <div class="ts-card-footer">
+      <span class="ts-g-logo">Posted on </span>
+      <span style="font-size:11px;font-weight:500;"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#34A853">g</span><span style="color:#4285F4">l</span><span style="color:#EA4335">e</span></span>
+    </div>
+  </div>`;
+  }
+
+  const track = document.getElementById('tsTrack');
+  const doubled = [...reviews, ...reviews];
+  track.innerHTML = doubled.map(buildCard).join('');
