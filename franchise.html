@@ -61,6 +61,7 @@
             z-index: 2;
             color: white;
             text-align: center;
+            padding: 0 20px;
         }
 
         .parallax-content h1 {
@@ -353,6 +354,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
+            text-align: left;
         }
 
         .calc-left .section-title {
@@ -479,8 +481,6 @@
             margin-top: 10px;
         }
 
-        .calc-ritem {}
-
         .calc-ritem .r-label {
             font-size: 11px;
             color: var(--brown);
@@ -507,8 +507,6 @@
             gap: 5rem;
             align-items: start;
         }
-
-        .form-left {}
 
         .form-perks {
             margin-top: 2.5rem;
@@ -775,7 +773,48 @@
             background: rgba(241, 240, 226, 0.1);
         }
 
-        @media (max-width: 900px) {
+        .section-divider {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .section-divider svg {
+            width: 100%;
+            height: 80px;
+            display: block;
+        }
+
+        .section-divider.top {
+            top: 0;
+        }
+
+        .section-divider.bottom {
+            bottom: 0;
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 992px) {
+
+            .fp-parallax {
+                height: 40vh;
+                background-attachment: scroll;
+            }
+
+            .parallax-content h1 {
+                font-size: 30px;
+            }
+
+            .parallax-content p {
+                font-size: 14px;
+                margin-top: 12px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
             .stats-strip-inner {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -788,62 +827,286 @@
                 border-top: 0.5px solid rgba(237, 205, 194, 0.12);
             }
 
+            .stat-block:nth-child(4) {
+                border-top: 0.5px solid rgba(237, 205, 194, 0.12);
+            }
+
+            .fp-why {
+                padding: 4rem 1.5rem;
+            }
+
+            .fp-why-header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 2.5rem;
+            }
+
             .fp-grid {
                 grid-template-columns: 1fr 1fr;
             }
 
+            .fp-process {
+                padding: 4rem 1.5rem;
+            }
+
+            .fp-process-header {
+                margin-bottom: 2.5rem;
+            }
+
             .timeline {
                 grid-template-columns: 1fr 1fr;
+                gap: 2rem;
             }
 
             .timeline-line {
                 display: none;
             }
 
+            .fp-calculator {
+                padding: 5rem 1.5rem;
+            }
+
             .calc-inner {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
+                text-align: left;
+            }
+
+            .calc-right {
+                padding: 2rem;
+            }
+
+            .fp-form-section {
+                padding: 4rem 1.5rem;
             }
 
             .form-inner {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 3rem;
             }
 
             .form-right {
                 position: static;
             }
 
-            .form-row {
-                grid-template-columns: 1fr;
+            .fp-cta-strip {
+                padding: 2.5rem 1.5rem;
             }
 
             .cta-strip-inner {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 1.5rem;
             }
 
-            .fp-why-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .cta-strip-text h3 {
+                font-size: 22px;
             }
         }
 
-        @media (max-width: 580px) {
+        @media (max-width: 768px) {
+
+            .fp-parallax {
+                height: 35vh;
+                background-attachment: scroll;
+            }
+
+            .parallax-content h1 {
+                font-size: 28px;
+            }
+
+            .parallax-content p {
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .section-sub {
+                font-size: 13px;
+            }
+
+            .stat-num {
+                font-size: 26px;
+            }
+
+            .stat-block {
+                padding: 1.4rem 1rem;
+            }
+
+            .fp-why {
+                padding: 3.5rem 1.25rem;
+            }
+
             .fp-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: 1px;
+            }
+
+            .fp-card {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .fp-card p {
+                font-size: 12px;
+            }
+
+            .fp-process {
+                padding: 3.5rem 1.25rem;
             }
 
             .timeline {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .tl-circle {
+                width: 56px;
+                height: 56px;
+            }
+
+            .tl-circle i {
+                font-size: 18px;
+            }
+
+            .tl-title {
+                font-size: 15px;
+            }
+
+            .tl-desc {
+                font-size: 11px;
+            }
+
+            .fp-calculator {
+                padding: 4rem 1.25rem;
+            }
+
+            .calc-right {
+                padding: 1.5rem;
+            }
+
+            .calc-result-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .calc-ritem .r-val {
+                font-size: 16px;
+            }
+
+            .fp-form-section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .form-right {
+                padding: 1.75rem 1.25rem;
+                border-radius: 16px;
+            }
+
+            .form-row {
                 grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .fp-cta-strip {
+                padding: 2rem 1.25rem;
+            }
+
+            .cta-strip-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .cta-s-btn {
+                justify-content: center;
+                padding: 12px 20px;
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .fp-parallax {
+                height: 30vh;
+            }
+
+            .parallax-content h1 {
+                font-size: 20px;
+            }
+
+            .parallax-content p {
+                font-size: 12px;
             }
 
             .stats-strip-inner {
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .stat-num {
+                font-size: 22px;
+            }
+
+            .stat-block {
+                padding: 1rem 0.75rem;
+            }
+
+            .fp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fp-why {
+                padding: 3rem 1rem;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .fp-process {
+                padding: 3rem 1rem;
+            }
+
+            .fp-calculator {
+                padding: 3rem 1rem;
+            }
+
+            .calc-result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fp-form-section {
+                padding: 3rem 1rem;
+            }
+
+            .form-right {
+                padding: 1.5rem 1rem;
+            }
+
             .section-title {
-                font-size: 28px;
+                font-size: 22px;
+            }
+
+            .fp-cta-strip {
+                padding: 2rem 1rem;
+            }
+
+            .cta-strip-text h3 {
+                font-size: 18px;
+            }
+
+            .form-perk {
+                gap: 10px;
+            }
+
+            .perk-text .p-title {
+                font-size: 13px;
+            }
+
+            .perk-text .p-desc {
+                font-size: 11px;
             }
         }
     </style>
@@ -965,8 +1228,7 @@
 
         <div class="section-divider top">
             <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
-                <path fill="#5a4035" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
-                </path>
+                <path fill="#5a4035" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z"></path>
             </svg>
         </div>
 
@@ -1022,10 +1284,10 @@
 
         <div class="section-divider bottom">
             <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
-                <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z">
-                </path>
+                <path fill="#F1F0E2" d="M0,40 C300,120 900,0 1440,60 L1440,0 L0,0 Z"></path>
             </svg>
         </div>
+
     </section>
 
     <section class="fp-form-section" id="apply">
@@ -1151,8 +1413,9 @@
         <div class="fab-options">
             <a href="tel:+919823230505" class="fab-item"><i class="fas fa-phone"></i><span>Call Now</span></a>
             <a href="franchise.html" class="fab-item"><i class="fas fa-store"></i><span>Franchise</span></a>
-            <a href="https://wa.me/919823230505" target="_blank" class="fab-item whatsapp"><i
-                    class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+            <a href="https://wa.me/919823230505" target="_blank" class="fab-item whatsapp">
+                <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+            </a>
         </div>
     </div>
 
@@ -1184,13 +1447,10 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-
             const form = document.getElementById("franchiseForm");
-
             if (!form) return;
 
             form.addEventListener("submit", function (e) {
-
                 e.preventDefault();
 
                 let fullName = document.getElementById("fullname").value;
@@ -1200,19 +1460,12 @@
                 let investment = document.getElementById("investment").value;
                 let message = document.getElementById("message").value;
 
-                if (
-                    !fullName ||
-                    !city ||
-                    !phone ||
-                    !email ||
-                    !investment
-                ) {
+                if (!fullName || !city || !phone || !email || !investment) {
                     alert("Please fill all required fields.");
                     return;
                 }
 
                 let whatsappNumber = "919823230505";
-
                 let whatsappMessage =
                     `🍰 *New Franchise Enquiry - OYA KEKARS*
 
@@ -1228,25 +1481,19 @@
 
 📝 *Message:* ${message}`;
 
-                let encodedMessage =
-                    encodeURIComponent(whatsappMessage);
-
-                let whatsappURL =
-                    `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                let encodedMessage = encodeURIComponent(whatsappMessage);
+                let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
                 form.style.display = "none";
-
-                document.getElementById("formSuccess")
-                    .style.display = "block";
+                document.getElementById("formSuccess").style.display = "block";
 
                 setTimeout(() => {
                     window.open(whatsappURL, "_blank");
                 }, 800);
-
             });
-
         });
     </script>
+
 </body>
 
 </html>

@@ -139,6 +139,7 @@
         }
 
         .intro-text {}
+
         .intro-eyebrow {
             font-size: 11px;
             letter-spacing: 0.2em;
@@ -556,6 +557,56 @@
 
             .parallax-stats {
                 gap: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+
+            .store-parallax {
+                height: 40vh;
+                background-attachment: scroll;
+            }
+
+            .parallax-content h1 {
+                font-size: 30px;
+            }
+
+            .parallax-content p {
+                font-size: 14px;
+                margin-top: 12px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+
+            .store-parallax {
+                height: 35vh;
+                background-attachment: scroll;
+            }
+
+            .parallax-content h1 {
+                font-size: 28px;
+            }
+
+            .parallax-content p {
+                font-size: 14px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            .store-parallax {
+                height: 30vh;
+            }
+
+            .parallax-content h1 {
+                font-size: 20px;
+            }
+
+            .parallax-content p {
+                font-size: 12px;
             }
         }
     </style>

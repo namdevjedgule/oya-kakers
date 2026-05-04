@@ -63,23 +63,36 @@ function initNavbar() {
     const navLinks = document.querySelector(".nav-links");
     const icon = hamburger?.querySelector("i");
 
+    // ── Only move nav-links to body on mobile ──
+    function handleNavPosition() {
+        if (window.innerWidth <= 992) {
+            if (navLinks && navLinks.parentElement !== document.body) {
+                document.body.appendChild(navLinks);
+            }
+        } else {
+            const navbar = document.querySelector(".navbar");
+            if (navLinks && navbar && navLinks.parentElement !== navbar) {
+                navbar.appendChild(navLinks);
+            }
+        }
+    }
+
+    handleNavPosition();
+    window.addEventListener("resize", handleNavPosition);
+
     if (hamburger && navLinks && icon) {
         hamburger.addEventListener("click", () => {
             navLinks.classList.toggle("active");
-
             icon.classList.toggle("fa-bars");
             icon.classList.toggle("fa-xmark");
-
             document.body.classList.toggle("menu-open");
         });
 
         document.querySelectorAll(".nav-links a").forEach(link => {
             link.addEventListener("click", () => {
                 navLinks.classList.remove("active");
-
                 icon.classList.remove("fa-xmark");
                 icon.classList.add("fa-bars");
-
                 document.body.classList.remove("menu-open");
             });
         });
