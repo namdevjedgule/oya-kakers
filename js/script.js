@@ -354,45 +354,103 @@ const popup = document.getElementById("franchisePopup");
 const openBtn = document.getElementById("openFranchisePopup");
 const closeBtn = document.getElementById("closeFranchisePopup");
 
-openBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    popup.classList.add("active");
-    document.body.style.overflow = "hidden";
-});
+if (openBtn && popup) {
+    openBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        popup.classList.add("active");
+        document.body.style.overflow = "hidden";
+    });
+}
 
-closeBtn.addEventListener("click", () => {
-    popup.classList.remove("active");
-    document.body.style.overflow = "auto";
-});
+if (closeBtn && popup) {
+    closeBtn.addEventListener("click", () => {
+        popup.classList.remove("active");
+        document.body.style.overflow = "auto";
+    });
+}
 
 /* CLOSE WHEN CLICK OUTSIDE */
 
-popup.addEventListener("click", (e) => {
-    if (e.target === popup) {
-        popup.classList.remove("active");
-        document.body.style.overflow = "auto";
-    }
-});
+if (popup) {
+    popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+            popup.classList.remove("active");
+            document.body.style.overflow = "auto";
+        }
+    });
+}
 
 /* ESC KEY CLOSE */
 
 document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
+    if (e.key === "Escape" && popup) {
         popup.classList.remove("active");
         document.body.style.overflow = "auto";
     }
 });
 
-/* SUCCESS MESSAGE */
+document.addEventListener("DOMContentLoaded", function () {
 
-const form = document.getElementById("franchiseForm");
-const success = document.getElementById("formSuccess");
+    const forms = document.querySelectorAll("#franchiseForm");
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
+    forms.forEach((form) => {
 
-    form.style.display = "none";
-    success.style.display = "block";
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let fullName = form.querySelector("#fullname").value.trim();
+            let city = form.querySelector("#city").value.trim();
+            let phone = form.querySelector("#phone").value.trim();
+            let email = form.querySelector("#email").value.trim();
+            let investment = form.querySelector("#investment").value.trim();
+            let message = form.querySelector("#message").value.trim();
+
+            if (!fullName || !city || !phone || !email || !investment) {
+                alert("Please fill all required fields.");
+                return;
+            }
+
+            let whatsappNumber = "919545456309";
+
+            let whatsappMessage =
+                `🍰 *New Franchise Enquiry - OYA KEKARS*
+
+👤 *Full Name:* ${fullName}
+
+🏙️ *City:* ${city}
+
+📞 *Phone:* ${phone}
+
+📧 *Email:* ${email}
+
+💰 *Investment Range:* ${investment}
+
+📝 *Message:* ${message}`;
+
+            let encodedMessage = encodeURIComponent(whatsappMessage);
+
+            let whatsappURL =
+                `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            /* SUCCESS MESSAGE */
+
+            const success =
+                form.parentElement.querySelector("#formSuccess");
+
+            form.style.display = "none";
+
+            if (success) {
+                success.style.display = "block";
+            }
+
+            setTimeout(() => {
+                window.open(whatsappURL, "_blank");
+            }, 800);
+
+        });
+
+    });
+
 });
 
 const reviews = [
@@ -406,9 +464,9 @@ const reviews = [
     { name: "Vishal Jagtap", initials: "VJ", color: "#1976D2", bg: "#E3F2FD", date: "2 months ago", text: "Oya Kekars did an absolutely fantastic job! The cake was not only beautiful to look at but also incredibly delicious.", rating: 5 },
     { name: "Amar Botre", initials: "AB", color: "#388E3C", bg: "#E8F5E9", date: "6 weeks ago", text: "OYA KEKARS is not only my favourite — everyone says it's an awesome fresh cake.", rating: 5 },
     { name: "Aathira Rajendran", initials: "AR", color: "#E91E63", bg: "#FCE4EC", date: "1 month ago", text: "First time ordered cake, not just me — everyone who ate it loved it. Light, fluffy and perfect sweetness.", rating: 5 },
-  ];
+];
 
-  function buildCard(r) {
+function buildCard(r) {
     return `<div class="ts-card">
     <div class="ts-card-top">
       <div class="ts-avatar" style="background:${r.bg};color:${r.color};">${r.initials}</div>
@@ -424,8 +482,8 @@ const reviews = [
       <span style="font-size:11px;font-weight:500;"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#34A853">g</span><span style="color:#4285F4">l</span><span style="color:#EA4335">e</span></span>
     </div>
   </div>`;
-  }
+}
 
-  const track = document.getElementById('tsTrack');
-  const doubled = [...reviews, ...reviews];
-  track.innerHTML = doubled.map(buildCard).join('');
+const track = document.getElementById('tsTrack');
+const doubled = [...reviews, ...reviews];
+track.innerHTML = doubled.map(buildCard).join('');
