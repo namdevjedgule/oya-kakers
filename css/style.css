@@ -1410,6 +1410,46 @@ body.menu-open {
     gap: 12px;
 }
 
+.fixed-investment {
+    display: flex;
+    align-items: center;
+    padding: 11px 14px 11px 38px;
+    border-radius: 12px;
+    border: 1px solid rgba(143, 114, 101, 0.2);
+    background: var(--cream);
+    min-height: 44px;
+    position: relative;
+}
+
+.fixed-investment i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: var(--brown-lt);
+}
+
+.fixed-value {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.fixed-value .label {
+    font-size: 10px;
+    color: var(--brown-lt);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.fixed-value .value {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--brown-dk);
+    margin-top: 2px;
+}
+
 .submit-btn {
     width: 100%;
     padding: 15px;

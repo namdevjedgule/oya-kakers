@@ -182,7 +182,7 @@
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 1px;
             background: rgba(143, 114, 101, 0.12);
             border-radius: 16px;
@@ -842,7 +842,7 @@
             }
 
             .fp-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .fp-process {
@@ -1133,12 +1133,12 @@
                 <span class="stat-label">Cities</span>
             </div>
             <div class="stat-block">
-                <span class="stat-num">₹2L</span>
+                <span class="stat-num">₹18L</span>
                 <span class="stat-label">Min Investment</span>
             </div>
             <div class="stat-block">
-                <span class="stat-num">10+</span>
-                <span class="stat-label">Years of Craft</span>
+                <span class="stat-num">0%</span>
+                <span class="stat-label">Royalty Fee</span>
             </div>
         </div>
     </div>
@@ -1177,6 +1177,12 @@
                 <div class="fp-card-num">04</div>
                 <div class="fp-card-title">Location Help</div>
                 <p>We analyse foot traffic, competition, and demographics to find the best area for your store.</p>
+            </div>
+            <div class="fp-card">
+                <div class="fp-icon"><i class="fas fa-percent"></i></div>
+                <div class="fp-card-num">05</div>
+                <div class="fp-card-title">No Royalty Fee</div>
+                <p>Keep more of your profits. Early franchise partners pay zero ongoing royalty fees.</p>
             </div>
         </div>
     </section>
@@ -1240,7 +1246,7 @@
                     of your potential monthly revenue and profit.</p>
                 <div class="calc-highlights">
                     <div class="calc-hl"><span class="calc-hl-dot"></span>Based on 30-day month calculation</div>
-                    <div class="calc-hl"><span class="calc-hl-dot"></span>~35% estimated operating cost margin</div>
+                    <div class="calc-hl"><span class="calc-hl-dot"></span>~30% estimated operating cost margin</div>
                     <div class="calc-hl"><span class="calc-hl-dot"></span>Actual results vary by location and scale
                     </div>
                 </div>
@@ -1356,14 +1362,15 @@
                         <i class="fas fa-envelope"></i>
                         <input type="email" id="email" placeholder="Email Address" required>
                     </div>
-                    <div class="form-field">
+                    <div class="form-field fixed-investment">
                         <i class="fas fa-indian-rupee-sign"></i>
-                        <select id="investment" required>
-                            <option value="" disabled selected>Investment Range</option>
-                            <option>₹2–3 Lakhs</option>
-                            <option>₹3–5 Lakhs</option>
-                            <option>₹5+ Lakhs</option>
-                        </select>
+
+                        <div class="fixed-value">
+                            <span class="label">Investment Range</span>
+                            <span class="value">₹18–20 Lakhs</span>
+                        </div>
+
+                        <input type="hidden" id="investment" value="₹18–20 Lakhs">
                     </div>
                     <div class="form-field textarea-field">
                         <i class="fas fa-comment-dots"></i>
@@ -1431,7 +1438,7 @@
                 return;
             }
             const monthly = orders * price * 30;
-            const profit = monthly * 0.65;
+            const profit = monthly * 0.70;
             const annual = monthly * 12;
             const annualProfit = profit * 12;
 
