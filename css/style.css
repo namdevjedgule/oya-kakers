@@ -451,9 +451,6 @@ body.menu-open {
     white-space: nowrap;
 }
 
-/* ═══════════════════════════════════════
-       STATS STRIP
-    ═══════════════════════════════════════ */
 .stats-strip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
