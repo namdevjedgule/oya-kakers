@@ -122,13 +122,13 @@ function initBranchModal() {
 
     if (!modal || !box || !closeBtn) return;
 
-    // Bind all .order-btn elements (hero + navbar + anywhere else on page)
-    document.querySelectorAll(".order-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
+    // ✅ Event delegation — works for navbar buttons loaded async too
+    document.addEventListener("click", (e) => {
+        if (e.target.closest(".order-btn")) {
             e.preventDefault();
             modal.style.display = "flex";
             document.body.style.overflow = "hidden";
-        });
+        }
     });
 
     // Close on ✕ button
@@ -154,15 +154,16 @@ function initBranchModal() {
     });
 
     // Branch WhatsApp redirect
-    document.querySelectorAll(".branch-item").forEach(btn => {
-        btn.addEventListener("click", () => {
+    document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".branch-item");
+        if (btn) {
             const phone = btn.getAttribute("data-phone");
             const msg = "Hi OYA Kekars, I would like to order a cake. Please share details.";
             window.open(
                 "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg),
                 "_blank"
             );
-        });
+        }
     });
 
 }
@@ -536,6 +537,8 @@ function buildCard(r) {
   </div>`;
 }
 
-const track = document.getElementById('tsTrack');
-const doubled = [...reviews, ...reviews];
-track.innerHTML = doubled.map(buildCard).join('');
+const tsTrack = document.getElementById('tsTrack');
+if (tsTrack) {
+    const doubled = [...reviews, ...reviews];
+    tsTrack.innerHTML = doubled.map(buildCard).join('');
+}
