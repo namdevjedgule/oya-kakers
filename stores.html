@@ -448,72 +448,6 @@
             display: block;
         }
 
-        .bottom-strip {
-            background: var(--brown-dk);
-            padding: 3rem 2rem;
-        }
-
-        .bottom-strip-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .bs-block {}
-
-        .bs-label {
-            font-size: 10px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--brown-lt);
-            margin-bottom: 0.5rem;
-        }
-
-        .bs-value {
-            font-size: 15px;
-            color: var(--blush);
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        .bs-value a {
-            color: var(--blush);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .bs-value a:hover {
-            color: var(--cream);
-        }
-
-        .bs-cta {
-            text-align: right;
-        }
-
-        .bs-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--red);
-            color: var(--cream);
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 12px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-family: 'Poppins', sans-serif;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .bs-btn:hover {
-            background: #d03420;
-            transform: translateY(-2px);
-        }
-
         @media (max-width: 860px) {
             .section-intro {
                 flex-direction: column;
@@ -540,15 +474,6 @@
 
             #map {
                 height: 320px;
-            }
-
-            .bottom-strip-inner {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .bs-cta {
-                text-align: left;
             }
 
             .parallax-content h1 {
@@ -665,26 +590,6 @@
             <div id="map"></div>
         </div>
 
-    </div>
-
-    <div class="bottom-strip">
-        <div class="bottom-strip-inner">
-            <div class="bs-block">
-                <div class="bs-label">Call us</div>
-                <div class="bs-value"><a href="tel:+919823230505">+91 9823 230 505</a></div>
-            </div>
-            <div class="bs-block">
-                <div class="bs-label">WhatsApp</div>
-                <div class="bs-value"><a href="https://wa.me/919823230505" target="_blank">+91 9823 230 505</a></div>
-            </div>
-            <div class="bs-cta">
-                <a class="bs-btn"
-                    href="https://wa.me/919823230505?text=Hi!%20I'd%20like%20to%20order%20a%20custom%20cake."
-                    target="_blank">
-                    <i class="fab fa-whatsapp"></i> Order on WhatsApp
-                </a>
-            </div>
-        </div>
     </div>
 
     <div class="fab-container">
