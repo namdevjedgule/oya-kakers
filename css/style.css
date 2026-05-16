@@ -451,10 +451,10 @@ body.menu-open {
     white-space: nowrap;
 }
 
-.stats-strip {
+.home-stats-strip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    background: var(--rose);
+    background: var(--brown-dk);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -472,24 +472,24 @@ body.menu-open {
     font-family: var(--serif);
     font-size: 32px;
     font-weight: 700;
-    color: var(--espresso);
+    color: var(--blush);
     line-height: 1;
 }
 
 .stat-num span {
-    color: var(--red);
+    color: var(--blush);
 }
 
 .stat-label {
     font-size: 10px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: rgba(237, 205, 194, 0.45);
     margin-top: 6px;
 }
 
 @media (max-width: 600px) {
-    .stats-strip {
+    .home-stats-strip {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -2645,6 +2645,170 @@ body.menu-open {
     font-size: 14px;
 }
 
+.branch-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    justify-content: flex-end;
+    align-items: flex-end;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+@media (min-width: 480px) {
+    .branch-modal {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.branch-box {
+    background: #fff;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    max-height: 92vh;
+}
+
+@media (min-width: 480px) {
+    .branch-box {
+        border-radius: 20px;
+        max-height: 88vh;
+    }
+}
+
+.box-header {
+    background: #EB3C27;
+    padding: 10px 10px 10px;
+    position: relative;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.drag-handle {
+    width: 36px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+    margin: 0 auto 14px;
+    display: block;
+}
+
+@media (min-width: 480px) {
+    .drag-handle {
+        display: none;
+    }
+}
+
+.icon-wrap {
+    width: 46px;
+    height: 46px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 22px;
+}
+
+.box-header h2 {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 3px;
+}
+
+.box-header p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+    margin: 0;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.22);
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.box-body {
+    padding: 16px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.branch-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 13px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    background: #fff;
+    cursor: pointer;
+    margin-bottom: 9px;
+    transition: border-color 0.15s, background 0.15s;
+    width: 100%;
+    text-align: left;
+}
+
+.branch-item:hover {
+    border-color: #EB3C27;
+    background: #fff8f7;
+}
+
+.branch-icon {
+    width: 36px;
+    height: 36px;
+    background: #FAECE7;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 17px;
+}
+
+.branch-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+    margin: 0 0 1px;
+}
+
+.branch-city {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+
+.wa-icon {
+    margin-left: auto;
+    color: #25D366;
+    font-size: 20px;
+}
+
 @media (max-width: 992px) {
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
@@ -2688,10 +2852,6 @@ body.menu-open {
         margin-top: 28px;
     }
 }
-
-/* ══════════════════════════════
-   PREVENT HORIZONTAL SCROLL
-══════════════════════════════ */
 
 @media (max-width: 992px) {
 

@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (footerContainer) footerContainer.innerHTML = footerData;
 
             initNavbar();
+            initBranchModal();
         })
         .catch(err => console.error("Load error:", err));
 
@@ -63,7 +64,6 @@ function initNavbar() {
     const navLinks = document.querySelector(".nav-links");
     const icon = hamburger?.querySelector("i");
 
-    // ── Only move nav-links to body on mobile ──
     function handleNavPosition() {
         if (window.innerWidth <= 992) {
             if (navLinks && navLinks.parentElement !== document.body) {
@@ -100,8 +100,9 @@ function initNavbar() {
 
     const currentPath = window.location.pathname.toLowerCase();
     document.querySelectorAll(".nav-links a").forEach(link => {
-        let linkHref = link.getAttribute("href").toLowerCase();
-        linkHref = linkHref.split("?")[0].split("#")[0];
+        let linkHref = link.getAttribute("href");
+        if (!linkHref) return;
+        linkHref = linkHref.toLowerCase().split("?")[0].split("#")[0];
 
         if (
             currentPath.endsWith(linkHref) ||
@@ -110,6 +111,60 @@ function initNavbar() {
             link.classList.add("active");
         }
     });
+
+}
+
+function initBranchModal() {
+
+    const modal = document.getElementById("branchModal");
+    const box = document.getElementById("branchBox");
+    const closeBtn = document.getElementById("closeModal");
+
+    if (!modal || !box || !closeBtn) return;
+
+    // Bind all .order-btn elements (hero + navbar + anywhere else on page)
+    document.querySelectorAll(".order-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    // Close on ✕ button
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    });
+
+    // Close on outside click (backdrop)
+    modal.addEventListener("click", (e) => {
+        if (!box.contains(e.target)) {
+            modal.style.display = "none";
+            document.body.style.overflow = "";
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.style.display === "flex") {
+            modal.style.display = "none";
+            document.body.style.overflow = "";
+        }
+    });
+
+    // Branch WhatsApp redirect
+    document.querySelectorAll(".branch-item").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const phone = btn.getAttribute("data-phone");
+            const msg = "Hi OYA Kekars, I would like to order a cake. Please share details.";
+            window.open(
+                "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg),
+                "_blank"
+            );
+        });
+    });
+
 }
 
 function toggleMenu() {
@@ -369,8 +424,6 @@ if (closeBtn && popup) {
     });
 }
 
-/* CLOSE WHEN CLICK OUTSIDE */
-
 if (popup) {
     popup.addEventListener("click", (e) => {
         if (e.target === popup) {
@@ -379,8 +432,6 @@ if (popup) {
         }
     });
 }
-
-/* ESC KEY CLOSE */
 
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && popup) {
@@ -454,6 +505,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const reviews = [
+    { name: "Sanjivani Kumbhar", initials: "SK", color: "#388E3C", bg: "#E8F5E9", date: "5 days ago", text: "Oya bakers is best and unique taste. Best service and very helping for selection and suggestions. Taste 100% as said and no chemicals mix, original taste and flavours.", rating: 5 },
+    { name: "Sidz Jadhav", initials: "SJ", color: "#E91E63", bg: "#FCE4EC", date: "5 days ago", text: "There is a unique and epic taste in cakes, unseen flavours and oderable shapes and fresh and ready cake served and delivery the same as same as shop.", rating: 5 },
     { name: "Simran Narula", initials: "SN", color: "#4285F4", bg: "#E8F0FE", date: "2 months ago", text: "One of the best cake outlets in Pune! Cakes with great taste, aesthetically beautiful and appealing, and amazing service every time we order!", rating: 5 },
     { name: "Ravina Deore", initials: "RD", color: "#34A853", bg: "#E6F4EA", date: "1 month ago", text: "The birthday cake was absolutely delicious and beautifully designed. Soft, fresh, and perfectly sweet. All guests loved it. Truly made the celebration special.", rating: 5 },
     { name: "Resham Kharbanda", initials: "RK", color: "#EA4335", bg: "#FDECEA", date: "3 months ago", text: "My experience was awesome. The lady at Hadapsar branch — her service was very quick and she was a very decent lady. Thank you!", rating: 5 },
@@ -462,8 +515,7 @@ const reviews = [
     { name: "Pooja Thakrar", initials: "PT", color: "#00897B", bg: "#E0F2F1", date: "3 weeks ago", text: "The cake was incredibly fresh and tasted delicious! Good and quick service too.", rating: 5 },
     { name: "Ajinkya Jadhav", initials: "AJ", color: "#F4511E", bg: "#FBE9E7", date: "1 month ago", text: "Absolutely loved the cake! Perfect taste, beautiful design, and delivered in such a short time.", rating: 5 },
     { name: "Vishal Jagtap", initials: "VJ", color: "#1976D2", bg: "#E3F2FD", date: "2 months ago", text: "Oya Kekars did an absolutely fantastic job! The cake was not only beautiful to look at but also incredibly delicious.", rating: 5 },
-    { name: "Amar Botre", initials: "AB", color: "#388E3C", bg: "#E8F5E9", date: "6 weeks ago", text: "OYA KEKARS is not only my favourite — everyone says it's an awesome fresh cake.", rating: 5 },
-    { name: "Aathira Rajendran", initials: "AR", color: "#E91E63", bg: "#FCE4EC", date: "1 month ago", text: "First time ordered cake, not just me — everyone who ate it loved it. Light, fluffy and perfect sweetness.", rating: 5 },
+
 ];
 
 function buildCard(r) {
