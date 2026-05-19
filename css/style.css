@@ -2099,7 +2099,7 @@ body.menu-open {
     }
 
     .form-field {
-        margin-bottom: 0.65rem;
+        margin-bottom: 0.45rem;
     }
 
     .form-field input,
@@ -2158,6 +2158,11 @@ body.menu-open {
 
     .form-right h3 {
         font-size: 20px;
+    }
+
+    .form-field {
+        margin-bottom: 0;
+        position: relative;
     }
 
     .form-field input,
