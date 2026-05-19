@@ -1691,14 +1691,17 @@ body.menu-open {
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
+    z-index: 99999;
     opacity: 0;
     visibility: hidden;
     transition: 0.35s ease;
     padding: 20px;
+    /* Allow scroll on the overlay itself if needed */
+    overflow-y: auto;
 }
 
 .popup-overlay.active {
@@ -1713,6 +1716,8 @@ body.menu-open {
     position: relative;
     transform: translateY(40px) scale(0.95);
     transition: 0.35s ease;
+    /* Allow container to shrink on small screens */
+    margin: auto;
 }
 
 .popup-overlay.active .popup-container {
@@ -1732,8 +1737,10 @@ body.menu-open {
     font-size: 15px;
     cursor: pointer;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    z-index: 2;
+    z-index: 10;
     transition: 0.25s ease;
+    /* Always visible above form */
+    flex-shrink: 0;
 }
 
 .popup-close:hover {
@@ -1742,12 +1749,14 @@ body.menu-open {
     transform: rotate(90deg);
 }
 
+/* ── Form card ── */
 .form-right {
     background: var(--white);
     border-radius: 24px;
     padding: 1.8rem;
     border: 0.5px solid rgba(143, 114, 101, 0.15);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    /* No max-height or overflow here on desktop */
 }
 
 .form-right h3 {
@@ -1757,13 +1766,14 @@ body.menu-open {
     margin-bottom: 0.4rem;
 }
 
-.form-right p {
+.form-right>p {
     font-size: 13px;
     color: var(--brown);
     margin-bottom: 1rem;
     line-height: 1.6;
 }
 
+/* ── Fields ── */
 .form-field {
     margin-bottom: 0.75rem;
     position: relative;
@@ -1776,10 +1786,11 @@ body.menu-open {
     transform: translateY(-50%);
     font-size: 12px;
     color: var(--brown-lt);
+    pointer-events: none;
 }
 
 .form-field.textarea-field i {
-    top: 18px;
+    top: 16px;
     transform: none;
 }
 
@@ -1797,6 +1808,8 @@ body.menu-open {
     outline: none;
     transition: 0.25s ease;
     appearance: none;
+    -webkit-appearance: none;
+    box-sizing: border-box;
 }
 
 .form-field input:focus,
@@ -1807,9 +1820,9 @@ body.menu-open {
 }
 
 .form-field textarea {
-    resize: vertical;
+    resize: none;
     min-height: 70px;
-    padding-top: 14px;
+    padding-top: 12px;
 }
 
 .form-row {
@@ -1818,6 +1831,7 @@ body.menu-open {
     gap: 12px;
 }
 
+/* ── Investment field ── */
 .fixed-investment {
     display: flex;
     align-items: center;
@@ -1827,6 +1841,7 @@ body.menu-open {
     background: var(--cream);
     min-height: 44px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .fixed-investment i {
@@ -1858,6 +1873,7 @@ body.menu-open {
     margin-top: 2px;
 }
 
+/* ── Submit button ── */
 .submit-btn {
     width: 100%;
     padding: 15px;
@@ -1883,6 +1899,7 @@ body.menu-open {
     transform: translateY(-2px);
 }
 
+/* ── Privacy note ── */
 .form-note {
     text-align: center;
     font-size: 11px;
@@ -1899,6 +1916,7 @@ body.menu-open {
     color: var(--red);
 }
 
+/* ── Success state ── */
 .form-success {
     display: none;
     text-align: center;
@@ -1933,53 +1951,66 @@ body.menu-open {
     color: var(--brown);
 }
 
+/* ════════════════════════════════════════
+   TABLET  (max 768px)
+════════════════════════════════════════ */
 @media (max-width: 768px) {
 
     .popup-overlay {
-        padding: 18px;
+        padding: 16px;
         align-items: center;
+        /* Key fix: overlay scrolls so form is never cropped */
+        overflow-y: auto;
     }
 
     .popup-container {
+        max-width: 480px;
         width: 100%;
-        max-width: 95%;
+        /* Give breathing room top/bottom so close btn is reachable */
+        margin: 24px auto;
+    }
+
+    .popup-close {
+        top: -12px;
+        right: -4px;
+        width: 38px;
+        height: 38px;
+        font-size: 13px;
     }
 
     .form-right {
-        width: 100%;
-        padding: 1.4rem;
-        border-radius: 22px;
-        max-height: 88vh;
-        overflow-y: auto;
+        padding: 1.5rem;
+        border-radius: 20px;
+        /* No max-height clipping — let overlay scroll instead */
     }
 
     .form-right h3 {
         font-size: 24px;
     }
 
-    .form-right p {
+    .form-right>p {
         font-size: 12px;
+        margin-bottom: 0.8rem;
     }
 
     .form-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
-    }
-
-    .popup-close {
-        top: 10px;
-        right: 10px;
-        width: 36px;
-        height: 36px;
-        font-size: 13px;
     }
 
     .form-field input,
     .form-field select,
-    .form-field textarea,
-    .fixed-investment {
+    .form-field textarea {
         font-size: 13px;
-        padding: 12px 14px 12px 40px;
+        padding: 12px 14px 12px 38px;
+    }
+
+    .form-field.textarea-field textarea {
+        min-height: 65px;
+    }
+
+    .fixed-investment {
+        padding: 12px 14px 12px 38px;
     }
 
     .submit-btn {
@@ -1988,36 +2019,162 @@ body.menu-open {
     }
 }
 
-@media (max-width: 480px) {
+/* ════════════════════════════════════════
+   MOBILE  (max 540px)
+   — bottom sheet style, slides up
+════════════════════════════════════════ */
+@media (max-width: 540px) {
 
     .popup-overlay {
-        padding: 12px;
+        padding: 0;
         align-items: flex-end;
+        overflow-y: auto;
     }
 
     .popup-container {
         max-width: 100%;
+        width: 100%;
+        margin: 0;
+        /* Slides up from bottom */
+        transform: translateY(100%) scale(1);
     }
 
-    .form-right {
-        border-radius: 24px 24px 0 0;
-        padding: 1.2rem;
-        max-height: 90vh;
-    }
-
-    .form-right h3 {
-        font-size: 21px;
+    .popup-overlay.active .popup-container {
+        transform: translateY(0) scale(1);
     }
 
     .popup-close {
-        top: 12px;
-        right: 12px;
+        /* Move inside the card on mobile — always visible */
+        position: absolute;
+        top: 14px;
+        right: 14px;
         width: 34px;
         height: 34px;
+        font-size: 12px;
+        background: var(--cream);
+        color: var(--brown-dk);
+        box-shadow: none;
+        border: 1px solid rgba(143, 114, 101, 0.2);
+    }
+
+    .form-right {
+        /* Bottom sheet — rounded top corners only */
+        border-radius: 24px 24px 0 0;
+        padding: 1.4rem 1.2rem 1.6rem;
+        /* Allow natural scroll inside sheet */
+        max-height: 92svh;
+        /* svh = small viewport height = safe on mobile */
+        max-height: 92vh;
+        /* fallback */
+        overflow-y: auto;
+        /* Smooth scroll on iOS */
+        -webkit-overflow-scrolling: touch;
+        /* Drag handle hint */
+        padding-top: 2rem;
+    }
+
+    /* Drag handle bar at top of sheet */
+    .form-right::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        border-radius: 10px;
+        background: rgba(143, 114, 101, 0.25);
+        margin: 0 auto 1.2rem;
+    }
+
+    .form-right h3 {
+        font-size: 22px;
+        padding-right: 36px;
+        /* space for close btn */
+    }
+
+    .form-right>p {
+        font-size: 12px;
+        margin-bottom: 0.75rem;
+    }
+
+    /* Stack name + city on mobile */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-field {
+        margin-bottom: 0.65rem;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        font-size: 14px;
+        /* prevent iOS zoom on focus */
+        padding: 13px 14px 13px 38px;
+        border-radius: 10px;
+    }
+
+    .fixed-investment {
+        padding: 13px 14px 13px 38px;
+        border-radius: 10px;
+    }
+
+    .form-field.textarea-field textarea {
+        min-height: 60px;
+    }
+
+    .submit-btn {
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 36px;
+        margin-top: 0.75rem;
     }
 
     .form-note {
+        margin-top: 0.6rem;
         font-size: 10px;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-success {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .form-success .success-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .form-success .success-icon i {
+        font-size: 22px;
+    }
+
+    .form-success h4 {
+        font-size: 20px;
+    }
+}
+
+/* ════════════════════════════════════════
+   VERY SMALL  (max 360px)
+════════════════════════════════════════ */
+@media (max-width: 360px) {
+
+    .form-right {
+        padding: 1.2rem 1rem 1.4rem;
+    }
+
+    .form-right h3 {
+        font-size: 20px;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        font-size: 14px;
+        padding: 12px 12px 12px 36px;
+    }
+
+    .submit-btn {
+        font-size: 12px;
+        padding: 13px;
     }
 }
 
