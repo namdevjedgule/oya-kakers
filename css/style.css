@@ -1978,7 +1978,7 @@ body.menu-open {
     }
 
     .form-right {
-        padding: 1.5rem;
+        padding: 1.25rem;
         border-radius: 20px;
     }
 
@@ -2057,7 +2057,7 @@ body.menu-open {
 
     .form-right {
         border-radius: 24px;
-        padding: 1.4rem 1.2rem 1.6rem;
+        padding: 1.2rem 1.0rem 1.4rem;
         /* Allow natural scroll inside sheet */
         max-height: 92svh;
         /* svh = small viewport height = safe on mobile */
@@ -2153,7 +2153,7 @@ body.menu-open {
 @media (max-width: 360px) {
 
     .form-right {
-        padding: 1.2rem 1rem 1.4rem;
+        padding: 1.0rem 0.8rem 1.2rem;
     }
 
     .form-right h3 {
