@@ -54,6 +54,16 @@ window.addEventListener("load", () => {
 
 });
 
+window.addEventListener("load", () => {
+    const popup = document.getElementById("franchisePopup");
+    if (popup) {
+        setTimeout(() => {
+            popup.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }, 1500);
+    }
+});
+
 function initNavbar() {
 
     if (typeof initLoginModal === "function") {
