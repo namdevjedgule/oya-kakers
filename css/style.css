@@ -222,36 +222,6 @@ body.menu-open {
     pointer-events: none;
 }
 
-.hero-brand-vert {
-    position: absolute;
-    left: 36px;
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
-    transform-origin: center center;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    opacity: 0;
-    animation: fadeIn 1s ease 1.4s forwards;
-}
-
-.brand-vert-line {
-    width: 36px;
-    height: 1px;
-    background: rgba(237, 205, 194, 0.38);
-    flex-shrink: 0;
-}
-
-.brand-vert-text {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: rgba(237, 205, 194, 0.55);
-    white-space: nowrap;
-}
-
 .hero-pills {
     position: absolute;
     top: 28px;
@@ -626,9 +596,6 @@ body.menu-open {
     white-space: nowrap;
 }
 
-/* ════════════════════════════════════════
-   ANIMATIONS
-════════════════════════════════════════ */
 @keyframes revealUp {
     from {
         opacity: 0;
@@ -663,9 +630,6 @@ body.menu-open {
     }
 }
 
-/* ════════════════════════════════════════
-   RESPONSIVE
-════════════════════════════════════════ */
 @media (max-width: 992px) {
     :root {
         --navbar-h: 68px;
@@ -1323,10 +1287,6 @@ body.menu-open {
     }
 }
 
-/* ══════════════════════════════
-   STORY SECTION
-══════════════════════════════ */
-
 .story-section {
     position: relative;
     padding: 80px 40px;
@@ -1700,7 +1660,6 @@ body.menu-open {
     visibility: hidden;
     transition: 0.35s ease;
     padding: 20px;
-    /* Allow scroll on the overlay itself if needed */
     overflow-y: auto;
 }
 
@@ -1716,7 +1675,6 @@ body.menu-open {
     position: relative;
     transform: translateY(40px) scale(0.95);
     transition: 0.35s ease;
-    /* Allow container to shrink on small screens */
     margin: auto;
 }
 
@@ -1739,7 +1697,6 @@ body.menu-open {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     z-index: 10;
     transition: 0.25s ease;
-    /* Always visible above form */
     flex-shrink: 0;
 }
 
@@ -1749,14 +1706,12 @@ body.menu-open {
     transform: rotate(90deg);
 }
 
-/* ── Form card ── */
 .form-right {
     background: var(--white);
     border-radius: 24px;
     padding: 1.8rem;
     border: 0.5px solid rgba(143, 114, 101, 0.15);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    /* No max-height or overflow here on desktop */
 }
 
 .form-right h3 {
@@ -1773,7 +1728,6 @@ body.menu-open {
     line-height: 1.6;
 }
 
-/* ── Fields ── */
 .form-field {
     margin-bottom: 0.50rem;
     position: relative;
@@ -1831,7 +1785,6 @@ body.menu-open {
     gap: 12px;
 }
 
-/* ── Investment field ── */
 .fixed-investment {
     display: flex;
     align-items: center;
@@ -1873,7 +1826,6 @@ body.menu-open {
     margin-top: 2px;
 }
 
-/* ── Submit button ── */
 .submit-btn {
     width: 100%;
     padding: 15px;
@@ -1899,7 +1851,6 @@ body.menu-open {
     transform: translateY(-2px);
 }
 
-/* ── Privacy note ── */
 .form-note {
     text-align: center;
     font-size: 11px;
@@ -1916,7 +1867,6 @@ body.menu-open {
     color: var(--red);
 }
 
-/* ── Success state ── */
 .form-success {
     display: none;
     text-align: center;
@@ -1951,15 +1901,11 @@ body.menu-open {
     color: var(--brown);
 }
 
-/* ════════════════════════════════════════
-   TABLET  (max 768px)
-════════════════════════════════════════ */
 @media (max-width: 768px) {
 
     .popup-overlay {
         padding: 18px;
         align-items: center;
-        /* Key fix: overlay scrolls so form is never cropped */
         overflow-y: auto;
     }
 
@@ -2017,10 +1963,6 @@ body.menu-open {
     }
 }
 
-/* ════════════════════════════════════════
-   MOBILE  (max 540px)
-   — bottom sheet style, slides up
-════════════════════════════════════════ */
 @media (max-width: 540px) {
 
     .popup-overlay {
@@ -2033,7 +1975,6 @@ body.menu-open {
         max-width: 100%;
         width: 100%;
         margin: 0;
-        /* Slides up from bottom */
         transform: translateY(100%) scale(1);
     }
 
@@ -2042,7 +1983,6 @@ body.menu-open {
     }
 
     .popup-close {
-        /* Move inside the card on mobile — always visible */
         position: absolute;
         top: 14px;
         right: 14px;
@@ -2058,19 +1998,13 @@ body.menu-open {
     .form-right {
         border-radius: 24px;
         padding: 1.2rem 1.0rem 1.4rem;
-        /* Allow natural scroll inside sheet */
         max-height: 92svh;
-        /* svh = small viewport height = safe on mobile */
         max-height: 92vh;
-        /* fallback */
         overflow-y: auto;
-        /* Smooth scroll on iOS */
         -webkit-overflow-scrolling: touch;
-        /* Drag handle hint */
         padding-top: 2rem;
     }
 
-    /* Drag handle bar at top of sheet */
     .form-right::before {
         content: '';
         display: block;
@@ -2084,7 +2018,6 @@ body.menu-open {
     .form-right h3 {
         font-size: 22px;
         padding-right: 36px;
-        /* space for close btn */
     }
 
     .form-right>p {
@@ -2092,7 +2025,6 @@ body.menu-open {
         margin-bottom: 0.75rem;
     }
 
-    /* Stack name + city on mobile */
     .form-row {
         grid-template-columns: 1fr;
         gap: 0;
@@ -2105,7 +2037,6 @@ body.menu-open {
     .form-field input,
     .form-field textarea {
         font-size: 14px;
-        /* prevent iOS zoom on focus */
         padding: 13px 14px 13px 38px;
         border-radius: 10px;
     }
@@ -2371,10 +2302,6 @@ body.menu-open {
     color: var(--brown-lt);
 }
 
-/* ══════════════════════════════
-   GALLERY SECTION
-══════════════════════════════ */
-
 .gallery-section {
     padding: 60px 60px;
     text-align: center;
@@ -2439,12 +2366,10 @@ body.menu-open {
         margin-top: 28px;
     }
 
-    /* specific to gallery section only — fixes the conflict */
     .gallery-section .section-header h2 {
         font-size: clamp(1.6rem, 6vw, 2rem);
     }
 
-    /* Always show overlay on touch devices */
     .gallery-item .overlay {
         transform: translateY(0);
         background: rgba(143, 114, 101, 0.65);
@@ -2463,10 +2388,6 @@ body.menu-open {
         aspect-ratio: 4 / 3;
     }
 }
-
-/* ══════════════════════════════
-   INSTAGRAM SECTION
-══════════════════════════════ */
 
 :root {
     --ig-cream: #FAF6F1;
@@ -2847,7 +2768,6 @@ body.menu-open {
         gap: 10px;
     }
 
-    /* Always show overlay on touch devices */
     .card-overlay {
         opacity: 1;
         background: linear-gradient(to top,
@@ -2901,10 +2821,6 @@ body.menu-open {
         display: none;
     }
 }
-
-/* ══════════════════════════════
-   FAB (Floating Action Button)
-══════════════════════════════ */
 
 .fab-container {
     position: fixed;
@@ -3029,10 +2945,6 @@ body.menu-open {
         bottom: 68px;
     }
 }
-
-/* ══════════════════════════════
-   FOOTER
-══════════════════════════════ */
 
 .premium-footer {
     background: #EB3C27;
