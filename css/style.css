@@ -1957,17 +1957,16 @@ body.menu-open {
 @media (max-width: 768px) {
 
     .popup-overlay {
-        padding: 16px;
+        padding: 12px;
         align-items: center;
         /* Key fix: overlay scrolls so form is never cropped */
         overflow-y: auto;
     }
 
     .popup-container {
-        max-width: 480px;
+        max-width: 460px;
         width: 100%;
-        /* Give breathing room top/bottom so close btn is reachable */
-        margin: 24px auto;
+        margin: 22px auto;
     }
 
     .popup-close {
