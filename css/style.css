@@ -273,7 +273,7 @@ body.menu-open {
     -webkit-backdrop-filter: blur(12px);
     border-radius: 100px;
     padding: 6px 13px;
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -294,9 +294,9 @@ body.menu-open {
 }
 
 .pill-loc {
-    background: rgba(235, 60, 39, 0.18);
+    background: rgba(90, 64, 53, 0.6);
     color: var(--blush);
-    border: 1px solid rgba(235, 60, 39, 0.3);
+    border: 1px solid rgba(90, 64, 53, 1.0);
 }
 
 .hero-content {
@@ -474,7 +474,7 @@ body.menu-open {
     font-weight: 400;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
+    color: #fff;
 }
 
 .years-box {
