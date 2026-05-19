@@ -1775,7 +1775,7 @@ body.menu-open {
 
 /* ── Fields ── */
 .form-field {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.50rem;
     position: relative;
 }
 
@@ -2153,9 +2153,6 @@ body.menu-open {
     }
 }
 
-/* ════════════════════════════════════════
-   VERY SMALL  (max 360px)
-════════════════════════════════════════ */
 @media (max-width: 360px) {
 
     .form-right {
